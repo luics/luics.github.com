@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Web-Company</title>
+  <style type="text/css">
+  </style>
+
+  <script type="text/javascript" src="js/jquery-min.js"></script>
+  <script type="text/javascript" src="js/storyjs-embed.js"></script>
+  <script>
+    $(document).ready(function() {
+      createStoryJS({
+        type: 'timeline',
+        width: '800',
+        height: '600',
+        source: 'company.json',
+        embed_id: 'company',
+        lang: 'zh-cn',
+        debug: true
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div id="company"></div>
+
+</body>
+</html>
