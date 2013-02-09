@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Web-Company</title>
+  <style type="text/css">
+    body{height: 100%;}
+    #web{height: 100%;}
+  </style>
+
+  <script type="text/javascript" src="js/jquery-min.js"></script>
+  <script type="text/javascript" src="js/storyjs-embed.js"></script>
+  <script>
+    $(document).ready(function() {
+      createStoryJS({
+        type: 'timeline',
+        width: '800',
+        height: '600',
+        source: 'web-history.json',
+        embed_id: 'web',
+        lang: 'zh-ch',
+        debug: true
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div id="web"></div>
+
+</body>
+</html>
