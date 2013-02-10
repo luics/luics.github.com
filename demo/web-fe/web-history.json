@@ -1,36 +1,47 @@
 {
     "timeline": {
-        "headline": "Web彻底改变了我们的生活",
+        "headline": "Web简史",
         "type": "default",
-        "text": "1991 - 2013",
+        "text": "1991 - 2013<br>Web彻底改变了我们了生活",
         "startDate": "1991",
         "endDate": "2013",
         "date": [
             {
                 "startDate": "1991",
                 "headline": "Web诞生",
-                "text": "<p>1989 Web原型<br>1991 <a target='_blank' href='http://info.cern.ch'>第一个公共站点</a><br>1992 Web来到北美</p>",
+                "text": "<p>1980 <span title='高效局部存取浏览器'>Enguire</span><br>1989 <a target='_blank' href='http://www.w3.org/History/1989/proposal.html'>Web原型</a><br>1990 HTML HTTP httpd 浏览器 <br>1990 “World Wide Web” <br>1991 全球<a target='_blank' href='http://info.cern.ch'>第一个站点</a><br>1992 北美第一个站点</p>",
                 "asset": {
                     "media": "img/tim-com.jpg",
-                    "thumbnail":"img/w3c.ico"
+                    "thumbnail": "img/w3c.ico",
+                    "caption": "Tim Berners-Lee，互联网之父"
                 }
             },
             {
-                "startDate": "1994,1",
-                "headline": "Yahoo",
-                "text": "<p>网站分类起家<br>门户网站、邮件、搜索</p>",
+                "startDate": "1994",
+                "headline": "W3C",
+                "text": "<p>Web标准化组织 <br>Web标准制定 <br>Web功能扩展 <br>坚持完全免费</p>",
                 "asset": {
-                    "media": "img/yahoo.png",
-                    "thumbnail":"img/yahoo.ico"
+                    "media": "img/tim-com.jpg",
+                    "thumbnail": "img/w3c.ico",
+                    "caption": "【W3C LOGO】World Wide Web Consortium（万维网联盟）"
                 }
             },
             {
                 "startDate": "1994",
                 "headline": "付费点击广告",
-                "text": "<p><a target='_blank' href='http://en.wikipedia.org/wiki/Web_marketing'>第一个</a>互联网商业广告形式为Banner</p>",
+                "text": "<p><a target='_blank' href='http://en.wikipedia.org/wiki/Web_marketing'>第一个</a>互联网商业广告形式为Banner 【补充goto？】</p>",
                 "asset": {
                     "media": "img/money.jpg",
-                    "thumbnail":"img/rmb.jpg"
+                    "thumbnail": "img/rmb.jpg"
+                }
+            },
+            {
+                "startDate": "1994,1",
+                "headline": "Yahoo",
+                "text": "<p><span title='Jerrys guide to the world wide web'>网站目录列表</span><br><span title='门户 邮箱 搜索'>“三驾马车”</span></p>",
+                "asset": {
+                    "media": "img/yahoo.png",
+                    "thumbnail": "img/yahoo.ico"
                 }
             },
             {
@@ -39,7 +50,7 @@
                 "text": "<p>B2C</p>",
                 "asset": {
                     "media": "img/amazon.png",
-                    "thumbnail":"img/amazon.ico"
+                    "thumbnail": "img/amazon.ico"
                 }
             },
             {
@@ -48,16 +59,16 @@
                 "text": "<p>C2C</p>",
                 "asset": {
                     "media": "img/ebay.png",
-                    "thumbnail":"img/ebay.ico"
+                    "thumbnail": "img/ebay.ico"
                 }
             },
             {
                 "startDate": "1996",
                 "headline": "Google",
-                "text": "<p>搜索引擎</p>",
+                "text": "<p>1993 W3Catalog<br>1994 WebCrawler<br>1996 Google</p>",
                 "asset": {
                     "media": "img/google.png",
-                    "thumbnail":"img/google.ico"
+                    "thumbnail": "img/google.ico"
                 }
             },
             {
@@ -66,7 +77,7 @@
                 "text": "<p>B2C</p>",
                 "asset": {
                     "media": "img/alibaba.jpg",
-                    "thumbnail":"img/alibaba.ico"
+                    "thumbnail": "img/alibaba.ico"
                 }
             },
             {
@@ -75,7 +86,7 @@
                 "text": "<p>啥都干</p>",
                 "asset": {
                     "media": "img/tencent.png",
-                    "thumbnail":"img/tencent.ico"
+                    "thumbnail": "img/tencent.ico"
                 }
             },
             {
@@ -84,7 +95,7 @@
                 "text": "<p>搜索引擎</p>",
                 "asset": {
                     "media": "img/baidu.png",
-                    "thumbnail":"img/baidu.ico"
+                    "thumbnail": "img/baidu.ico"
                 }
             },
             {
@@ -93,7 +104,7 @@
                 "text": "<p>维基百科</p>",
                 "asset": {
                     "media": "img/wikipedia.png",
-                    "thumbnail":"img/wikipedia.ico"
+                    "thumbnail": "img/wikipedia.ico"
                 }
             },
             {
@@ -102,7 +113,7 @@
                 "text": "<p>AJAX <br><b style='color: orangered;'>FE元年</b></p>",
                 "asset": {
                     "media": "img/web20.png",
-                    "thumbnail":"img/w3c.ico"
+                    "thumbnail": "img/w3c.ico"
                 }
             },
             {
@@ -111,7 +122,7 @@
                 "text": "<p>C2C</p>",
                 "asset": {
                     "media": "img/taobao.jpg",
-                    "thumbnail":"img/taobao.ico"
+                    "thumbnail": "img/taobao.ico"
                 }
             },
             {
@@ -120,7 +131,7 @@
                 "text": "<p>社交网络</p>",
                 "asset": {
                     "media": "img/facebook.png",
-                    "thumbnail":"img/facebook.ico"
+                    "thumbnail": "img/facebook.ico"
                 }
             },
             {
@@ -129,7 +140,7 @@
                 "text": "<p>在线视频</p>",
                 "asset": {
                     "media": "img/yt.png",
-                    "thumbnail":"img/yt.ico"
+                    "thumbnail": "img/yt.ico"
                 }
             },
             {
@@ -138,7 +149,16 @@
                 "text": "<p>微博</p>",
                 "asset": {
                     "media": "img/twitter.png",
-                    "thumbnail":"img/twitter.ico"
+                    "thumbnail": "img/twitter.ico"
+                }
+            },
+            {
+                "startDate": "2007",
+                "headline": "移动Web",
+                "text": "<p>200？ iPhone <br> 200？ Android</p>",
+                "asset": {
+                    "media": "",
+                    "thumbnail": "img/w3c.ico"
                 }
             },
             {
@@ -147,7 +167,27 @@
                 "text": "<p>微博</p>",
                 "asset": {
                     "media": "img/weibo.png",
-                    "thumbnail":"img/weibo.ico"
+                    "thumbnail": "img/weibo.ico"
+                }
+            },
+            {
+                "startDate": "2012",
+                "headline": "互联网之父",
+                "text": "<p>2004 获封爵士<br>2007 英联邦“功绩勋章”<br>2009 美国科学院外籍院士<br>2010 诺贝尔奖提名<br>2012 伦敦奥运会开幕式</p>",
+                "asset": {
+                    "media": "img/tim-london.jpg",
+                    "thumbnail": "img/w3c.ico",
+                    "caption":"Tim Berners-Lees, 2012 伦敦奥运会开幕式"
+                }
+            },
+            {
+                "startDate": "2012",
+                "headline": "迟到的荣誉",
+                "text": "诺贝尔奖、图灵奖<br> 未来20年 <br> <a target='_blank' href='http://t.qq.com/p/t/96481106756043 '>一些观点</a>",
+                "asset": {
+                    "media": "img/tim.jpg",
+                    "thumbnail": "img/w3c.ico",
+                    "caption":"Tim Berners-Lees"
                 }
             },
             {
@@ -156,7 +196,7 @@
                 "text": "<p><h1>Web覆盖更多生活细节<br>但，这只是开始..</h1></p>",
                 "asset": {
                     "media": "",
-                    "thumbnail":"img/w3c.ico"
+                    "thumbnail": "img/w3c.ico"
                 }
             }
         ]
