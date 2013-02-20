@@ -21,9 +21,9 @@
                 "headline": "W3C",
                 "text": "<p>Web标准化组织 <br>Web标准制定 <br>Web功能扩展 <br>坚持完全免费</p>",
                 "asset": {
-                    "media": "img/tim-com.jpg",
+                    "media": "img/w3c.png",
                     "thumbnail": "img/w3c.ico",
-                    "caption": "【W3C LOGO】World Wide Web Consortium（万维网联盟）"
+                    "caption": "World Wide Web Consortium（万维网联盟）"
                 }
             },
             {

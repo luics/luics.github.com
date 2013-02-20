@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #fafad2;
+}
+
+img {
+    width: 818px;
+    height: 613px;
+    margin: 0 auto;
+    cursor: pointer;
+}
