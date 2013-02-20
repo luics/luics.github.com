@@ -849,3 +849,7 @@ section #title .credits.right {
     display: none;
   }
 }
+
+.stat img{
+    visibility: hidden;
+}

@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Web协议不完全指南 | Luics | Github</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pygment_trac.css">
+  <!--[if lt IE 8]>
+  <link rel="stylesheet" href="css/ie.css"><![endif]-->
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+  <script src="js/jquery-min.js"></script>
+  <script src="js/respond.js"></script>
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+<body>
+<div id="header">
+  <nav>
+    <li class="fork"><a href="https://github.com/luics">View On GitHub</a></li>
+  </nav>
+</div>
+<div class="wrapper">
+<section>
+<div id="title">
+  <h1>Web协议不完全指南</h1>
+  <hr>
+  <span class="credits left">2012-12-08, by <a href="https://github.com/luics">luics</a> </span>
+  <span class="credits right">Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+</div>
+
+
+<h2>协议组织<a name="协议组织"> </a></h2>
+
+<h3>W3C<a name="W3C"> </a></h3>
+
+<p>
+  <a href="http://en.wikipedia.org/wiki/Tim_Berners-Lee">Tim Berners-Lee</a> 1994年在麻省理工(MIT)创建了“万维网联盟”（World Wide Web Consortium，W3C），致力于Web技术标准化并推动Web在全球的发展。
+</p>
+
+<p>W3C按照<a href="http://www.w3.org/standards/">大方向</a>制定各种Web协议，每个方向上分若干个技术小组，每个小组通常专注于推动某项协议。
+</p>
+
+<h4>资源<a name="资源"> </a></h4>
+<ul>
+  <li>
+    <a href="http://www.w3.org/TR/">ALL STANDARDS AND DRAFTS</a>
+  </li>
+
+  <li>
+    <a href="http://www.w3.org/standards/webdesign/">WEB DESIGN AND APPLICATIONS</a>，HTML/CSS/DOM..
+  </li>
+
+  <li>
+    <a href="http://www.w3.org/standards/webarch/">WEB ARCHITECTURE</a>, HTTP/SOAP/XML..
+  </li>
+</ul>
+
+<h3>RFC<a name="Rfc"> </a></h3>
+
+<h4>资源<a name="资源1"> </a></h4>
+<ul>
+  <li>
+    <a href="http://www.ietf.org/rfc.html">IETF</a>， RFC母站
+  </li>
+
+  <li>
+    <a href="http://www.cnblogs.com/ahuo/archive/2008/05/09/1190250.html">RFC简介1</a>
+  </li>
+
+  <li>
+    <a href="http://www.cnblogs.com/Quincy/archive/2011/06/13/2079506.html">RFC简介2</a>
+  </li>
+
+  <li>
+    <a href="http://www.cnpaf.net/class/rfcall/">协议分析网</a>，中文站点
+  </li>
+
+  <li>
+    <a href="http://software-files-a.cnet.com/s/software/10/82/74/57/rfc_reader.exe?lop=link&amp;ptype=3001&amp;ontid=2383&amp;siteId=4&amp;edId=3&amp;spi=afc01adde7a0f5e2c68eac4178690e3f&amp;pid=10827457&amp;psid=10557406&amp;token=1359155979_d3b8a0be029c141540574c50959f7728&amp;fileName=rfc_reader.exe">RFC Viewer</a>，协议原始文本格式化工具，增加页码，支持书签
+  </li>
+</ul>
+
+<h3>ECMA<a name="Ecma"> </a></h3>
+
+<h4>资源<a name="资源2"> </a></h4>
+
+<h3>ISO<a name="Iso"> </a></h3>
+
+<p><a href="http://www.iso.org/iso/home.html">ISO</a>
+</p>
+
+<h4>资源<a name="资源3"> </a></h4>
+
+<h2>准备工作<a name="准备工作"> </a></h2>
+<ul>
+  <li>
+    <a href="http://tools.ietf.org/html/rfc5234">RFC5234</a>，ABNF
+    <ul>
+      <li>
+        Obsoletes: 4234 2234
+      </li>
+
+      <li>
+        <a href="http://en.wikipedia.org/wiki/Backus-Naur_Form">巴科斯-诺尔范式</a>(Backus–Naur Form)，用于标识形式语法；IETF使用<a href="http://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_Form">ABNF</a>(Augmented BNF)描述。
+      </li>
+    </ul>
+
+  </li>
+
+  <li>
+    <a href="http://tools.ietf.org/html/rfc2119">RFC2119</a>，RFC Keywords
+  </li>
+</ul>
+<p>资源 </p>
+<ul>
+  <li>
+    <a href="http://blog.sina.com.cn/s/blog_57556b62010005t5.html">巴科斯范式</a>
+  </li>
+</ul>
+
+<h2>协议 - 资源传输<a name="协议资源传输"> </a></h2>
+
+<h3>HTTP<a name="Http"> </a></h3>
+<ul>
+  <li>
+    <a href="http://tools.ietf.org/html/rfc1945">RFC1945</a>，"Hypertext Transfer Protocol -- HTTP/1.0" 1996
+  </li>
+
+  <li>
+    <a href="http://tools.ietf.org/html/rfc2616">RFC2616</a>，"Hypertext Transfer Protocol -- HTTP/1.1" 1999
+    <ul>
+      <li>
+        Updated by: 2817(TLS), 5785,
+        <a href="http://tools.ietf.org/html/rfc6266">6266</a>(Content-Disposition),
+        <a href="http://tools.ietf.org/html/rfc6585">6585</a>(Additional HTTP Status Codes)
+      </li>
+
+      <li>
+        <a href="http://tools.ietf.org/html/rfc2616#section-1.1">历史简表</a>
+      </li>
+
+      <li>
+        <a href="http://tools.ietf.org/html/rfc2616#section-3.7">Media Types</a>,
+        <code>Content-Type</code>
+        <ul>
+          <li>
+            <a href="http://tools.ietf.org/html/rfc1590">Media Type Registration Procedure</a>
+          </li>
+
+          <li>
+            <a href="http://tools.ietf.org/html/rfc1521#section-7">The Predefined Content-Type Values</a>
+          </li>
+        </ul>
+
+      </li>
+
+      <li>
+        <a href="http://tools.ietf.org/html/rfc5322">RFC5322</a>, "Internet Message Format"
+        <ul>
+          <li>
+            Obsoletes: 2822 822
+          </li>
+        </ul>
+
+      </li>
+
+      <li>
+        <a href="http://tools.ietf.org/html/rfc2616#section-10">Status Code Definitions</a>
+      </li>
+
+      <li>
+        <a href="http://tools.ietf.org/html/rfc2616#section-13">Cache Control</a>
+      </li>
+
+      <li>
+        <a href="http://tools.ietf.org/html/rfc2616#section-14">Header Field Definitions</a>
+      </li>
+
+      <li>
+        <a href="http://tools.ietf.org/html/rfc2616#section-15">Security Considerations</a>，协议设计者角度看到的风险，部分问题在日后也确实暴露出来了；这部分内容给了软件开发者和破坏者同样的机会。
+      </li>
+    </ul>
+
+  </li>
+</ul>
+
+<h3>资源<a name="资源4"> </a></h3>
+<ul>
+  <li><p>
+    <a href="http://tools.ietf.org/html/rfc5321">RFC5321</a> "Simple Mail Transfer Protocol"
+  </p>
+    <ul>
+      <li>
+        821、2821已作废
+      </li>
+    </ul>
+
+  </li>
+
+  <li><p>
+    <a href="http://tools.ietf.org/html/rfc959">RFC959</a> "FILE TRANSFER PROTOCOL (FTP)" 1985
+  </p>
+    <ul>
+      <li>
+        Updated by: 2228, 2640, 2773, 3659, 5797
+      </li>
+    </ul>
+
+  </li>
+
+  <li><p>
+    <a href="http://tools.ietf.org/html/rfc977">RFC977</a> "Network News Transfer Protocol"
+  </p>
+
+  </li>
+
+  <li><p><a href="http://tools.ietf.org/html/rfc1436">RFC1436</a> Gopher </p>
+
+  </li>
+
+  <li><p>
+    <a href="http://tools.ietf.org/html/rfc1950">RFC1950</a> "ZLIB Compressed Data Format Specification version 3.3"
+  </p>
+
+  </li>
+
+  <li><p>
+    <a href="http://tools.ietf.org/html/rfc1952">RFC1952</a> "GZIP file format specification version 4.3"
+  </p>
+
+    <div class="code"><pre>&quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;,&quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot;
+</pre>
+    </div>
+
+  </li>
+</ul>
+
+<h2>协议 - 资源定位<a name="协议资源定位"> </a></h2>
+
+<p>
+  <a href="http://tools.ietf.org/html/rfc1630">RFC1630</a> "Universal Resource Identifiers in WWW"， 提出URL、URI、URN最初的形式。
+</p>
+
+<div class="code"><pre>A Unifying Syntax for the Expression of Names and Addresses of Objects on the Network as used in the World-Wide Web
+</pre>
+</div>
+
+<h3>URI<a name="Uri"> </a></h3>
+<ul>
+  <li><p>
+    <a href="http://tools.ietf.org/html/rfc1630">RFC3986</a> "Uniform Resource Identifier (URI): Generic Syntax" 2005
+  </p>
+    <ul>
+      <li>
+        Updates: 1738
+      </li>
+
+      <li>
+        Obsoletes: 2732, 2396, 1808
+      </li>
+    </ul>
+
+  </li>
+
+  <li><p>
+    <a href="http://tools.ietf.org/html/rfc1738">RFC1738</a> "Uniform Resource Locators (URL)" 1994
+  </p>
+    <ul>
+      <li>
+        Obsoleted by: 4248(Telnet URI), 4266(Gopher URI)
+      </li>
+
+      <li>
+        Updated by: 1808(Relative URL), 2368(Mailto), 2396(URI), 3986(URI), 6196, 6270<br/>
+        <br/>
+
+      </li>
+    </ul>
+    <p>http://tools.ietf.org/html/rfc2616#section-3.2.2 </p>
+
+  </li>
+</ul>
+
+<h4>转义<a name="转义"> </a></h4>
+
+<h4>编码<a name="编码"> </a></h4>
+<ul>
+  <li>
+    DNS
+  </li>
+</ul>
+
+<h2>协议 - 资源呈现<a name="协议资源呈现"> </a></h2>
+<ul>
+  <li>
+    HTML 页面结构
+  </li>
+
+  <li>
+    CSS 页面样式
+  </li>
+
+  <li>
+    Javascript 页面行为
+  </li>
+</ul>
+
+<h3>编码<a name="编码1"> </a></h3>
+
+<p>推荐一篇有引导作用的文章<a href="http://blog.jobbole.com/30526/">《网页编码就是那点事》</a>，里面有几处错误
+</p>
+
+<h4>ANSI &amp; ASCII<a name="AnsiAscii"> </a></h4>
+
+<p>ASCII是<a href="http://en.wikipedia.org/wiki/ANSI">ANSI</a>(American National Standards Institute)指定的标准之一，通常也用ANSI指代ASCII编码；<a href="http://sliderule.mraiow.com/w/images/7/73/ASCII.pdf">《Coded Character Set - 7-Bit American Standard Code for Information Interchange》</a>
+</p>
+
+<p>资源 </p>
+<ul>
+  <li>
+    <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ascii码表</a> *
+  </li>
+</ul>
+
+<h4>Unicode &amp; UTF-8<a name="UnicodeUtf8"> </a></h4>
+
+<p>资源 </p>
+<ul>
+  <li>
+    BOM
+  </li>
+</ul>
+
+<h4>GB2312<a name="Gb2312"> </a></h4>
+
+<p>资源 </p>
+
+<p>* </p>
+
+<h4>GBK<a name="Gbk"> </a></h4>
+
+<p>资源 </p>
+
+<p>* </p>
+
+<h4>GB18030<a name="Gb18030"> </a></h4>
+
+<p>资源 </p>
+
+<p>* </p>
+
+<h4>中文系列编码<a name="中文系列编码"> </a></h4>
+
+<p>资源 </p>
+
+<p>* </p>
+
+</section>
+</div>
+
+<!--[if !IE]>
+<script>fixScale(document);</script><![endif]-->
+
+<div class="stat">
+  <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7b16d812658e2d43f74faade4d228538' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+</div>
+
+</body>
+</html>
