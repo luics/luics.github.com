@@ -19,6 +19,11 @@
   </script>
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script><![endif]-->
+
+  <!--这么写更方便slide中插入script，此处忽略性能吧-->
+  <script src="js/jquery-min.js"></script>
+  <script src="js/jquery.lightbox-0.5.pack.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen"/>
 </head>
 <body>
 <div class="reveal">
@@ -167,11 +172,31 @@
   </section>
 
   <section>
-    <img src="img/sync.png" alt=""> <br> <img src="img/async.png" alt="">
+    <h2>Ajax vs Refresh</h2>
+
+    <p id="gallery">
+      <a href="img/sync.png">
+        <img src="img/sync.png" alt="click me" height="250"/> </a>
+      <a href="img/async.png">
+        <img src="img/async.png" alt="click me" height="250"/> </a>
+    </p>
+    <script type="text/javascript">
+      $(function() {
+        $('#gallery a').lightBox();
+      });
+    </script>
   </section>
 
   <section>
     <h2>HTML5</h2>
+    <ul>
+      <li><a target="_blank" href="http://www.playmapscube.com/">Cube: WebGL & Map</a></li>
+      <li><a target="_blank" href="http://workshop.chromeexperiments.com/bookcase/">Bookcase: WebGL</a></li>
+      <li><a target="_blank" href="http://workshop.chromeexperiments.com/globe/">Globe: WebGL</a></li>
+      <li><a target="_blank" href="https://developers.google.com/events/io/2012/input-output/">2012 Google I/O</a></li>
+      <li><a target="_blank" href="http://thecelestialweb.com">SVG SMIL</a></li>
+      <li><a target="_blank" href="http://www.geekpark.net/read/view/173252">语义标签： section/article/header/footer...</a></li>
+    </ul>
   </section>
 </section>
 
@@ -197,22 +222,25 @@
           <a href="http://test262.ecmascript.org/">ECMA</a> |
           <a href="https://developer.mozilla.org/" title="Mozilla Developer Network">MDN</a> 第一手资料
         </li>
-        <li><a href="#">Google Chrome Experiment</a> Web的未来</li>
+        <li><a href="http://www.chromeexperiments.com/">Chrome Experiments</a> Web的未来</li>
         <li>
           <a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> 部分数据来源和入口
         </li>
         <li>
-          <a href="https://evolutionoftheweb.com">Evolution of the web</a> Web技术变迁史
+          <a href="http://evolutionoftheweb.com">Evolution of the web</a> Web技术变迁史
         </li>
         <li>
           <a href="http://www.cnblogs.com/">博客园</a> |
           <a href="http://www.jobbole.com/">伯乐在线</a> 有趣的Demo和工具
         </li>
         <li>
-          <a href="https://github.com/hakimel/reveal.js">Reveal.js</a> 基于CSS3 3D的slide框架
+          <a href="https://github.com/hakimel/reveal.js">Reveal.js</a> 基于CSS3-3D的slide框架
         </li>
         <li>
-          <a href="https://nodeload.github.com/VeriteCo/TimelineJS">TimelineJS</a> 精美的叙事时间轴
+          <a href="https://nodeload.github.com/VeriteCo/TimelineJS">TimelineJS</a> 叙事时间轴
+        </li>
+        <li>
+          <a href="http://leandrovieira.com/projects/jquery/lightbox/">lightBox</a> 精美的Image Gallery
         </li>
       </ul>
     </small>
