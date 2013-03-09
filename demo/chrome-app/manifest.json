@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "app": {
+        "launch": {
+            "web_url": "http://luics.github.com"
+        },
+        "urls": [ "http://luics.github.com" ]
+    },
+    "description": "Luics's Homepage",
+    "icons": {
+        "128": "luics.jpg"
+    },
+    "name": "Luics",
+    "version": "1.0"
+}
