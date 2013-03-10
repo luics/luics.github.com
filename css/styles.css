@@ -850,8 +850,13 @@ section #title .credits.right {
   }
 }
 
+
 .stat img{
     visibility: hidden;
+}
+
+.toolkit{
+    display: none;
 }
 
 /*body{*/
