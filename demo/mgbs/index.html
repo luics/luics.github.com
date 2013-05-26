@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MGBS 的那些事</title>
+    <meta name="description" content="Web的出现正在彻底改变着生活的各个方面，FE这个职业的发展历程">
+    <meta name="author" content="徐凯 luics.xu@gmail.com">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script><![endif]-->
+
+    <base target="_blank"/>
+    <!--这么写更方便slide中插入script，此处忽略性能吧-->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.lightbox-0.5.pack.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen"/>
+</head>
+<body>
+<div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+        <style type="text/css">
+            .img {
+                height: 220px;
+            }
+
+            .img-thumb {
+                height: 150px;
+            }
+
+            .img-long {
+                height: 448px;
+            }
+
+            em {
+
+            }
+        </style>
+
+        <section>
+            <h1>MGBS 的那些事<br>
+            </h1>
+        </section>
+        <section>
+            <h2>MGBS </h2>
+
+            <div>
+                <a href="http://velocity.alibaba-inc.com/projects/cross-end-web/wiki/Mgbs">Mobile Graded Browser
+                    Support</a>
+                <br>
+                移动硬件测试基准
+            </div>
+
+        </section>
+        <section>
+            <h2>MGBS v.s. GBS</h2>
+
+            <div id="gbs">
+                <a href="img/mgbs.png"> <img src="img/mgbs.png" class="img-long"></a>
+                <a href="img/gbs.png"> <img src="img/gbs.png" class="img-long"></a>
+            </div>
+            <script type="text/javascript">
+                $(function() {
+                    $('#gbs a').lightBox();
+                });
+            </script>
+        </section>
+        <section>
+            <section>
+                <h2>数据</h2>
+
+                <div>
+                    <ul>
+                        <li><a href="http://www.umindex.com/">友盟指数</a>：数据来自10w+ App，App统计市场占有率第一</li>
+                        <li><a href="http://mtj.baidu.com/web/welcome/industry">百度移动统计</a>：App统计市场占有率第二</li>
+                        <li><a href="http://wdm.taobao.com/publicos.htm">淘宝无线数据指数 (WDM)</a>：数据来自集团90%的App</li>
+                        <li><a href="http://velocity.alibaba-inc.com/issues/145">m.taobao.com 数据</a>：目前只有4.25的OS数据
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h2>数据：OS</h2>
+
+                <div id="os">
+                    <a href="img/android-os.png"> <img src="img/android-os.png" class="img-thumb"></a>
+                    <a href="img/android-os-umeng.png"> <img src="img/android-os-umeng.png" class="img-thumb"></a>
+                    <a href="img/ios-os.png"> <img src="img/ios-os.png" class="img-thumb"></a>
+                    <a href="img/ios-os-umeng.png"> <img src="img/ios-os-umeng.png" class="img-thumb"></a>
+                    <a href="img/mgbs-os.png"> <img src="img/mgbs-os.png" class="img"></a>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#os a').lightBox();
+                    });
+                </script>
+            </section>
+            <section>
+                <h2>数据：屏幕分辨率</h2>
+
+                <ul>
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">MDN
+                            Viewport</a>
+                        | <a
+                            href="http://i-skool.co.uk/mobile-development/web-design-for-mobiles-and-tablets-viewport-sizes/">
+                        Viewport size</a>
+                    </li>
+                    <li>
+                        Android 简化至： <b>480</b>/320/540/240系、<b>640</b>/720/800系
+                    </li>
+                </ul>
+
+                <div id="res">
+                    <a href="img/umeng-android-res-0524.png"> <img src="img/umeng-android-res-0524.png"
+                                                                   class="img-thumb"></a>
+                    <a href="img/wdm-android-res-0524.png"> <img src="img/wdm-android-res-0524.png"
+                                                                 class="img-thumb"></a>
+                    <a href="img/umeng-iphone-res-0524.png"> <img src="img/umeng-iphone-res-0524.png" class="img-thumb"></a>
+                    <a href="img/wdm-iphone-res-0524.png"> <img src="img/wdm-iphone-res-0524.png" class="img-thumb"></a>
+                    <a href="img/umeng-ipad-res-0524.png"> <img src="img/umeng-ipad-res-0524.png" class="img-thumb"></a>
+                    <a href="img/wdm-ipad-res-0524.png"> <img src="img/wdm-ipad-res-0524.png" class="img-thumb"></a>
+                    <a href="img/mgbs-res.png"> <img src="img/mgbs-res.png" class="img-thumb"></a>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#res a').lightBox();
+                    });
+                </script>
+            </section>
+            <section>
+                <h2>数据：浏览器</h2>
+
+                <div id="browser">
+                    <a href="img/cnnic-browser-201206.png"> <img src="img/cnnic-browser-201206.png" class="img"></a>
+                    <a href="img/cnnic-browser-use-201206.png"> <img src="img/cnnic-browser-use-201206.png" class="img"></a>
+                    <a href="img/mgbs-browser.png"> <img src="img/mgbs-browser.png" class="img"></a>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#browser a').lightBox();
+                    });
+                </script>
+            </section>
+            <section>
+                <h2>MGBS</h2>
+
+                <div id="mgbs">
+                    <a href="img/mgbs.png"> <img src="img/mgbs.png" class="img-long"></a>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#mgbs a').lightBox();
+                    });
+                </script>
+            </section>
+        </section>
+        <section>
+            <h2><a href="http://velocity.alibaba-inc.com/projects/cross-end-web/wiki/Mgbs#待讨论">MGBS 遗留问题</a></h2>
+
+            <div>
+                <ul>
+                    <li>ipad retina (屏宽1536) 支持</li>
+                    <li>android 屏宽 720/800 支持</li>
+                    <li>所有移动设备的横屏支持</li>
+                    <li>android 2.3.x与4.x的默认浏览器差异，以及可接受的退化处理范围</li>
+                    <li>android qq浏览器是否有必要放回A级</li>
+                    <li>android qq浏览器有独立和内置两种形式，是否有差异</li>
+                    <li>windows phone 支持</li>
+                    <li>建议可提给<a href="http://velocity.alibaba-inc.com/issues/216">MGBS关联任务</a></li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <!--<h2>MGBS 版本演进</h2>-->
+            <div>
+                <iframe class="history" src="mgbs-history.html" frameborder="0" scrolling="no" width="850"
+                        height="600" style=" border-radius: 10px;"></iframe>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

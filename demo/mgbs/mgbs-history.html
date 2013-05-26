@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> </title>
+  <style type="text/css">
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #web {
+    }
+  </style>
+
+  <script type="text/javascript" src="js/jquery-min.js"></script>
+  <script type="text/javascript" src="js/storyjs-embed.js"></script>
+  <script>
+    $(document).ready(function() {
+      createStoryJS({
+        type: 'timeline',
+        width: '100%',
+        height: '100%',
+        source: 'mgbs-history.json',
+        embed_id: 'web',
+        lang: 'zh-ch',
+        debug: false
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div id="web"></div>
+
+</body>
+</html>
