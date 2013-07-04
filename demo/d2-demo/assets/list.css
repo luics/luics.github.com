@@ -1,0 +1,47 @@
+@media only screen and (max-width:480px), only screen and (max-height:480px) {
+    body {
+        margin: 0;
+        padding: 0;
+        height: 1000px;
+    }
+
+    .subject-list, .subject-list * {
+        display: block;
+    }
+
+    .subject-list {
+        list-style-type: none;
+        width: 320px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .subject-list li {
+        margin: 0;
+        padding: 5px 10px;
+        height: 130px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .subject-list-item {
+        color: #aaa;
+        text-decoration: none;
+    }
+
+    .subject-list-item-icon {
+        width: 60px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .subject-list-item-name {
+        /*margin-top: 0px;*/
+        font-weight: normal;
+        padding-top: 10px;
+        font-size: 110%;
+        line-height: 110%;
+    }
+
+    .subject-list-item-price {
+    }
+}

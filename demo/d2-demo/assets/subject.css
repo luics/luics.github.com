@@ -1,0 +1,35 @@
+.subject-content {
+    display: none;
+}
+
+@media only screen and (max-width:480px), only screen and (max-height:480px) {
+    * {
+        display: none;
+    }
+
+    html, body, .subject-viewport, .subject-viewport * {
+        display: block;
+    }
+
+    .subject-viewport {
+        width: 320px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .subject-content {
+        /*width: 960px; */
+        /* 320px(item width) * 3(item count) */
+    }
+
+    .subject-item {
+        float: left;
+        width: 320px;
+        text-align: center;
+        color: #666;
+        /*font-size: 50px;*/
+        /*padding: 50px 0;*/
+        /*background: #EFEFEF;*/
+        /*border: 5px solid #999;*/
+    }
+}

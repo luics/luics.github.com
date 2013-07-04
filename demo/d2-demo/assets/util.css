@@ -1,0 +1,67 @@
+/**
+* list style
+*/
+.ui-list {
+    width: 100%;
+    text-align: left;
+}
+
+.ui-list img {
+    vertical-align: top;
+}
+
+.ui-list thead td {
+    padding-left: 20px;
+}
+
+.ui-list thead tr {
+    height: 30px;
+    background: url(http://img03.taobaocdn.com/tps/i3/T1GHuOXA4eXXczo6I2-840-30.png) repeat-x;
+    font-weight: normal;
+}
+
+.ui-list tbody td {
+    padding: 10px 0 10px 20px;
+    vertical-align: top;
+    border-bottom: 1px dashed #e4e4e4;
+}
+
+.ui-list-submit {
+    width: 20%;
+    float: left;
+    padding: 10px 0 10px 20px;
+}
+
+.ui-list thead tr.ui-list-operateRow {
+    background: #e4e4e4;
+    /*border: 1px solid #fff;*/
+}
+
+.ui-list a {
+    text-decoration: none;
+}
+
+.ui-list-check {
+    margin-right: 10px;
+}
+
+.ui-list-checkAll {
+
+}
+
+.ui-list-operate {
+    width: 60px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.ui-list-operateAll {
+
+}
+
+.ui-list-pager {
+    display: none;
+    height: 40px;
+    text-align: right;
+}
+

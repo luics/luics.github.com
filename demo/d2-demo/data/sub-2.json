@@ -1,0 +1,66 @@
+{
+    "success": true,
+    "model": {
+        "id": "2",
+        "prev": "1",
+        "next": "3",
+        "list": {
+            "data": [
+                {
+					"itemId" : 17943729117,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/1023004930/T2tJJjXiFOXXXXXXXX_!!1023004930.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?id=17943729117&spm=a220z.1000880.0.51.kzQLyI&bucket_id=19",
+                    "skuName": "冬至阳生2013夏装新款纯棉时尚翻领丝光棉T恤男短袖polo衫包邮",
+                    "skuPrice": "127.99",
+                    "width":300,
+                    "height":625
+                },
+                {
+					"itemId" : 24717340464,
+                    "skuImgUrl": "http://img01.taobaocdn.com/imgextra/i1/1023004930/T2PRD0XjVaXXXXXXXX_!!1023004930.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?id=24717340464&spm=a220z.1000880.0.51.tzS6Io&bucket_id=19",
+                    "skuName": "冬至阳生2013夏日新款纯棉丝光棉时尚条纹短袖T恤男修身包邮2336",
+                    "skuPrice": "117.97",
+                    "width":300,
+                    "height":625
+                },
+                {
+					"itemId" : 24716272195,
+                    "skuImgUrl": "http://img03.taobaocdn.com/imgextra/i3/1023004930/T2Ubz2XcRXXXXXXXXX_!!1023004930.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?id=24716272195&spm=a220z.1000880.0.51.DknPBP&bucket_id=19",
+                    "skuName": "冬至阳生2013夏装新款纯棉丝光棉拼色印花短袖T恤 男 修身2335",
+                    "skuPrice": "127.99",
+                    "width":300,
+                    "height":625
+                },
+                {
+					"itemId" : 18313910366,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/1023004930/T2RKbUXoJaXXXXXXXX_!!1023004930.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?id=18313910366&spm=a220z.1000880.0.51.s6WTCg&bucket_id=19",
+                    "skuName": "冬至阳生2013夏装新款纯棉丝光棉时尚翻领条纹短袖T恤 男修身2333",
+                    "skuPrice": "127.98",
+                    "width":300,
+                    "height":625
+                },
+                {
+					"itemId" : 24051508134,
+                    "skuImgUrl": "http://img02.taobaocdn.com/imgextra/i2/1023004930/T2f.SqXfJcXXXXXXXX_!!1023004930.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?id=24051508134&spm=a220z.1000880.0.51.RDffYO&bucket_id=19",
+                    "skuName": "冬至阳生2013夏装新款翻领商务休闲细格T恤男短袖polo衫修身包邮",
+                    "skuPrice": "108.00",
+                    "width":300,
+                    "height":625
+                },
+                {
+					"itemId" : 19860291006,
+                    "skuImgUrl": "http://img01.taobaocdn.com/imgextra/i1/1023004930/T24CYUXm8aXXXXXXXX_!!1023004930.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?id=19860291006&spm=a220z.1000880.0.51.Uzdg79&bucket_id=19",
+                    "skuName": "冬至阳生2013夏装新款经典格子商务休闲翻领T恤男短袖polo衫包邮",
+                    "skuPrice": "108.00",
+                    "width":300,
+                    "height":625
+                }
+            ]
+        }
+    }
+}
