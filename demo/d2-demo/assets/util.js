@@ -11,7 +11,7 @@
  * @type {Array}
  */
 var __IMPORT = [
-    // ¹«¹²×é¼ş
+    // å…¬å…±ç»„ä»¶
     'xtemplate',
     'mui/pagination',
     'mui/pagination/themes/default'
@@ -23,25 +23,25 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
     var RE_URL_SEG = /^(https?:\/\/.+?)(\?(.*?))?(#(.*?))?$/;
     var Seed = {
         /**
-         * ·â×° window.console.log£¬Ê¹ÓÃ S.Config.debug ¿ª¹Ø¿ØÖÆ log ÊÇ·ñ´òÓ¡
+         * å°è£… window.console.logï¼Œä½¿ç”¨ S.Config.debug å¼€å…³æ§åˆ¶ log æ˜¯å¦æ‰“å°
          */
         log: function() {
             if (!S.Config.debug) {
                 return;
             }
 
-            // TODO var con = window.console; ¸³ÖµÓĞ·çÏÕ£¿
-            // Óöµ½¹ı var $ = document.querySelectorAll, Ö®ºó$Îªundefined $()
+            // TODO var con = window.console; èµ‹å€¼æœ‰é£é™©ï¼Ÿ
+            // é‡åˆ°è¿‡ var $ = document.querySelectorAll, ä¹‹å$ä¸ºundefined $()
             if (window.console && window.console.log) {
                 S.isFunction(window.console.log) && window.console.log.apply(window.console, arguments);
             }
         },
         /**
-         * ×Ö·û´®¸ñÊ½»¯
+         * å­—ç¬¦ä¸²æ ¼å¼åŒ–
          *
-         * Usage£º
-         *   fm('{0}-{1}', 1, '2') // ½á¹û£º1-2
-         *   fm('{0}-{1}-{0}', 1, '2') // ½á¹û£º1-2-1
+         * Usageï¼š
+         *   fm('{0}-{1}', 1, '2') // ç»“æœï¼š1-2
+         *   fm('{0}-{1}-{0}', 1, '2') // ç»“æœï¼š1-2-1
          *
          * @returns {string}
          */
@@ -58,12 +58,12 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
                 var re = new RegExp('\\{' + (i - 1) + '\\}', 'g');
                 res = res.replace(re, arguments[i]);
             }
-            // TODO ĞÔÄÜÓÅ»¯°æ±¾
+            // TODO æ€§èƒ½ä¼˜åŒ–ç‰ˆæœ¬
             return res;
         },
         /**
-         * Url »ù´¡ÇĞ·Ö
-         * @param {string} url Ä¿Ç°Ö§³Öhttp(s)Ğ­Òé
+         * Url åŸºç¡€åˆ‡åˆ†
+         * @param {string} url ç›®å‰æ”¯æŒhttp(s)åè®®
          * @returns {Object}
          */
         segment: function(url) {
@@ -73,7 +73,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
                 hash: ''
             };
 
-            //¿¼ÂÇ null¡¢unefined µÈÇé¿ö£¬ĞèÒª×öÕâ¸ö´¦Àí
+            //è€ƒè™‘ nullã€unefined ç­‰æƒ…å†µï¼Œéœ€è¦åšè¿™ä¸ªå¤„ç†
             if (!url) {
                 return obj;
             }
@@ -91,7 +91,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
             return obj;
         },
         /**
-         * S.unparamµÄ·â×°£¬Ôö¼Ó¶ÔurlµÄÖ±½ÓÖ§³Ö
+         * S.unparamçš„å°è£…ï¼Œå¢åŠ å¯¹urlçš„ç›´æ¥æ”¯æŒ
          * @param {string} [url]
          * @returns {Object}
          */
@@ -104,7 +104,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
     var U = Seed;
 
     /**
-     * loading ¿ØÖÆ
+     * loading æ§åˆ¶
      * @param {Object} [opt]
      * @param {boolean} opt.hide
      */
@@ -126,13 +126,13 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
     };
 
     /**
-     * ·â×° KISSY.ajax£¬Ôö¼Ó mock data Ö§³Ö
+     * å°è£… KISSY.ajaxï¼Œå¢åŠ  mock data æ”¯æŒ
      *
-     * Usage ²Î¼û Unit Test ../tests/test.util.js
+     * Usage å‚è§ Unit Test ../tests/test.util.js
      *
      * @param {Object} opt
      * @param {string} [opt._mockUrl] mock data url
-     * @param {string} [opt._loading] loading ÈİÆ÷µÄÑ¡ÔñÆ÷
+     * @param {string} [opt._loading] loading å®¹å™¨çš„é€‰æ‹©å™¨
      *
      * @param {string} opt.url
      * @param {function} [opt.success]
@@ -144,7 +144,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
      * @param {function} [opt.complete]
      * @param {string} [opt.scriptCharset]
      *
-     * @see ²ÎÊıÏêÏ¸¶¨ÒåÇë²Î¼û KISSY.ajax Ô´Âë
+     * @see å‚æ•°è¯¦ç»†å®šä¹‰è¯·å‚è§ KISSY.ajax æºç 
      */
     U.ajax = function(opt) {
         var success = opt.success;
@@ -155,28 +155,28 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
             // TODO global ajax error handler
 //                    $(document).ajaxError(function(event, request, settings) {
 //                        console.log(event, request, settings);
-//                        mf.msg('ÍøÂçÒì³££¬Çë³¢ÊÔÉÔºó²Ù×÷<br>'); //;+ JSON.stringify(event)
+//                        mf.msg('ç½‘ç»œå¼‚å¸¸ï¼Œè¯·å°è¯•ç¨åæ“ä½œ<br>'); //;+ JSON.stringify(event)
 //                    });
         }
 
         /**
-         * ´¦Àí·şÎñÆ÷·µ»ØµÄÊı¾İ
+         * å¤„ç†æœåŠ¡å™¨è¿”å›çš„æ•°æ®
          *
-         * @param {Object} result ·şÎñÆ÷·µ»Øjson½âÎöºóµÄ¶ÔÏó
-         * @param {Object} result.success ·şÎñÆ÷×´Ì¬£¬ÊÇ·ñ³É¹¦
-         * @param {Object} result.model ·µ»ØµÄÊı¾İ
-         * @param {string} result.model.redirect ÖØ¶¨Ïòurl
-         * @param {string} result.model.sessionTimeout »á»°³¬Ê±
+         * @param {Object} result æœåŠ¡å™¨è¿”å›jsonè§£æåçš„å¯¹è±¡
+         * @param {Object} result.success æœåŠ¡å™¨çŠ¶æ€ï¼Œæ˜¯å¦æˆåŠŸ
+         * @param {Object} result.model è¿”å›çš„æ•°æ®
+         * @param {string} result.model.redirect é‡å®šå‘url
+         * @param {string} result.model.sessionTimeout ä¼šè¯è¶…æ—¶
          */
         function ondata(result) {
             U.log('U.ajax ondata', result);
             var model = result.model;
-            if (!result.success && !model.formError) {//·Ç±íµ¥´íÎó´¦Àí
+            if (!result.success && !model.formError) {//éè¡¨å•é”™è¯¯å¤„ç†
                 if (model.global) {
                     U.alert(model.global);
                 }
                 else if (model.sessionTimeout) {
-                    // TODO »á»°³¬Ê±´¦Àí
+                    // TODO ä¼šè¯è¶…æ—¶å¤„ç†
                 }
                 else if (model.redirect) {
                     location.href = model.redirect;
@@ -185,7 +185,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
                     U.log('ondata error: ', model.error);
                 }
                 else {
-                    U.alert('Î´Öª´íÎó£¬ÇëÁªÏµÎÒÃÇµÄ¿Í·ş');
+                    U.alert('æœªçŸ¥é”™è¯¯ï¼Œè¯·è”ç³»æˆ‘ä»¬çš„å®¢æœ');
                 }
             }
 
@@ -205,7 +205,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
                 path = seg[0];
                 query = seg[1];
             }
-            var filename = path.substring(path.lastIndexOf('/') + 1, // ±ØĞë°üº¬Â·¾¶
+            var filename = path.substring(path.lastIndexOf('/') + 1, // å¿…é¡»åŒ…å«è·¯å¾„
                 (path.lastIndexOf('.') >= 0 ? path.lastIndexOf('.') : path.length));
             path = U.fm('data/{0}.js{1}', filename, (query ? '?' + query : ''));
             opt.url = opt._mockUrl ? opt._mockUrl : path;
@@ -217,7 +217,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
         else {
             opt.type = opt.type || 'post';
             opt.dataType = opt.dataType || 'json';
-            opt.success = function(data) {// ºó¶Ë×Ö·û±àÂëÊÇ gbk
+            opt.success = function(data) {// åç«¯å­—ç¬¦ç¼–ç æ˜¯ gbk
                 ondata(data);
             };
         }
@@ -244,7 +244,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
 
 
     /**
-     * »ñÈ¡µ±Ç°page
+     * è·å–å½“å‰page
      *
      * @param {string} [url]
      * @returns {String}
@@ -263,7 +263,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
     };
 
     /**
-     * Æ½Ì¨ÅĞ¶Ï
+     * å¹³å°åˆ¤æ–­
      * @type {Object}
      */
     U.platform = {};
@@ -279,14 +279,14 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
      * @param {string} opt.container Container selector
      * @param {Object} opt.template XTemplate instance
      * @param {boolean} [opt.hidePager]
-     * @param {number} [opt.pageSize] Ã¿Ò³Õ¹Ê¾¼ÇÂ¼Êı
+     * @param {number} [opt.pageSize] æ¯é¡µå±•ç¤ºè®°å½•æ•°
      * @param {Object} [opt.events]
-     * @param {Function} [opt.events.operated] ²Ù×÷´¥·¢£¨µ¥¸ö»òÅú²Ù×÷£©
-     * @param {Function} [opt.events.pageChanged] Ò³Âë¸Ä±ä
+     * @param {Function} [opt.events.operated] æ“ä½œè§¦å‘ï¼ˆå•ä¸ªæˆ–æ‰¹æ“ä½œï¼‰
+     * @param {Function} [opt.events.pageChanged] é¡µç æ”¹å˜
      */
     var List = U.List = function(opt) {
         var me = this;
-        me._template = opt.template; // TODO ¿ÉÒÔÀ©Õ¹³öÖĞ¼äÄ£°å
+        me._template = opt.template; // TODO å¯ä»¥æ‰©å±•å‡ºä¸­é—´æ¨¡æ¿
         me._hidePager = !!opt.hidePager;
         me._events = opt.events || {};
         me._pageSize = opt.pageSize || 10;
@@ -297,7 +297,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
 
     S.augment(List, {
         /**
-         * ÊÂ¼ş´¥·¢
+         * äº‹ä»¶è§¦å‘
          * @param {string} eventName
          */
         fire: function(eventName) {
@@ -306,9 +306,9 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
             S.isFunction(handler) && handler.apply(me, Array.prototype.splice.call(arguments, 1));
         },
         /**
-         * ±íµ¥Ë¢ĞÂ
+         * è¡¨å•åˆ·æ–°
          * @public
-         * @param {Object} list ¸ñÊ½Çë²Î¼û http://work.tmall.net/projects/tsp/wiki/Interface#³É¹¦
+         * @param {Object} list æ ¼å¼è¯·å‚è§ http://work.tmall.net/projects/tsp/wiki/Interface#æˆåŠŸ
          */
         refresh: function(list) {
             var me = this;
@@ -353,7 +353,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
                     S.each(checks, function(check) {
                         check = S.one(check);
                         var checked = !!check.attr('checked');
-                        // ÓÉÓÚtr¿ÉÄÜ±»É¾³ı£¬Ó¦¸ÃÊ¹ÓÃcheckµÄ data-index
+                        // ç”±äºtrå¯èƒ½è¢«åˆ é™¤ï¼Œåº”è¯¥ä½¿ç”¨checkçš„ data-index
                         checked && data.push(list.data[check.attr('data-index')]);
                     });
                     me.fire('operated', data);
@@ -362,13 +362,13 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
             if (operates) {
                 operates.on('click', function() {
                     var operate = S.one(this);
-                    // TODO ÓÅ»¯ data-index ÖÁÈ«ĞĞ¿É·ÃÎÊ£¬ÓĞ±ØÒª×ö¶ş´ÎÄ£°å£¿
+                    // TODO ä¼˜åŒ– data-index è‡³å…¨è¡Œå¯è®¿é—®ï¼Œæœ‰å¿…è¦åšäºŒæ¬¡æ¨¡æ¿ï¼Ÿ
                     me.fire('operated', [list.data[parseInt(operate.attr('data-index'), 10)]]);
                 });
             }
         },
         /**
-         * Ë¢ĞÂPager
+         * åˆ·æ–°Pager
          * @private
          * @param {number} totalPage
          */
@@ -405,7 +405,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
                         }
                     }
                 });
-                S.Event.delegate(pager.get('container'), 'submit', 'form', function(e) {// ×èÖ¹pagerÔÚie6ÏÂµÄ±íµ¥Ìá½»
+                S.Event.delegate(pager.get('container'), 'submit', 'form', function(e) {// é˜»æ­¢pageråœ¨ie6ä¸‹çš„è¡¨å•æäº¤
                     e.preventDefault();
                 });
                 pager.on("afterPageChange", function(e) {
@@ -428,7 +428,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
             }
         },
         /**
-         * »ñÈ¡ Pager ÊµÀı
+         * è·å– Pager å®ä¾‹
          */
         getPager: function() {
             var me = this;
@@ -438,7 +438,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
 
     /**
      * Select class
-     * Ä¿Ç°Ìá¹©Ò»Ğ´¾²Ì¬·½·¨
+     * ç›®å‰æä¾›ä¸€å†™é™æ€æ–¹æ³•
      */
     var Select = U.Select = {};
 
@@ -463,28 +463,28 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
     /**
      * @param {Object} opt
      * @param {Array} opt.data like [{id:1,name:'ab'},{id:2,name:'cd'}]
-     * @param {string} [opt.allName] Ä¬ÈÏÎª¡±È«²¿Ñ¡Ôñ¡°
-     * @param {string} [opt.allId] Ä¬ÈÏÎª¿Õ´®
+     * @param {string} [opt.allName] é»˜è®¤ä¸ºâ€å…¨éƒ¨é€‰æ‹©â€œ
+     * @param {string} [opt.allId] é»˜è®¤ä¸ºç©ºä¸²
      * @returns {string}
      */
     Select.getHtml = function(opt) {
         var html = [];
         html.push(OPTION_TPL.render({
             id: opt.allId ? opt.allId : '',
-            name: opt.allText ? opt.allText : 'È«²¿Ñ¡Ôñ',
+            name: opt.allText ? opt.allText : 'å…¨éƒ¨é€‰æ‹©',
             selected: 'selected'
         }));
         S.each(opt.data, function(category) {
             html.push(OPTION_TPL.render({id: category.id, name: category.name, selected: ''}));
         });
-        //itemCat.val(''); TODO ie6²»ÉúĞ§£¿
+        //itemCat.val(''); TODO ie6ä¸ç”Ÿæ•ˆï¼Ÿ
         //itemCat.getDOMNode().selectedIndex = 0;
         return html.join('');
     };
 
     /**
-     * S.merge À©Õ¹£¬Ö§³ÖÉî¶È±éÀúµÄÍêÕûmerge
-     * £¡Ç°ÌáÌõ¼ş£º½á¹¹ÉÏ£¬srcÊÇdestµÄ×Ó¼¯
+     * S.merge æ‰©å±•ï¼Œæ”¯æŒæ·±åº¦éå†çš„å®Œæ•´merge
+     * ï¼å‰ææ¡ä»¶ï¼šç»“æ„ä¸Šï¼Œsrcæ˜¯destçš„å­é›†
      * @param {Object} dest
      * @param {Object} src
      * @returns {Object} dest

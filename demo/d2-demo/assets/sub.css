@@ -345,7 +345,7 @@
 		padding: 3px;
 		border: 0px currentColor;
 	}
-	/*按钮菜单*/
+	/*鎸夐挳鑿滃崟*/
 	.assistivetouch-box {
 		width:43px;
 		height:23px;
@@ -468,7 +468,7 @@
 		display:block;
 		bottom:0px;
 	}
-	/*列表*/
+	/*鍒楄〃*/
 	.phone-list{
 		position:absolute;
 		z-index:1;
@@ -538,7 +538,7 @@
 		margin:10px;
 		text-align:center;
 	}
-	/*向导*/
+	/*鍚戝*/
 	.guide{
 		position:absolute;
 		z-index:999999;

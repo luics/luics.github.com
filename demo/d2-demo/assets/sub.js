@@ -1,5 +1,5 @@
 /**
- * ÌìÃ¨×¨¼­¿çÖÕ¶Ë
+ * å¤©çŒ«ä¸“è¾‘è·¨ç»ˆç«¯
  *
  * @author luics (guidao)
  * @version 1.0.0
@@ -16,16 +16,16 @@ var __IMPORT = [
 KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
     S.Config.debug = true;
 	
-    var inited = false;//È«¾Ö±£Áô²ÎÊı
+    var inited = false;//å…¨å±€ä¿ç•™å‚æ•°
 	
-	//È«¾Ö»·¾³²ÎÊıµÄÉè¶¨
+	//å…¨å±€ç¯å¢ƒå‚æ•°çš„è®¾å®š
 	var phoneGlobal = {
 		width:320,
 		listId:1,
-		goTheWay:true, //true ±íÊ¾µã»÷×ó±ß
+		goTheWay:true, //true è¡¨ç¤ºç‚¹å‡»å·¦è¾¹
 		height:window.innerHeight,
-		transformMark:false, //»º´æĞ¡Ã¨ËõĞ¡×´Ì¬µÄÎ»ÖÃ false ÄÜ´ú±íÊÇ¹Ø±ÕµÄ×´Ì¬
-		toggleNavMark:false //»º´æÏÂÃæµ¼º½À¸µÄÏÔÒş true±íÊ¾Òş²Ø×´Ì¬
+		transformMark:false, //ç¼“å­˜å°çŒ«ç¼©å°çŠ¶æ€çš„ä½ç½® false èƒ½ä»£è¡¨æ˜¯å…³é—­çš„çŠ¶æ€
+		toggleNavMark:false //ç¼“å­˜ä¸‹é¢å¯¼èˆªæ çš„æ˜¾éš trueè¡¨ç¤ºéšè—çŠ¶æ€
 	}
 
     function init() {
@@ -34,7 +34,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
         go(qs ? qs : 1);
     }
 	
-	//´ÓhashÀïÃæÈ¡listId
+	//ä»hashé‡Œé¢å–listId
 	function getListId(){
 		var _listId = (location.hash.split('/')[0].split('!')[1])*1;
 		
@@ -45,7 +45,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 		return _listId;
 	}
 	
-	//´ÓhashÀïÃæÈ¡itemId
+	//ä»hashé‡Œé¢å–itemId
 	function getItemId(){
 		var _itemId = (location.hash.split('/')[1])*1;
 		
@@ -58,11 +58,8 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
         S.ajax({
             type: 'get',
             dataType: 'json',
-            url: 'data/sub.php',
+            url: U.fm('data/sub-{0}.json', id),
             timeout: 3,
-            data: {
-                id: id
-            },
             success: function(data) {
                 if (!data.success) {
                     return;
@@ -76,7 +73,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
                 var isPhone = true;
                 if (isPhone) {
                     renderPhone(model);
-					//TODO:Ìí¼ÓÒ»¸öä¯ÀÀÆ÷µÄresize()ºÍPCäÖÈ¾£¬Ö÷ÒªÓÃÓÚÑİÊ¾£¬ÕıÊ½Ê¹ÓÃµÄ»°ÌŞ³ıÖ®
+					//TODO:æ·»åŠ ä¸€ä¸ªæµè§ˆå™¨çš„resize()å’ŒPCæ¸²æŸ“ï¼Œä¸»è¦ç”¨äºæ¼”ç¤ºï¼Œæ­£å¼ä½¿ç”¨çš„è¯å‰”é™¤ä¹‹
 					renderPc(model);
 					resizePhone();
                 } else {
@@ -91,7 +88,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 	
 
     /**
-     * ÊÖ»ú½çÃæ¹¹Ôì
+     * æ‰‹æœºç•Œé¢æ„é€ 
      *
      * @param {Object} model
      * @param {Object} model.list
@@ -99,26 +96,26 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
      */
     function renderPhone(model) {
 		
-		//Èë¿Úº¯Êı
+		//å…¥å£å‡½æ•°
 		function phoneInit(){
 			
-			//DOM½á¹¹¹¹Ôì
+			//DOMç»“æ„æ„é€ 
 			domRender();
 			
-			//Í¨ÓÃÊÂ¼ş°ó¶¨
+			//é€šç”¨äº‹ä»¶ç»‘å®š
 			activeBind();
 			
-			//»ØÏÔº¯Êı
+			//å›æ˜¾å‡½æ•°
 			review();
 			
-			//ÅĞ¶ÏÊÇ·ñ±»¼ÓÔØ¹ı
+			//åˆ¤æ–­æ˜¯å¦è¢«åŠ è½½è¿‡
 			inited = true;
 		}
 		
 		var ROOT_TPL = new Xtpl([
 			'<div id="J_PhoneContent" class="phone-content">',
 			'  <div id="J_PhoneDetail" class="phone-detail"></div>',
-			'  <ul id="J_PhoneList" class="phone-list"><li class="list-more" id="J_ListMore">¸ü¶à»î¶¯</li></ul>',
+			'  <ul id="J_PhoneList" class="phone-list"><li class="list-more" id="J_ListMore">æ›´å¤šæ´»åŠ¨</li></ul>',
 			'  <div id="J_Guide" class="guide"></div>',
 			'  <div class="subject-loading" id="J_LadingBox">',
 			'    <div class="subject-loading-bg"></div>' ,
@@ -127,7 +124,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 			'    </div>' ,
 			'  </div>',
 			'</div>'
-			].join('')), //¸ù½áµãËùÓĞ»ùÓÚÕâ¸öDOM¹¹Ôì
+			].join('')), //æ ¹ç»“ç‚¹æ‰€æœ‰åŸºäºè¿™ä¸ªDOMæ„é€ 
 			
 			 LIST_TPL = new Xtpl([
 			'<div class="subject-content" style="width:{{contentWidth}}px;">',
@@ -162,10 +159,10 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 			'  <div class="at-menu">',
 			'    <div class="at-item-title" id="J_ItemTitle"></div>',
 			'    <div class="at-item-price" id="J_ItemPrice"></div>',
-			'    <div class="at-item-detail" id="J_ToDetail">²é¿´ÏêÇé</div>',
+			'    <div class="at-item-detail" id="J_ToDetail">æŸ¥çœ‹è¯¦æƒ…</div>',
 			'  </div>',
 			'</div>'
-			].join('')), //detail½áµãÄÚÌî³äµÄÊı¾İ
+			].join('')), //detailç»“ç‚¹å†…å¡«å……çš„æ•°æ®
 			
 			GUIDE_TPL = new Xtpl([
 				'<ul class="guide-content" style="width:1600px;" id="J_GuideOn">',
@@ -175,13 +172,13 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				'	<li style="background-image:url(http://img04.taobaocdn.com/tps/i4/T1kX0pFbBXXXae1H3s-640-880.png);"></li>',
 				'	<li style="background-image:url(http://img01.taobaocdn.com/tps/i1/T1MXRoFX0bXXae1H3s-640-880.png);" id="J_GuideHide"></li>',
 				'</ul>'
-			].join('')),//²Ù×÷Òıµ¼
+			].join('')),//æ“ä½œå¼•å¯¼
 		
 			UI_TPL = new Xtpl([
 			'<div class="subject-viewport" style="height:{{winHeight}}px"></div>',
-			'<div class="subject-tip" id="J_Tip">ÏòÉÏÏòÏÂ¿ìËÙ»¬¶¯£¬ÇĞ»»×¨¼­</div>',
+			'<div class="subject-tip" id="J_Tip">å‘ä¸Šå‘ä¸‹å¿«é€Ÿæ»‘åŠ¨ï¼Œåˆ‡æ¢ä¸“è¾‘</div>',
 			'<div class="subject-list-loading" id="J_ListLoading"></div>'
-			].join('')),//tips loading µÈ¹«¹²Ä£¿é½áµã
+			].join('')),//tips loading ç­‰å…¬å…±æ¨¡å—ç»“ç‚¹
 			
 			ITEMLIST_TPL = new Xtpl([
             '{{#each data}}',
@@ -189,10 +186,10 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
             '  <img class="subject-list-item-icon" src="{{banner}}" alt="{{title}}">',
             '  <i class="subject-list-item-name">{{title}}</i>',
             '</li>',
-            '{{/each}}'].join(''));//list½áµãÌî³äÊı¾İ
+            '{{/each}}'].join(''));//listç»“ç‚¹å¡«å……æ•°æ®
 
 		/**
-		 * DOM½á¹¹äÖÈ¾
+		 * DOMç»“æ„æ¸²æŸ“
 		 */
 		function domRender(){
 			var list = model.list,
@@ -213,27 +210,27 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 			
 			// init DOM
 			if (!inited) {
-				//Ìí¼Ó¸ù½Úµã
+				//æ·»åŠ æ ¹èŠ‚ç‚¹
 				$body.append(S.DOM.create(ROOT_TPL.render()));
 				
-				//Ìí¼ÓList¸ú½áµã
+				//æ·»åŠ Listè·Ÿç»“ç‚¹
 				S.getScript('data/list.json',function(){
 					if(LIST_DATA.success){
 						var $listBox = S.get('#J_ListMore');
 						S.DOM.insertBefore(S.DOM.create(ITEMLIST_TPL.render(LIST_DATA)), $listBox);
-						//Ò»´ÎĞÔ°ó¶¨µÄÊÂ¼ş [Ö÷ÒªÊÇList]
+						//ä¸€æ¬¡æ€§ç»‘å®šçš„äº‹ä»¶ [ä¸»è¦æ˜¯List]
 						listBind();
 					}
-					//»ñÈ¡¸ü¶à
+					//è·å–æ›´å¤š
 					Hammer(S.get('#J_ListMore')).on('tap', function (ev) {
                         setTimeout(function(){
                             var $listBox = S.get('#J_ListMore');
                             S.DOM.insertBefore(S.DOM.create(ITEMLIST_TPL.render(LIST_DATA)), $listBox);
-                            //°ó¶¨List]
+                            //ç»‘å®šList]
                             listBind(true);
 							phoneGlobal.listOpenMark = true;
 							
-							//loadingÏÔÒş
+							//loadingæ˜¾éš
 							S.one('#J_LadingBox').show();
 							window.setTimeout(function(){
 								S.one('#J_LadingBox').hide();
@@ -242,7 +239,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
                     });
 				});
 
-				//Ìí¼ÓDetail½áµã
+				//æ·»åŠ Detailç»“ç‚¹
 				$content = S.one('#J_PhoneDetail');
 				$content.append(UI_TPL.render(list));
 				$viewport = S.one('.subject-viewport');
@@ -260,7 +257,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 			
 			var fsSlide = phoneGlobal.fsSlide;
 			
-			//Ê×´Î¼ÓÔØµÄµ¼º½
+			//é¦–æ¬¡åŠ è½½çš„å¯¼èˆª
 			if(!Cookie.get('markStart')){
 				
 				S.one('#J_Guide').append(GUIDE_TPL.render());
@@ -292,9 +289,9 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				$tip[0].innerHTML = '';
 			}
 	
-			// Ê¹ÓÃ hashbang ¼ÇÂ¼ view index 
+			// ä½¿ç”¨ hashbang è®°å½• view index 
 			fsSlide.element.addEventListener('fstouchend', function(ev) {
-				var curView = getItemId(), // NaNµÄÇé¿ö
+				var curView = getItemId(), // NaNçš„æƒ…å†µ
 					newView = ev.newPoint;
 				
 				//U.log('fstouchend', curView, newView);
@@ -304,7 +301,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				}
 				//hideTip();
 				
-				//ÑÓ³ÙÖ´ĞĞ±êÌâºÍ¼Û¸ñµÄÖ±½ÓäÖÈ¾
+				//å»¶è¿Ÿæ‰§è¡Œæ ‡é¢˜å’Œä»·æ ¼çš„ç›´æ¥æ¸²æŸ“
 				window.setTimeout(function(){itemDataRander();},200);
 				
 				fsNavSlide.moveToPoint((fsSlide.currentPoint + 1)/2);
@@ -325,7 +322,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				$nav.css('bottom', '-140px');
 			}
 			
-			// TODO ÕûÀíÖÁmobile-issue£ºios 6.1 safari£¬tap»áÓĞbug£¬µ¼ÖÂÒ³ÃæÌø×ªºóÎóµã»÷
+			// TODO æ•´ç†è‡³mobile-issueï¼šios 6.1 safariï¼Œtapä¼šæœ‰bugï¼Œå¯¼è‡´é¡µé¢è·³è½¬åè¯¯ç‚¹å‡»
 			//Hammer($navBack.getDOMNode()).on('click', function(e) {
 			//    location.href = 'list.html';
 			//});
@@ -337,11 +334,11 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 			
 			var fsNavSlide = phoneGlobal.fsNavSlide;
 	
-			//¶ÔÊ×Î»ºÍÄ©Î»×öÌØÊâ´¦Àí
+			//å¯¹é¦–ä½å’Œæœ«ä½åšç‰¹æ®Šå¤„ç†
 			S.each(S.all('.subject-nav-item'), function(item, i) {
 				var $item = S.one(item);
 				if(i == 0 || i == (S.query('.subject-nav-item').length - 1)){
-					//Ê×Î»ºÍÄ©Î»
+					//é¦–ä½å’Œæœ«ä½
 				}else{
 					Hammer(item).on('tap', function(e) {
 						fsSlide.moveToPoint(i - 1);
@@ -360,27 +357,27 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 		}
 		
 		/**
-		 * ²»ĞèÒªÖØ¸´°ó¶¨µÄÊÂ¼ş
+		 * ä¸éœ€è¦é‡å¤ç»‘å®šçš„äº‹ä»¶
 		 */
 		function listBind(review){
 			phoneGlobal.listOpenMark = false;
 
-			//°ó¶¨µã»÷ListÍ¼Æ¬½øÈë¶ÔÓ¦ÓÃÁĞ±í
+			//ç»‘å®šç‚¹å‡»Listå›¾ç‰‡è¿›å…¥å¯¹åº”ç”¨åˆ—è¡¨
 			S.each(S.query('.J_ListItemGo'), function(item, i) {
-				//µ¥»÷
+				//å•å‡»
 				Hammer(item).on('tap',function(ev) {
 					phoneGlobal.listOpenMark = false;
 					listBoxClose();
 					setTimeout(function(){
 						var id = S.one(item).attr('data-go')*1;
 						if(phoneGlobal.listId == id){
-							//Í¬Ò»¸öÄ¿Â¼µÄ»°¾Í²»ÓÃÌøÁË¡­¡­
+							//åŒä¸€ä¸ªç›®å½•çš„è¯å°±ä¸ç”¨è·³äº†â€¦â€¦
 						} else{
 							phoneGlobal.listOpenMark = false;
 							location.hash = '!' + id + '/' +  '0';
 							phoneGlobal.listId = id;
 							history.replaceState({state:id},'',['sub.html?id=' + id  + location.hash]);
-							//³öÏÖloading
+							//å‡ºç°loading
 							S.one('#J_LadingBox').show();
 							go(id);
 						}
@@ -389,9 +386,9 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				
 			});
 			
-			//±£Ö¤ÕâĞ©ÊÇÓÀÔ¶Ö»Ö´ĞĞÒ»´Î
+			//ä¿è¯è¿™äº›æ˜¯æ°¸è¿œåªæ‰§è¡Œä¸€æ¬¡
 			if(!review){
-				//ÁĞ±íµÄÏÔÒş
+				//åˆ—è¡¨çš„æ˜¾éš
 				function listBoxOpen(){
 					S.one('#J_PhoneDetail').addClass('phoneDetailRun');
 					S.one('#J_ListLoading').css({"display":"block"});
@@ -407,7 +404,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				}
 				phoneGlobal.listBoxClose = listBoxClose;
 				
-				//Ä£Äâoverflow:auto
+				//æ¨¡æ‹Ÿoverflow:auto
 				function getiScroll() {
 					if (!iScroll) {
 						setTimeout(function () {
@@ -428,7 +425,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 		}
 		
 		/**
-		 * »ØÏÔº¯Êı
+		 * å›æ˜¾å‡½æ•°
 		 */
 		function review(){
 			
@@ -436,20 +433,20 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				fsNavSlide = phoneGlobal.fsNavSlide,
 				view = getItemId();
 
-			//»ØÏÔindex
+			//å›æ˜¾index
 			fsSlide.moveToPoint(view);
 			
-			//¿ì½İµ¼º½
+			//å¿«æ·å¯¼èˆª
 			fsNavSlide.moveToPoint(parseInt((fsSlide.currentPoint + 1)/2));
 
 
 			if(phoneGlobal){
 				
-				//Èç¹ûĞ¡Ã¨´ò¿ª×´Ì¬ÏÂ£¬µ¥»úÍ¼Æ¬ÇøÓò£¬ÔòÎª¹Ø±ÕĞ¡Ã¨
+				//å¦‚æœå°çŒ«æ‰“å¼€çŠ¶æ€ä¸‹ï¼Œå•æœºå›¾ç‰‡åŒºåŸŸï¼Œåˆ™ä¸ºå…³é—­å°çŒ«
 				if(phoneGlobal.transformMark){
 					phoneGlobal.aTBoxOpen();
 				}
-				//Èç¹û¿ì½İÔ¤ÀÀ´ò¿ª£¬Ôò¹Ø±Õ
+				//å¦‚æœå¿«æ·é¢„è§ˆæ‰“å¼€ï¼Œåˆ™å…³é—­
 				if(!phoneGlobal.toggleNavMark){
 					phoneGlobal.toggleNav(true);
 				}
@@ -458,27 +455,27 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 		}
 		
 		/**
-		 * ÊÂ¼ş°ó¶¨ÖĞĞÄ
+		 * äº‹ä»¶ç»‘å®šä¸­å¿ƒ
 		 */
 		function activeBind(){
 			
-			var J_ATBox = S.get('#J_ATBox'),//»ñÈ¡Ğ¡Ã¨
+			var J_ATBox = S.get('#J_ATBox'),//è·å–å°çŒ«
 				$nav = S.one('.subject-nav'),
-				$topNav = S.one('#J_TopNav'),//»ñÈ¡¶¥²¿µ¼º½
-				mainButtonActive = true,//¸øĞ¡Ã¨µÄµã»÷¼ÆÊı
-				topbarMark = false, //¸ø¶¥²¿µ¼º½¼ÆÊı trueÎª¿ªÆô
-				$loading = S.one('#J_LadingBox'),//loading¼ÓÔØ×´Ì¬
+				$topNav = S.one('#J_TopNav'),//è·å–é¡¶éƒ¨å¯¼èˆª
+				mainButtonActive = true,//ç»™å°çŒ«çš„ç‚¹å‡»è®¡æ•°
+				topbarMark = false, //ç»™é¡¶éƒ¨å¯¼èˆªè®¡æ•° trueä¸ºå¼€å¯
+				$loading = S.one('#J_LadingBox'),//loadingåŠ è½½çŠ¶æ€
 				velocity = 0.2,
 				barStatus = {
 					status : 0	
 				};
 			
-			//¶ÔÃ¿¸öitem×öÊÂ¼ş°ó¶¨
+			//å¯¹æ¯ä¸ªitemåšäº‹ä»¶ç»‘å®š
 			/**
 			S.each(S.all('.subject-item'), function(item, i) {
 				var hItem = Hammer(item);
 				
-				//¿ìËÙÉÏÍÏ×§³öµ¼º½
+				//å¿«é€Ÿä¸Šæ‹–æ‹½å‡ºå¯¼èˆª
 				hItem.on('swipeup', function(e) {
 					//changeSubject(model.next);
 					if(barStatus.status === 0){
@@ -493,7 +490,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 					
 				}, {swipe_velocity: velocity});
 				
-				//¿ìËÙÏÂÍÏ×§³öµ¼º½
+				//å¿«é€Ÿä¸‹æ‹–æ‹½å‡ºå¯¼èˆª
 				hItem.on('swipedown', function(e) {
 					//changeSubject(model.prev);
 					if(barStatus.status === 0){
@@ -510,65 +507,65 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 			});
 			*/
 			
-			//°ó¶¨Ë«»÷Í¼Æ¬½øÈëdetail
+			//ç»‘å®šåŒå‡»å›¾ç‰‡è¿›å…¥detail
 			S.each(S.query('.J_DblclickTo'), function(item, i) {
 				
-				//Ë«»÷
+				//åŒå‡»
 				Hammer(item).on('doubletap',function(ev) {
 					window.location.href = S.one(this).attr('data-link');
 				});
 				
-				//µ¥»÷
+				//å•å‡»
 				Hammer(item).on('tap',function(ev) {
-					//Èç¹ûĞ¡Ã¨´ò¿ª×´Ì¬ÏÂ£¬µ¥»úÍ¼Æ¬ÇøÓò£¬ÔòÎª¹Ø±ÕĞ¡Ã¨
+					//å¦‚æœå°çŒ«æ‰“å¼€çŠ¶æ€ä¸‹ï¼Œå•æœºå›¾ç‰‡åŒºåŸŸï¼Œåˆ™ä¸ºå…³é—­å°çŒ«
 					if(phoneGlobal.transformMark){
 						aTBoxClouse();
 					} else { 
-						//Èç¹ûĞ¡Ã¨¹Ø±Õ×´Ì¬ÏÂ£¬À­³öÏÂÀ­
+						//å¦‚æœå°çŒ«å…³é—­çŠ¶æ€ä¸‹ï¼Œæ‹‰å‡ºä¸‹æ‹‰
 						if(!topbarMark){
-							KISSY.one('#J_TopNav').addClass('subjectTopnavRun'); //¿ªÆô¶¥²¿µ¼º½
-							topbarMark = true;//¼Ç×¡µã»÷ÆæÅ¼×´Ì¬
+							KISSY.one('#J_TopNav').addClass('subjectTopnavRun'); //å¼€å¯é¡¶éƒ¨å¯¼èˆª
+							topbarMark = true;//è®°ä½ç‚¹å‡»å¥‡å¶çŠ¶æ€
 						}else{
-							KISSY.one('#J_TopNav').removeClass('subjectTopnavRun'); //¹Ø±Õ¶¥²¿µ¼º½
-							S.one('#J_IShareDemo').css('display','none');//ÄãÃÃµÄ£¬·ÖÏíÒ²Á¬´ø¹Ø±ÕÒ»ÏÂ°É¡£
+							KISSY.one('#J_TopNav').removeClass('subjectTopnavRun'); //å…³é—­é¡¶éƒ¨å¯¼èˆª
+							S.one('#J_IShareDemo').css('display','none');//ä½ å¦¹çš„ï¼Œåˆ†äº«ä¹Ÿè¿å¸¦å…³é—­ä¸€ä¸‹å§ã€‚
 							topbarMark = false;
 						}
 					}
 				});
 				
-				//³¤°´
+				//é•¿æŒ‰
 				Hammer(item).on('hold',function(ev) {
 					toggleNav();
 				});
 				
 			});
 			
-			//ListÁĞ±íµ¥»÷
+			//Liståˆ—è¡¨å•å‡»
 			Hammer(S.get('#J_ShowList')).on('tap',function(){
 				if(!phoneGlobal.listOpenMark){
 					phoneGlobal.listOpenMark = true;
-					phoneGlobal.listBoxOpen();//´ò¿ª
+					phoneGlobal.listBoxOpen();//æ‰“å¼€
 				}
 			});
 			
-			//ÒõÓ°´¦µ¥»÷Òş²ØList
+			//é˜´å½±å¤„å•å‡»éšè—List
 			Hammer(S.get('#J_ListLoading')).on('tap',function(){
 				if(phoneGlobal.listOpenMark){
 					phoneGlobal.listOpenMark = false;
-					phoneGlobal.listBoxClose();//¹Ø±Õ
+					phoneGlobal.listBoxClose();//å…³é—­
 				}
 			});
 			
-			//Ğ¡Ã¨µÄµ¥»÷ÊÂ¼ş
+			//å°çŒ«çš„å•å‡»äº‹ä»¶
 			Hammer(J_ATBox).on('tap',function(){
 				if(mainButtonActive){
-					aTBoxOpen();//´ò¿ª
+					aTBoxOpen();//æ‰“å¼€
 				}else{
-					aTBoxClouse();//¹Ø±Õ
+					aTBoxClouse();//å…³é—­
 				}
-			})
+			});
 			
-			//Ğ¡Ã¨µÄÍÏ×§ÊÂ¼ş
+			//å°çŒ«çš„æ‹–æ‹½äº‹ä»¶
 			Hammer(J_ATBox).on('touchstart', function(e) {
 				e.preventDefault();
 				if(!phoneGlobal.transformMark){
@@ -593,7 +590,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 					maxWidth = (phoneGlobal.width - 70),
 					obj = J_ATBox;
 				
-					//»ñÈ¡Æ«ÒÆÁ¿
+					//è·å–åç§»é‡
 					obj.moveX += (touch.pageX-obj.lastX);
 					obj.moveY += (touch.pageY-obj.lastY);
 					obj.moveX = (obj.moveX < -10)?-10:obj.moveX;
@@ -607,90 +604,90 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				}
 			});
 			
-			//Ğ¡Ã¨µÄÍÏ×§Í£Ö¹»Ø¸´CSS3¶¯»­
+			//å°çŒ«çš„æ‹–æ‹½åœæ­¢å›å¤CSS3åŠ¨ç”»
 			Hammer(J_ATBox).on('touchend', function(e) {
 				S.one(J_ATBox).css('-webkit-transition','all 0.2s 0s');
 			});
 			
-			//Ğ¡Ã¨³¤°´£¬Ò²ÄÜ¿ª¹Ø¿ì½İÍ¼Æ¬²ã
+			//å°çŒ«é•¿æŒ‰ï¼Œä¹Ÿèƒ½å¼€å…³å¿«æ·å›¾ç‰‡å±‚
 			Hammer(J_ATBox).on('hold', function(e) {
 				toggleNav();
 			});
 			
-			//ÏÂÒ»¸ö»î¶¯×¨Ìâ
+			//ä¸‹ä¸€ä¸ªæ´»åŠ¨ä¸“é¢˜
 			Hammer(S.get('#J_ListNext')).on('tap', function(e) {
-				//´Ë»õÀ´Íê³ÉÍ·Î²ÏÎ½Óo(¡É_¡É)o 
+				//æ­¤è´§æ¥å®Œæˆå¤´å°¾è¡”æ¥o(âˆ©_âˆ©)o 
 				phoneGlobal.goTheWay = true;
 				changeSubject(model.next);
 			});
 			
-			//ÉÏÒ»¸ö»î¶¯×¨Ìâ
+			//ä¸Šä¸€ä¸ªæ´»åŠ¨ä¸“é¢˜
 			Hammer(S.get('#J_ListPrev')).on('tap', function(e) {
 				phoneGlobal.goTheWay = false;
 				changeSubject(model.prev);
 			});
 			
-			//µã»÷ÊÕ²Ø
+			//ç‚¹å‡»æ”¶è—
 			Hammer(S.get('#J_SubjectFav')).on('tap', function(e) {
 				if(S.one('.subjectNavFavRun',S.get('#J_SubjectFav'))){
 					S.one('i',S.get('#J_SubjectFav')).removeClass('subjectNavFavRun');
-					phoneGlobal.showTip('È¡ÏûÊÕ²Ø£¡');
+					phoneGlobal.showTip('å–æ¶ˆæ”¶è—ï¼');
 				} else {
 					S.one('i',S.get('#J_SubjectFav')).addClass('subjectNavFavRun');
-					phoneGlobal.showTip('³É¹¦ÊÕ²Øµ±Ç°ÉÌÆ·£¡');
+					phoneGlobal.showTip('æˆåŠŸæ”¶è—å½“å‰å•†å“ï¼');
 				}
 			});
 			
-			//·ÖÏí²å¼ş
+			//åˆ†äº«æ’ä»¶
 			Hammer(S.get('#J_IShare')).on('tap', function(e) {
 				if(S.one('#J_IShareDemo').css('display') == 'none'){
 					S.one('#J_IShareDemo').css('display','block');
 				} else {
 					S.one('#J_IShareDemo').css('display','none');
-					phoneGlobal.showTip('ÒÑ¾­·ÖÏíµ½Î¢²©');
+					phoneGlobal.showTip('å·²ç»åˆ†äº«åˆ°å¾®åš');
 					setTimeout(function(){
-						KISSY.one('#J_TopNav').removeClass('subjectTopnavRun'); //¹Ø±Õ¶¥²¿µ¼º½
+						KISSY.one('#J_TopNav').removeClass('subjectTopnavRun'); //å…³é—­é¡¶éƒ¨å¯¼èˆª
 						topbarMark = false;
-					},600);
+					},1000);
 				}
 			});
 			
-			//µã»÷½øÈëÏêÇéÒ³
+			//ç‚¹å‡»è¿›å…¥è¯¦æƒ…é¡µ
 			Hammer(S.get('#J_ToDetail')).on('tap', function(e) {
 				location.href = S.one(S.query('.J_DblclickTo')[phoneGlobal.fsSlide.currentPoint]).attr('data-link');
 			});
 			
-			//Ğ¡Ã¨µÄ¹Ø±Õ
+			//å°çŒ«çš„å…³é—­
 			function aTBoxClouse(){
-				S.one(J_ATBox).css('-webkit-transform',phoneGlobal.transformMark);//»ØÒäĞ¡Ã¨µÄ¶¨Î»
-				phoneGlobal.transformMark = false;//g¸æÖªĞ¡Ã¨ÒÑ¾­±ÕºÏ
+				S.one(J_ATBox).css('-webkit-transform',phoneGlobal.transformMark);//å›å¿†å°çŒ«çš„å®šä½
+				phoneGlobal.transformMark = false;//gå‘ŠçŸ¥å°çŒ«å·²ç»é—­åˆ
 				
-				KISSY.one(J_ATBox).removeClass('startRun');//¿ªÊ¼ÅÜCSS3¶¯»­
+				KISSY.one(J_ATBox).removeClass('startRun');//å¼€å§‹è·‘CSS3åŠ¨ç”»
 				KISSY.one('.at-menu', J_ATBox).removeClass('atMenuRun');
 				
 				KISSY.one('#J_TopNav').removeClass('subjectTopnavRun');
-				mainButtonActive = true;//¼Ç×¡µã»÷ÆæÅ¼×´Ì¬
-				topbarMark = false;//¼Ç×¡µã»÷ÆæÅ¼×´Ì¬
+				mainButtonActive = true;//è®°ä½ç‚¹å‡»å¥‡å¶çŠ¶æ€
+				topbarMark = false;//è®°ä½ç‚¹å‡»å¥‡å¶çŠ¶æ€
 			}
 			phoneGlobal.aTBoxClouse = aTBoxClouse;
 			
-			//Ğ¡Ã¨µÄ´ò¿ª
+			//å°çŒ«çš„æ‰“å¼€
 			function aTBoxOpen(){
 				var _J_ATBox = S.one(J_ATBox);
 				
-				phoneGlobal.transformMark = _J_ATBox.css('-webkit-transform') || true;//¼Ç×¡Ğ¡Ã¨µÄ¶¨Î»
+				phoneGlobal.transformMark = _J_ATBox.css('-webkit-transform') || true;//è®°ä½å°çŒ«çš„å®šä½
 
 				_J_ATBox.css('-webkit-transform','translate(0px, 0px)');
 				itemDataRander();
 				
-				KISSY.one(J_ATBox).addClass('startRun');//¿ªÊ¼ÅÜCSS3¶¯»­
+				KISSY.one(J_ATBox).addClass('startRun');//å¼€å§‹è·‘CSS3åŠ¨ç”»
 				setTimeout(function(){KISSY.one('.at-menu', J_ATBox).addClass('atMenuRun');},200);
 
-				KISSY.one('#J_TopNav').addClass('subjectTopnavRun'); //¿ªÆô¶¥²¿µ¼º½
+				KISSY.one('#J_TopNav').addClass('subjectTopnavRun'); //å¼€å¯é¡¶éƒ¨å¯¼èˆª
 				mainButtonActive = false;
-				topbarMark = true;//¼Ç×¡µã»÷ÆæÅ¼×´Ì¬
+				topbarMark = true;//è®°ä½ç‚¹å‡»å¥‡å¶çŠ¶æ€
 			}
-			//¿ª·Å¸øµ±Ç°È«¾Ö
+			//å¼€æ”¾ç»™å½“å‰å…¨å±€
 			phoneGlobal.aTBoxOpen = aTBoxOpen;
 			
 			/**
@@ -698,11 +695,11 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 			 */
 			function changeSubject(id) {
 				// TODO 
-				// history api ¼æÈİPC¶ËºÍÊÖ»ú¶Ë£¬´¦Àíurl±ä¶¯£¨·Çhash£©
-				// ´¦Àíandroid back¼ü£¬¼àÌıhashchange
+				// history api å…¼å®¹PCç«¯å’Œæ‰‹æœºç«¯ï¼Œå¤„ç†urlå˜åŠ¨ï¼ˆéhashï¼‰
+				// å¤„ç†android backé”®ï¼Œç›‘å¬hashchange
 				//location.href = "sub.html?id=" + id;
 				
-				//ÓÃ²Î¼ÇÂ¼×Ô¼ºµÄlistId,Í¨ÖªÈ«¾Ö
+				//ç”¨å‚è®°å½•è‡ªå·±çš„listId,é€šçŸ¥å…¨å±€
 				phoneGlobal.listId = id;
 
 				if (phoneGlobal.goTheWay) {
@@ -717,13 +714,13 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				go(id);
 			}
 			
-			//¶¥²¿µ¼º½
+			//é¡¶éƒ¨å¯¼èˆª
 			function toggleTopNav(){
 				var top = parseInt($topNav.css('top'), 10);
 				$topNav.css('top', top < 0 ? 0 : '-44px');
 			}
 			
-			//µ×²¿²Ëµ¥µÄÏÔÒş
+			//åº•éƒ¨èœå•çš„æ˜¾éš
 			function toggleNav(review) {
 				var bottom = parseInt($nav.css('bottom'), 10),
 					_toggleNav = phoneGlobal.toggleNavMark;
@@ -740,27 +737,27 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
 				
 			}
 			
-			//¿ª·Å¸øµ±Ç°È«¾Ö
+			//å¼€æ”¾ç»™å½“å‰å…¨å±€
 			phoneGlobal.toggleNav = toggleNav;
 		}
 		
-		//¹«¹²º¯Êı
+		//å…¬å…±å‡½æ•°
 		function itemDataRander(){
-			//ĞŞ¸ÄÏêÇé¿ò¼ÜÀïÃæµÄÊı¾İ
+			//ä¿®æ”¹è¯¦æƒ…æ¡†æ¶é‡Œé¢çš„æ•°æ®
 			var dataItem = S.one(S.query('.subject-item')[phoneGlobal.fsSlide.currentPoint]);
 			S.get('#J_ItemTitle').innerHTML = dataItem.attr('data-title');
-			S.get('#J_ItemPrice').innerHTML = 'È«¹úÍ³Ò»:£¤' + dataItem.attr('data-price');	
+			S.get('#J_ItemPrice').innerHTML = 'å…¨å›½ç»Ÿä¸€:ï¿¥' + dataItem.attr('data-price');	
 		}
 
 		phoneInit();
     }
 
 	/**
-	 * PC¶Ë¹¹Ôì
+	 * PCç«¯æ„é€ 
 	 */
     function renderPc(model) {
 		
-		// PC¶ËÁĞ±íÄ£°å
+		// PCç«¯åˆ—è¡¨æ¨¡æ¿
 		var PC_LIST_TPL = new Xtpl([
 			'<ul class="j-subject-container subject-container">',
 			'{{#each data}}<li>',
@@ -803,10 +800,10 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
     }
 	
 	/**
-	 * resizeÖ÷ÒªÊÇÓÃÓÚÑİÊ¾ÓÃµÄ
+	 * resizeä¸»è¦æ˜¯ç”¨äºæ¼”ç¤ºç”¨çš„
 	 */
 	function resizePhone(){
-		var resizeLater = false;//ÓÃÓÚÑÓ³ÙÖ´ĞĞresize·ÀÖ¹ÊÂ¼ş¶Ñµş
+		var resizeLater = false;//ç”¨äºå»¶è¿Ÿæ‰§è¡Œresizeé˜²æ­¢äº‹ä»¶å †å 
 		S.Event.on(window,'resize',function(){
 			if(resizeLater){
 				clearTimeout(resizeLater);

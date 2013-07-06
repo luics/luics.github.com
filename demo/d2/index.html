@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>移动优先前端产品的探索</title>
+    <meta name="description" content="Web的出现正在彻底改变着生活的各个方面，FE这个职业的发展历程">
+    <meta name="author" content="徐凯 luics.xu@gmail.com">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script><![endif]-->
+
+    <base target="_blank"/>
+    <!--这么写更方便slide中插入script，此处忽略性能吧-->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.lightbox-0.5.pack.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen"/>
+</head>
+<body>
+<div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+        <style type="text/css">
+            .proto em {
+                /*color: #b10000;*/
+                font-weight: bold;
+                font-size: 110%;
+            }
+        </style>
+
+        <section data-markdown>
+            # 移动优先前端产品的探索
+            <br><br>
+            ### 天猫前端
+            #### [@徐凯-鬼道](http://weibo.com/77786515) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
+        </section>
+        <section data-markdown>
+            ## 移动优先
+
+            [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
+
+            * 流量暴涨
+            * 小屏专注
+            * 能力扩展
+        </section>
+        <section>
+            <section data-markdown>
+                ## 原型
+                [点击访问PC版](http://luics.github.io/demo/d2-demo/index.html)
+                <br>
+                或
+                <br>
+                <a href="http://luics.github.io/demo/d2-demo/demo/sub.html"><img style="width:300px;"
+                                                                                 src="http://ma.taobao.com/api/qrcode.html?activity=encode&text=http%253A%252F%252Fluics.github.io%252Fdemo%252Fd2-demo%252Findex.html&width=300&height=300&ecLevel=L&characterSet=gbk&t=1372599739542"
+                                                                                 alt="Mobile"/></a>
+            </section>
+            <section data-markdown>
+                ## 原型：Mobile
+                <br>
+                <iframe src="http://luics.github.io/demo/d2-demo/demo/sub.html" frameborder="0"
+                        style="width: 320px; height: 533px"></iframe>
+            </section>
+            <section data-markdown>
+                ## 「加法」过程
+
+                0. 屏幕太小，什么内容是要突出显示的？
+                0. 专辑图片显然需要突出显示，推向极端情况：全屏
+                0. 全屏图片带来了导航的问题：专辑内导航、专辑间导航
+                0. 专辑内导航：左右手势、底部导航
+                0. 专辑间导航：侧栏导航
+                0. 更多「附加」功能：分享、收藏
+                0. 对比PC，目前pc专辑没有易用的专辑间导航
+            </section>
+            <section data-markdown>
+                ## 「减法」过程
+
+                0. PC Web 更早出现
+                0. 传统设计中地「减法」
+            </section>
+            <section>
+                <h2>专辑内导航</h2>
+
+                <div id="multiview">
+                    <a href="img/historyapi-multiview%201.png"><img height="250" src="img/historyapi-multiview%201.png"
+                                                                    alt=""/></a>
+                    <a href="img/hashbang-multiview%201.png"><img height="250" src="img/hashbang-multiview%201.png"
+                                                                  alt=""/></a>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#multiview a').lightBox();
+                    });
+                </script>
+            </section>
+            <section>
+                <h2>专辑间导航</h2>
+
+                <div id="multipage">
+                    <a href="img/historyapi-multipage%201.png"><img width="400" src="img/historyapi-multipage%201.png"
+                                                                    alt=""/></a>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#multipage a').lightBox();
+                    });
+                </script>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>原型关注点</h2>
+                <div>
+                    <ul class="proto">
+                        <li><em>一致入口</em></li>
+                        <li><em>一套数据</em></li>
+                        <li><em>多套模板</em></li>
+                        <li><em>多个项目</em></li>
+                    </ul>
+                    <aside class="notes">
+                        在pc和移动的融合上，天猫前端这边以天猫专辑为参考做了一个技术验证原型（以下简称原型）：
+                    </aside>
+                </div>
+            </section>
+            <section data-markdown>
+                ## 一致入口
+                考虑这类场景，天猫某pc页面分享到微博，用户在手机微博上访问分享link；反之亦然
+
+                【图示】
+            </section>
+            <section data-markdown>
+                ## 一套数据
+                后端向所有终端只提供一套数据，避免每个终端重复繁琐的接入过程
+
+                <img height="500" src="img/if-struct.png" alt=""/>
+            </section>
+            <section data-markdown>
+                ## 多套模板
+                不同终端使用不同的模板，移动端更多关注移动特有的交互属性
+
+            </section>
+            <section data-markdown>
+                ## 多个项目
+
+                * [天猫专辑](#)
+                * [一周新发现](#)
+                * [今日最大牌](#)
+                * [品牌街](#)
+                * [天猫预售](#)
+                * [品牌特卖](#)
+                * ...
+            </section>
+        </section>
+        <section data-markdown>
+            ## Q & A
+            <br><br>
+            ### 天猫前端
+            #### [@徐凯-鬼道](http://weibo.com/77786515) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+{
+    "success": true,
+    "model": {
+        "id": "3",
+        "prev": "2",
+        "next": "4",
+        "list": {
+            "data": [
+                {
+					"itemId" : 5167571956,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/99910504/T2ZCbsXdxaXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.4.w8252177186.4.UeUpGs&id=5167571956",
+                    "skuName": "【特价】金三塔 100%桑蚕丝内裤 超舒感女士真丝无痕极细针低腰平",
+                    "skuPrice": "58.29",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 13610583087,
+                    "skuImgUrl": "http://img03.taobaocdn.com/imgextra/i3/99910504/T2pqztXm0XXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.4.w8252177186.13.UeUpGs&id=13610583087",
+                    "skuName": "金三塔100%桑蚕丝 女士内裤 4根丝无侧缝中腰真丝小平脚内裤",
+                    "skuPrice": "47.70",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 13579933723,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/99910504/T2tqHcXddbXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.3.w1625323165.28.F2m331&id=13579933723&",
+                    "skuName": "金三塔100%桑蚕丝女中腰小平脚内裤4根丝升级版",
+                    "skuPrice": "48.86",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 2684593008,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/99910504/T2ThlIXbVbXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.3.w1625323165.25.F2m331&id=2684593008&",
+                    "skuName": "金三塔 100%桑蚕丝 女士夏季真丝抗菌低腰内裤 薄款无痕三角内裤",
+                    "skuPrice": "39.01",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 17573891268,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/99910504/T2i7ntXc8XXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.4.w8252177186.19.UeUpGs&id=17573891268",
+                    "skuName": "金三塔 女真丝氨纶镶蕾丝高腰三角裤",
+                    "skuPrice": "93.60",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 17756488529,
+                    "skuImgUrl": "http://img02.taobaocdn.com/imgextra/i2/99910504/T2jD1_XX0bXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.4.w8252177188.4.UeUpGs&id=17756488529",
+                    "skuName": "金三塔 春夏季100%桑蚕丝女蕾丝吊带衫防走光抹胸裹胸 肩带可调节",
+                    "skuPrice": "79.00",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 13610583087,
+                    "skuImgUrl": "http://img03.taobaocdn.com/imgextra/i3/99910504/T2pqztXm0XXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.4.w8252177186.13.UeUpGs&id=13610583087",
+                    "skuName": "金三塔100%桑蚕丝 女士内裤 4根丝无侧缝中腰真丝小平脚内裤",
+                    "skuPrice": "47.70",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 13579933723,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/99910504/T2tqHcXddbXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.3.w1625323165.28.F2m331&id=13579933723&",
+                    "skuName": "金三塔100%桑蚕丝女中腰小平脚内裤4根丝升级版",
+                    "skuPrice": "48.86",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 2684593008,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/99910504/T2ThlIXbVbXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.3.w1625323165.25.F2m331&id=2684593008&",
+                    "skuName": "金三塔 100%桑蚕丝 女士夏季真丝抗菌低腰内裤 薄款无痕三角内裤",
+                    "skuPrice": "39.01",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 17573891268,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/99910504/T2i7ntXc8XXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.4.w8252177186.19.UeUpGs&id=17573891268",
+                    "skuName": "金三塔 女真丝氨纶镶蕾丝高腰三角裤",
+                    "skuPrice": "93.60",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 17573891268,
+                    "skuImgUrl": "http://img04.taobaocdn.com/imgextra/i4/99910504/T2i7ntXc8XXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.4.w8252177186.19.UeUpGs&id=17573891268",
+                    "skuName": "金三塔 女真丝氨纶镶蕾丝高腰三角裤",
+                    "skuPrice": "93.60",
+                    "width": 300,
+                    "height": 625
+                },
+                {
+					"itemId" : 17756488529,
+                    "skuImgUrl": "http://img02.taobaocdn.com/imgextra/i2/99910504/T2jD1_XX0bXXXXXXXX_!!99910504.jpg",
+                    "skuClickUrl": "http://detail.tmall.com/item.htm?spm=a1z10.4.w8252177188.4.UeUpGs&id=17756488529",
+                    "skuName": "金三塔 春夏季100%桑蚕丝女蕾丝吊带衫防走光抹胸裹胸 肩带可调节",
+                    "skuPrice": "79.00",
+                    "width": 300,
+                    "height": 625
+                }
+            ]
+        }
+    }
+}
