@@ -35,3 +35,11 @@ Reveal.initialize({
         // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
     ]
 });
+
+
+$(function() {
+    $('#problem a').lightBox();
+    $('#multiview a').lightBox();
+    $('#multipage a').lightBox();
+    $('#if a').lightBox();
+});

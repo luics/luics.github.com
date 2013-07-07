@@ -28,9 +28,14 @@
 </head>
 <body>
 <div class="reveal">
-    <!-- Any section element inside of this container is displayed as a slide -->
-    <div class="slides">
+    <!--CASE 易读性，避免上下导航 -->
+    <!--CASE 使用演讲视图 -->
+    <!--TODO lightbox image size control？ -->
+    <!--TODO 专辑demo所有图片下载到本地，防止现场无wifi的情况 -->
+    <!--TODO 寻找一枚适合在页面上做标记的chrome插件 -->
+    <!--TODO revealjs 是否有markdown渲染完毕的事件？ -->
 
+    <div class="slides">
         <style type="text/css">
             .proto em {
                 /*color: #b10000;*/
@@ -38,128 +43,160 @@
                 font-size: 110%;
             }
         </style>
-
         <section data-markdown>
             # 移动优先前端产品的探索
             <br><br>
             ### 天猫前端
             #### [@徐凯-鬼道](http://weibo.com/77786515) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
         </section>
+        <section>
+            <h2>天猫现状</h2>
+            <div id="problem">
+                <a href="img/seller.png"><img height="250" src="img/seller.png"
+                                              alt=""/></a>
+                <a href="img/tmall.png"><img height="250" src="img/tmall.png"
+                                             alt=""/></a>
+            </div>
+            <ol>
+                <li>导购渠道碎片化：消费者在各个导购渠道上看到的核心业务不一致</li>
+                <li>商家和小二各导购渠道运营需求无法满足</li>
+                <li>实施成本高，基础设施重复建设</li>
+            </ol>
+        </section>
         <section data-markdown>
             ## 移动优先
-
             [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
 
-            * 流量暴涨
-            * 小屏专注
-            * 能力扩展
+            1. 流量暴涨 <!--TODO 搜索：2012？移动流量首次超过pc，目前移动流量增长速度如何？-->
+            2. 小屏专注
+            3. 能力扩展
+        </section>
+        <section data-markdown>
+            ## 天猫眼中的移动优先
+            1. 移动端的用户越来越多，成为主流
+            2. 各种屏幕让我们更聚焦业务的本质
+            3. 新移动设备有更先进的人机交互体验，代表未来
+        </section>
+        <section data-markdown>
+            ## 解决方案
+            1. 内容开发过程中, 优先考虑最小最重要的移动端,然后适配到所有终端,同时能够为其他终端提供适当差异化的能力
+            2. 为了确保核心内容(非视觉效果)在不同终端上的一致 性, 自动适配会遵循事先制定好的核心内容规则
+        </section>
+        <section data-markdown>
+            ## 方案价值
+            1. 商家：天猫提供把服务低成本推送到任何终端的能⼒
+            2. 消费者：天猫提供从任何终端能够快速达到天猫的能⼒
+            3. 最终：所有互动数据在天猫上沉淀下来更好地服务商家和消费者
+        </section>
+        <section data-markdown>
+            ## 原型
+            「技术验证原型」
+
+            [点击访问PC版](http://luics.github.io/demo/d2-demo/index.html)
+            <br>
+            或
+            <br>
+            <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">
+                <img style="width:300px;"
+                     src="http://ma.taobao.com/api/qrcode.html?activity=encode&text=http%253A%252F%252Fluics.github.io%252Fdemo%252Fd2-demo%252Findex.html&width=300&height=300&ecLevel=L&characterSet=gbk&t=1372599739542"/></a>
+        </section>
+        <section data-markdown>
+            ## 原型：Mobile
+            <br>
+            <iframe src="http://luics.github.io/demo/d2-demo/demo/sub.html" frameborder="0"
+                    style="width: 320px; height: 533px"></iframe>
+        </section>
+        <section data-markdown>
+            ## 原型：「加法」过程
+
+            0. 屏幕太小，什么是核心内容？
+            0. 核心内容，专辑图片显然需要突出显示，是核心内容，如何突出？
+            0. 突出显示，首先想到了全屏
+            0. 导航问题，全屏图片带来了：专辑内导航、专辑间导航
+            0. 专辑内导航，左右手势、底部导航
+            0. 专辑间导航，侧栏导航
+            0. 附加功能：分享、收藏
+            0. 反观pc专辑，却没有易用的专辑间导航
+        </section>
+        <section data-markdown>
+            ## 传统：「减法」过程
+
+            0. PC Web 更早出现
+            0. 传统设计中的「减法」
         </section>
         <section>
-            <section data-markdown>
-                ## 原型
-                [点击访问PC版](http://luics.github.io/demo/d2-demo/index.html)
-                <br>
-                或
-                <br>
-                <a href="http://luics.github.io/demo/d2-demo/demo/sub.html"><img style="width:300px;"
-                                                                                 src="http://ma.taobao.com/api/qrcode.html?activity=encode&text=http%253A%252F%252Fluics.github.io%252Fdemo%252Fd2-demo%252Findex.html&width=300&height=300&ecLevel=L&characterSet=gbk&t=1372599739542"
-                                                                                 alt="Mobile"/></a>
-            </section>
-            <section data-markdown>
-                ## 原型：Mobile
-                <br>
-                <iframe src="http://luics.github.io/demo/d2-demo/demo/sub.html" frameborder="0"
-                        style="width: 320px; height: 533px"></iframe>
-            </section>
-            <section data-markdown>
-                ## 「加法」过程
-
-                0. 屏幕太小，什么内容是要突出显示的？
-                0. 专辑图片显然需要突出显示，推向极端情况：全屏
-                0. 全屏图片带来了导航的问题：专辑内导航、专辑间导航
-                0. 专辑内导航：左右手势、底部导航
-                0. 专辑间导航：侧栏导航
-                0. 更多「附加」功能：分享、收藏
-                0. 对比PC，目前pc专辑没有易用的专辑间导航
-            </section>
-            <section data-markdown>
-                ## 「减法」过程
-
-                0. PC Web 更早出现
-                0. 传统设计中地「减法」
-            </section>
-            <section>
-                <h2>专辑内导航</h2>
-
-                <div id="multiview">
-                    <a href="img/historyapi-multiview%201.png"><img height="250" src="img/historyapi-multiview%201.png"
-                                                                    alt=""/></a>
-                    <a href="img/hashbang-multiview%201.png"><img height="250" src="img/hashbang-multiview%201.png"
-                                                                  alt=""/></a>
-                </div>
-                <script type="text/javascript">
-                    $(function() {
-                        $('#multiview a').lightBox();
-                    });
-                </script>
-            </section>
-            <section>
-                <h2>专辑间导航</h2>
-
-                <div id="multipage">
-                    <a href="img/historyapi-multipage%201.png"><img width="400" src="img/historyapi-multipage%201.png"
-                                                                    alt=""/></a>
-                </div>
-                <script type="text/javascript">
-                    $(function() {
-                        $('#multipage a').lightBox();
-                    });
-                </script>
-            </section>
+            <h2>专辑内导航</h2>
+            <div id="multiview">
+                <a href="img/hashbang-multiview%201.png"><img height="250"
+                                                              src="img/hashbang-multiview%201.png"/></a>
+                <a href="img/historyapi-multiview%201.png"><img height="250"
+                                                                src="img/historyapi-multiview%201.png"/></a>
+            </div>
+            <ul>
+                <li><a href="html5demos.com/history">History-API Demo</a></li>
+                <li><a href="https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling">History API 与 Hashbang 的对比</a></li>
+            </ul>
+            <aside class="notes">
+                对比2种方案：history-api对搜索引擎更友好，实现成本更大
+            </aside>
         </section>
         <section>
-            <section>
-                <h2>原型关注点</h2>
-                <div>
-                    <ul class="proto">
-                        <li><em>一致入口</em></li>
-                        <li><em>一套数据</em></li>
-                        <li><em>多套模板</em></li>
-                        <li><em>多个项目</em></li>
-                    </ul>
-                    <aside class="notes">
-                        在pc和移动的融合上，天猫前端这边以天猫专辑为参考做了一个技术验证原型（以下简称原型）：
-                    </aside>
+            <h2>专辑间导航</h2>
+            <div id="multipage">
+                <a href="img/historyapi-multipage%201.png"><img width="400" src="img/historyapi-multipage%201.png"/></a>
+            </div>
+        </section>
+        <section data-markdown>
+            ## 原型关注点
+            1. 一致入口
+            2. 一套数据
+            3. 多套模板
+            4. 多个项目
+
+            <aside class="notes">
+                在pc和移动的融合上，天猫前端这边以天猫专辑为参考做了一个技术验证原型（以下简称原型）：
+            </aside>
+        </section>
+        <section data-markdown>
+            ## 一致入口 <!--TODO 配图说明-->
+            0. 考虑：天猫某pc页面分享到微博，用户在手机微博上访问分享链接
+            0. 上述情况的逆向
+            0. 多样的实现方式：单URL、多URL
+        </section>
+        <section>
+            <h2>一套数据</h2>
+            <div>
+                <ol>
+                    <li>后端向所有终端只提供一套数据</li>
+                    <li>避免每个终端重复繁琐的接入过程</li>
+                </ol>
+                <div id="if">
+                    <a href="img/if-struct.png"><img height="300" src="img/if-struct.png"/></a>
+                    <a href="img/if.png"><img height="300" src="img/if.png"/></a>
                 </div>
-            </section>
-            <section data-markdown>
-                ## 一致入口
-                考虑这类场景，天猫某pc页面分享到微博，用户在手机微博上访问分享link；反之亦然
-
-                【图示】
-            </section>
-            <section data-markdown>
-                ## 一套数据
-                后端向所有终端只提供一套数据，避免每个终端重复繁琐的接入过程
-
-                <img height="500" src="img/if-struct.png" alt=""/>
-            </section>
-            <section data-markdown>
-                ## 多套模板
-                不同终端使用不同的模板，移动端更多关注移动特有的交互属性
-
-            </section>
-            <section data-markdown>
-                ## 多个项目
-
-                * [天猫专辑](#)
-                * [一周新发现](#)
-                * [今日最大牌](#)
-                * [品牌街](#)
-                * [天猫预售](#)
-                * [品牌特卖](#)
-                * ...
-            </section>
+            </div>
+        </section>
+        <section data-markdown>
+            ## 多套模板
+            0. 不同终端使用不同的模板
+            0. 移动端更多关注移动特有的交互属性
+        </section>
+        <section data-markdown>
+            ## 多个项目 <!--TODO 确认合适的项目、并补齐所有链接-->
+            * **[天猫专辑](#)**
+            * [一周新发现](#)
+            * [今日最大牌](#)
+            * [品牌街](#)
+            * [天猫预售](#)
+            * [品牌特卖](#)
+            * ...
+        </section>
+        <section data-markdown>
+            ## 未来
+            0. 一致入口：MED（多终端检测，Multi End Detector）
+            0. 一套数据：IF （天猫前后端接口, tmall InterFace）
+            0. 多套模板：高度可定制的模板系统
+            0. 多个项目：刚启航，[欢迎交流、自荐、推荐](http://weibo.com/77786515)
         </section>
         <section data-markdown>
             ## Q & A
@@ -173,5 +210,8 @@
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
 <script src="js/index.js"></script>
+<script>
+
+</script>
 </body>
 </html>
