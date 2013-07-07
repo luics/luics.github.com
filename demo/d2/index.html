@@ -31,9 +31,10 @@
     <!--CASE 易读性，避免上下导航 -->
     <!--CASE 使用演讲视图 -->
     <!--TODO lightbox image size control？ -->
-    <!--TODO 专辑demo所有图片下载到本地，防止现场无wifi的情况 -->
+    <!--TODO 确认现场wifi的情况，可能要考虑专辑demo所有图片下载到本地 -->
     <!--TODO 寻找一枚适合在页面上做标记的chrome插件 -->
-    <!--TODO revealjs 是否有markdown渲染完毕的事件？ -->
+    <!--CASE revealjs 是否有markdown渲染完毕的事件？ 
+    Reveal.addEventListener('slidechanged', function(){}); -->
 
     <div class="slides">
         <style type="text/css">
@@ -49,19 +50,17 @@
             ### 天猫前端
             #### [@徐凯-鬼道](http://weibo.com/77786515) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
         </section>
-        <section>
-            <h2>天猫现状</h2>
+        <section data-markdown>
+            ## 天猫现状
             <div id="problem">
                 <a href="img/seller.png"><img height="250" src="img/seller.png"
                                               alt=""/></a>
                 <a href="img/tmall.png"><img height="250" src="img/tmall.png"
                                              alt=""/></a>
             </div>
-            <ol>
-                <li>导购渠道碎片化：消费者在各个导购渠道上看到的核心业务不一致</li>
-                <li>商家和小二各导购渠道运营需求无法满足</li>
-                <li>实施成本高，基础设施重复建设</li>
-            </ol>
+            1. 导购渠道碎片化：消费者在各个导购渠道上看到的核心业务不一致
+            2. 商家和小二各导购渠道运营需求无法满足
+            3. 实施成本高，基础设施重复建设
         </section>
         <section data-markdown>
             ## 移动优先
@@ -124,7 +123,7 @@
             0. PC Web 更早出现
             0. 传统设计中的「减法」
         </section>
-        <section>
+        <section data-markdown>
             <h2>专辑内导航</h2>
             <div id="multiview">
                 <a href="img/hashbang-multiview%201.png"><img height="250"
@@ -132,10 +131,8 @@
                 <a href="img/historyapi-multiview%201.png"><img height="250"
                                                                 src="img/historyapi-multiview%201.png"/></a>
             </div>
-            <ul>
-                <li><a href="html5demos.com/history">History-API Demo</a></li>
-                <li><a href="https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling">History API 与 Hashbang 的对比</a></li>
-            </ul>
+            * [History-API Demo](http://html5demos.com/history)
+            * [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
             <aside class="notes">
                 对比2种方案：history-api对搜索引擎更友好，实现成本更大
             </aside>
@@ -152,37 +149,32 @@
             2. 一套数据
             3. 多套模板
             4. 多个项目
-
             <aside class="notes">
                 在pc和移动的融合上，天猫前端这边以天猫专辑为参考做了一个技术验证原型（以下简称原型）：
             </aside>
         </section>
         <section data-markdown>
-            ## 一致入口 <!--TODO 配图说明-->
+            ## 1. 一致入口 <!--TODO 配图说明-->
             0. 考虑：天猫某pc页面分享到微博，用户在手机微博上访问分享链接
             0. 上述情况的逆向
             0. 多样的实现方式：单URL、多URL
         </section>
-        <section>
-            <h2>一套数据</h2>
-            <div>
-                <ol>
-                    <li>后端向所有终端只提供一套数据</li>
-                    <li>避免每个终端重复繁琐的接入过程</li>
-                </ol>
-                <div id="if">
-                    <a href="img/if-struct.png"><img height="300" src="img/if-struct.png"/></a>
-                    <a href="img/if.png"><img height="300" src="img/if.png"/></a>
-                </div>
+        <section data-markdown>
+            ## 2. 一套数据
+            1. 后端向所有终端只提供一套数据
+            2. 避免每个终端重复繁琐的接入过程
+            <div id="if">
+                <a href="img/if-struct.png"><img height="300" src="img/if-struct.png"/></a>
+                <a href="img/if.png"><img height="300" src="img/if.png"/></a>
             </div>
         </section>
         <section data-markdown>
-            ## 多套模板
+            ## 3. 多套模板
             0. 不同终端使用不同的模板
             0. 移动端更多关注移动特有的交互属性
         </section>
         <section data-markdown>
-            ## 多个项目 <!--TODO 确认合适的项目、并补齐所有链接-->
+            ## 4. 多个项目 <!--TODO 确认合适的项目、并补齐所有链接-->
             * **[天猫专辑](#)**
             * [一周新发现](#)
             * [今日最大牌](#)

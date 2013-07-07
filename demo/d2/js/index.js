@@ -36,8 +36,8 @@ Reveal.initialize({
     ]
 });
 
-
-$(function() {
+Reveal.addEventListener('slidechanged', function(event) {
+    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
     $('#problem a').lightBox();
     $('#multiview a').lightBox();
     $('#multipage a').lightBox();
