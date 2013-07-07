@@ -36,10 +36,9 @@ Reveal.initialize({
     ]
 });
 
-Reveal.addEventListener('slidechanged', function(event) {
-    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-    $('#problem a').lightBox();
-    $('#multiview a').lightBox();
-    $('#multipage a').lightBox();
-    $('#if a').lightBox();
+Reveal.addEventListener('ready', function(event) {
+    $.each($('.lightbox-wrapper'), function(i, wrapper) {
+        console.log(wrapper);
+        $(wrapper).find('a[data-notlb!="1"]').lightBox();
+    });
 });

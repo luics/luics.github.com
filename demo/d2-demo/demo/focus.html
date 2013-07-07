@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="gbk">
+    <title>Focus Site</title>
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js" ></script>
+    <link rel="stylesheet" href="focus.css">
+</head>
+<body>
+<div class="head">
+    <div class="head-wrap">
+        <h1 class="logo">Focus Site</h1>
+        <div class="type-box" id="J_Type">
+            <label class="type select"><input class="inp-check j_type" type="radio"name="type" value="Phone" checked="checked" />Phone</label>
+            <label class="type"><input class="inp-check j_type" type="radio" name="type" value="Pad" />Pad</label>
+            <label class="type"><input class="inp-check j_type" type="radio" name="type" value="Mac" />Mac</label>
+        </div>
+        <input type="url" autofocus="autofocus" id="J_Text" placeholder="输入你要测试的页面地址" class="inp-text"/>
+        <span id="J_Sub" class="inp-btn">测试页面效果</span>
+        <div class="qrcode" id="J_QrCode"></div>
+    </div>
+</div>
+<div class="bd" id="J_Content">
+    <div class="phone-box j_showBox" id="J_Phone" data-show="show">
+        <div class="item iphone4s"><iframe class="j_showIframe" src=""></iframe></div>
+        <div class="item Android"><iframe class="j_showIframe" src=""></iframe></div>
+    </div>
+    <div class="pad-box j_showBox hidden" id="J_Pad"></div>
+    <div class="mac-box j_showBox Mac15 hidden" id="J_Mac"></div>
+</div>
+<script src="focus.js"></script>
+</body>
+</html>

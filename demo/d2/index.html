@@ -28,13 +28,16 @@
 </head>
 <body>
 <div class="reveal">
+    <!--TODO 确认现场wifi的情况，可能要考虑专辑demo所有图片下载到本地 -->
+    <!--TODO 通知闭月，focus会再d2上演示 -->
     <!--CASE 易读性，避免上下导航 -->
     <!--CASE 使用演讲视图 -->
-    <!--TODO lightbox image size control？ -->
-    <!--TODO 确认现场wifi的情况，可能要考虑专辑demo所有图片下载到本地 -->
-    <!--TODO 寻找一枚适合在页面上做标记的chrome插件 -->
     <!--CASE revealjs 是否有markdown渲染完毕的事件？ 
-    Reveal.addEventListener('slidechanged', function(){}); -->
+      Reveal.addEventListener('slidechanged', function(){}); -->
+    <!--CASE lightbox image size control？
+      看dom结构应该不好弄，需要改源码了 -->
+    <!--CASE 寻找一枚适合在页面上做标记的chrome插件 
+      找到的都是文字高亮，没有直接绘图的 -->
 
     <div class="slides">
         <style type="text/css">
@@ -52,34 +55,35 @@
         </section>
         <section data-markdown>
             ## 天猫现状
-            <div id="problem">
-                <a href="img/seller.png"><img height="250" src="img/seller.png"
-                                              alt=""/></a>
-                <a href="img/tmall.png"><img height="250" src="img/tmall.png"
-                                             alt=""/></a>
+            <div class="lightbox-wrapper">
+                <a href="img/seller.png" height="100" title="商家烦恼"><img height="250" src="img/seller.png"/></a>
+                <a href="img/tmall.png" title="天猫现状"><img height="250" src="img/tmall.png"/></a>
             </div>
-            1. 导购渠道碎片化：消费者在各个导购渠道上看到的核心业务不一致
-            2. 商家和小二各导购渠道运营需求无法满足
-            3. 实施成本高，基础设施重复建设
+            <ol class="lightbox-wrapper">
+                <li class="fragment">导购渠道碎片化：消费者在各个导购渠道上看到的<a href="img/cnnic-user-201304.png" title="">核心业务不一致</a>
+                </li>
+                <li class="fragment">商家和小二各导购渠道运营需求无法满足</li>
+                <li class="fragment">实施成本高，基础设施重复建设</li>
+            </ol>
         </section>
         <section data-markdown>
             ## 移动优先
             [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
 
-            1. 流量暴涨 <!--TODO 搜索：2012？移动流量首次超过pc，目前移动流量增长速度如何？-->
-            2. 小屏专注
-            3. 能力扩展
-        </section>
-        <section data-markdown>
-            ## 天猫眼中的移动优先
-            1. 移动端的用户越来越多，成为主流
-            2. 各种屏幕让我们更聚焦业务的本质
-            3. 新移动设备有更先进的人机交互体验，代表未来
+            <ol class="lightbox-wrapper">
+                <li class="fragment"><a href="img/cnnic-user-201304.png" title="中国移动互联网发展状况报告 2013.04">流量暴涨</a><a
+                        href="img/baidu-time-13q1.png" title="百度移动互联网发展趋势报告 2013年Q1"></a>：移动端的用户和流量越来越多
+                </li>
+                <li class="fragment">小屏专注：各种屏幕让我们更聚焦业务的本质</li>
+                <li class="fragment">能力扩展：移动设备有更先进的人机<a data-notlb="1"
+                                                        href="https://github.com/kissyteam/kissy-mobile/issues/3">交互体验</a>
+                </li>
+            </ol>
         </section>
         <section data-markdown>
             ## 解决方案
-            1. 内容开发过程中, 优先考虑最小最重要的移动端,然后适配到所有终端,同时能够为其他终端提供适当差异化的能力
-            2. 为了确保核心内容(非视觉效果)在不同终端上的一致 性, 自动适配会遵循事先制定好的核心内容规则
+            1. 内容开发过程中，优先考虑最小最重要的移动端，然后适配到所有终端，同时能够为其他终端提供适当差异化的能力
+            2. 为了确保核心内容(非视觉效果)在不同终端上的一致性，自动适配会遵循事先制定好的核心内容规则
         </section>
         <section data-markdown>
             ## 方案价值
@@ -107,29 +111,27 @@
         </section>
         <section data-markdown>
             ## 原型：「加法」过程
-
             0. 屏幕太小，什么是核心内容？
-            0. 核心内容，专辑图片显然需要突出显示，是核心内容，如何突出？
+            0. 核心内容，专辑图片显然是核心内容，如何突出？
             0. 突出显示，首先想到了全屏
-            0. 导航问题，全屏图片带来了：专辑内导航、专辑间导航
+            0. 导航问题，专辑内导航、专辑间导航
             0. 专辑内导航，左右手势、底部导航
             0. 专辑间导航，侧栏导航
-            0. 附加功能：分享、收藏
+            0. 附加功能，分享、收藏
             0. 反观pc专辑，却没有易用的专辑间导航
         </section>
         <section data-markdown>
             ## 传统：「减法」过程
-
             0. PC Web 更早出现
-            0. 传统设计中的「减法」
+            0. 运营驱动
         </section>
         <section data-markdown>
             <h2>专辑内导航</h2>
-            <div id="multiview">
-                <a href="img/hashbang-multiview%201.png"><img height="250"
-                                                              src="img/hashbang-multiview%201.png"/></a>
-                <a href="img/historyapi-multiview%201.png"><img height="250"
-                                                                src="img/historyapi-multiview%201.png"/></a>
+            <div class="lightbox-wrapper">
+                <a href="img/hashbang-multiview%201.png" title="基于hashbang的专辑内导购"><img height="250"
+                                                                                       src="img/hashbang-multiview%201.png"/></a>
+                <a href="img/historyapi-multiview%201.png" title="基于history-api的专辑内导购"><img height="250"
+                                                                                            src="img/historyapi-multiview%201.png"/></a>
             </div>
             * [History-API Demo](http://html5demos.com/history)
             * [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
@@ -139,8 +141,9 @@
         </section>
         <section>
             <h2>专辑间导航</h2>
-            <div id="multipage">
-                <a href="img/historyapi-multipage%201.png"><img width="400" src="img/historyapi-multipage%201.png"/></a>
+            <div class="lightbox-wrapper">
+                <a href="img/historyapi-multipage%201.png" title="专辑间导购方案"><img width="400"
+                                                                                src="img/historyapi-multipage%201.png"/></a>
             </div>
         </section>
         <section data-markdown>
@@ -163,7 +166,7 @@
             ## 2. 一套数据
             1. 后端向所有终端只提供一套数据
             2. 避免每个终端重复繁琐的接入过程
-            <div id="if">
+            <div class="lightbox-wrapper">
                 <a href="img/if-struct.png"><img height="300" src="img/if-struct.png"/></a>
                 <a href="img/if.png"><img height="300" src="img/if.png"/></a>
             </div>
