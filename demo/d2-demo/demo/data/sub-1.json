@@ -22,8 +22,8 @@
                     "skuClickUrl": "http://detail.tmall.com/item.htm?spm=0.0.0.0.VFvYVv&id=22249312658",
                     "skuName": "季候风2013新品春装 通勤简约修身中长款镂空开衫毛衣外套女装",
                     "skuPrice": "247.97",
-                    "width":150,
-                    "height":310
+                    "width":170,
+                    "height":340
                 },
                 {
 					"itemId" : 22249672704,
@@ -31,8 +31,8 @@
                     "skuClickUrl": "http://detail.tmall.com/item.htm?id=22249672704",
                     "skuName": "季候风2013新品春装 欧美复古拼接撞色桑蚕丝修身系带连衣裙",
                     "skuPrice": "397.98",
-                    "width":150,
-                    "height":310
+                    "width":180,
+                    "height":340
                 },
                 {
 					"itemId" : 22253172178,
@@ -76,7 +76,7 @@
                     "skuClickUrl": "http://detail.tmall.com/item.htm?id=22253416706",
                     "skuName": "特卖惠【满188减20】季候风 甜美公主通勤印染长袖修身毛针织衫女",
                     "skuPrice": "148.98",
-                    "width":170,
+                    "width":175,
                     "height":340
                 }
             ]
