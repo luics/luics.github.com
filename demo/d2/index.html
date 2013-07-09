@@ -28,81 +28,248 @@
 </head>
 <body>
 <div class="reveal">
-    <!--TODO 确认现场wifi的情况，可能要考虑专辑demo所有图片下载到本地 
-      已确认，可能比较烂，要有本地服务器 -->
-    <!--TODO 使用演讲视图 -->
-    <!--TODO 强烈推荐调试一遍投影仪 -->
-    <!--CASE 通知闭月，focus会再d2上演示 -->
-    <!--CASE 易读性，避免上下导航 -->
-    <!--CASE revealjs 是否有markdown渲染完毕的事件？ 
-      Reveal.addEventListener('slidechanged', function(){}); -->
-    <!--CASE lightbox image size control？
-      看dom结构应该不好弄，需要改源码了 -->
-    <!--CASE 寻找一枚适合在页面上做标记的chrome插件 
-      找到的都是文字高亮，没有直接绘图的 -->
+<!--TODO 确认现场wifi的情况，可能要考虑专辑demo所有图片下载到本地 
+  已确认，可能比较烂，要有本地服务器 -->
+<!--TODO 使用演讲视图 -->
+<!--TODO 强烈推荐调试一遍投影仪 -->
+<!--CASE 通知闭月，focus会再d2上演示 -->
+<!--CASE 易读性，避免上下导航 -->
+<!--CASE revealjs 是否有markdown渲染完毕的事件？ 
+  Reveal.addEventListener('slidechanged', function(){}); -->
+<!--CASE lightbox image size control？
+  看dom结构应该不好弄，需要改源码了 -->
+<!--CASE 寻找一枚适合在页面上做标记的chrome插件 
+  找到的都是文字高亮，没有直接绘图的 -->
 
-    <div class="slides">
-        <section data-markdown>
-            # 移动优先跨终端的Web的解决方案
-            <br><br>
-            ### 天猫前端
-            #### [@徐凯-鬼道](http://weibo.com/77786515) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
-        </section>
-        <section data-markdown>
-            ## 现状
-            <div class="lightbox-wrapper">
-                <a href="img/seller.png" height="100" title="商家烦恼"><img height="250" src="img/seller.png"/></a>
-                <a href="img/tmall.png" title="天猫现状"><img height="250" src="img/tmall.png"/></a>
-            </div>
-            <ol class="lightbox-wrapper">
-                <li class="fragment"><a
-                        data-notlb="1"
-                        href="http://focus.peaches.io/?url=http%3A%2F%2Fdetail.tmall.com%2Fitem.htm%3Fid%3D20771459742">终端碎片化</a>
-                </li>
-            </ol>
-        </section>
-        <section data-markdown>
-            ## 移动优先
-            [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
+<div class="slides">
+<style type="text/css">
+    .img {
+        height: 220px;
+    }
 
-            <ol class="lightbox-wrapper">
-                <li class="fragment"><a href="img/cnnic-user-201304.png" title="中国移动互联网发展状况报告 2013.04">流量暴涨</a><a
-                        href="img/baidu-time-13q1.png" title="百度移动互联网发展趋势报告 2013年Q1"></a>：移动端的用户和流量越来越多
-                </li>
-                <li class="fragment">小屏专注：各种屏幕让我们更聚焦业务的本质</li>
-                <li class="fragment">能力扩展：移动设备有<a data-notlb="1"
-                                                  href="http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html">更先进</a>的人机<a
-                        data-notlb="1" href="https://github.com/kissyteam/kissy-mobile/issues/3">交互体验</a>
-                </li>
-            </ol>
-        </section>
-        <section data-markdown>
-            ## 解决方案
+    .img-thumb {
+        height: 150px;
+    }
 
-            * MGBS
-            * MED
-            * IF
-            * 导航方案
-            * Focus
-        </section>
-        <section data-markdown>
-            ## Demo
+    .img-long {
+        height: 448px;
+    }
 
-            [点击访问PC版](http://luics.github.io/demo/d2-demo/index.html)
-            <br>
-            或
-            <br>
-            <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">
-                <img style="width:300px;"
-                     src="http://ma.taobao.com/api/qrcode.html?activity=encode&text=http%253A%252F%252Fluics.github.io%252Fdemo%252Fd2-demo%252Findex.html&width=300&height=300&ecLevel=L&characterSet=gbk&t=1372599739542"/></a>
-        </section>
-        <section data-markdown>
-            ## Q & A
-            <br><br>
-            ### 天猫前端
-            #### [@徐凯-鬼道](http://weibo.com/77786515) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
-        </section>
+    .img-fat {
+        width: 400px;
+    }
+</style>
+<section data-markdown>
+    # 移动优先跨终端的Web的解决方案
+    <br><br>
+    ### 天猫前端
+    #### [@徐凯-鬼道](http://weibo.com/777865156) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
+</section>
+<section data-markdown>
+    ## 现状
+
+    <a data-notlb="1"
+       href="http://focus.peaches.io/?url=http%3A%2F%2Fdetail.tmall.com%2Fitem.htm%3Fid%3D20771459742">终端碎片化</a>
+
+    <div class="lightbox-wrapper">
+        <a href="img/seller.png" height="100" title="终端碎片化"><img height="250" src="img/seller.png"/></a>
     </div>
+</section>
+<section data-markdown>
+    ## 移动优先
+    [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
+
+    <ol class="lightbox-wrapper">
+        <li class="fragment"><a href="img/cnnic-user-201304.png" title="中国移动互联网发展状况报告 2013.04">流量暴涨</a><a
+                href="img/baidu-time-13q1.png" title="百度移动互联网发展趋势报告 2013年Q1"></a>：移动端的用户和流量越来越多
+        </li>
+        <li class="fragment">小屏专注：各种屏幕让我们更聚焦业务的本质</li>
+        <li class="fragment">能力扩展：移动设备有<a data-notlb="1"
+                                          href="http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html">更先进</a>的人机<a
+                data-notlb="1" href="https://github.com/kissyteam/kissy-mobile/issues/3">交互体验</a>
+        </li>
+    </ol>
+</section>
+<section data-markdown>
+    ## 解决方案
+
+    1. 移动硬件测试基准
+    2. 多终端检测
+    3. 前端数据接口
+    4. 导航方案
+    5. 跨终端预览
+</section>
+<section>
+    <section data-markdown>
+        <h2>1. 移动硬件测试基准</h2>
+        <div>
+            <a href="javascript:;">MGBS</a>: <a href="javascript:;">M</a>obile <a href="javascript:;">G</a>raded
+            <a href="javascript:;">B</a>rowser <a href="javascript:;">S</a>upport
+        </div>
+    </section>
+    <!--<section>
+        <h2>MGBS v.s. GBS</h2>
+        <div class="lightbox-wrapper">
+            <a href="img/mgbs.png"> <img src="img/mgbs.png" class="img-long"></a>
+            <a href="img/gbs.png"> <img src="img/gbs.png" class="img-long"></a>
+        </div>
+    </section>-->
+    <section>
+        <h2>数据</h2>
+        <div>
+            <ul>
+                <li><a href="http://wdm.taobao.com/publicos.htm">淘宝无线数据指数 (WDM)</a>：数据来自集团90%的App</li>
+                <li><a href="http://www.umindex.com/">友盟指数</a>：数据来自10w+ App，App统计市场占有率第一</li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <h2>数据：OS</h2>
+        <div class="lightbox-wrapper">
+            <a href="img/android-os.png" title="Android OS 分布"><img src="img/android-os.png" class="img-thumb"></a>
+            <!--<a href="img/android-os-umeng.png"> <img src="img/android-os-umeng.png" class="img-thumb"></a>-->
+            <a href="img/ios-os.png" title="iOS OS 分布"> <img src="img/ios-os.png" class="img-thumb"></a>
+            <!--<a href="img/ios-os-umeng.png"> <img src="img/ios-os-umeng.png" class="img-thumb"></a>-->
+            <br>
+            <a href="img/mgbs-os.png"> <img src="img/mgbs-os.png" class="img-thumb"></a>
+        </div>
+    </section>
+    <section>
+        <h2>数据：屏幕分辨率</h2>
+        <ul>
+            <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">MDN
+                    Viewport</a>
+                | <a
+                    href="http://i-skool.co.uk/mobile-development/web-design-for-mobiles-and-tablets-viewport-sizes/">
+                Viewport size</a>
+            </li>
+            <li>
+                Android 简化至： <b>480</b>/320/540/240系、<b>640</b>/720/800系
+            </li>
+        </ul>
+        <div class="lightbox-wrapper">
+            <a href="img/umeng-android-res-0524.png"> <img src="img/umeng-android-res-0524.png"
+                                                           class="img-thumb"></a>
+            <a href="img/wdm-android-res-0524.png"> <img src="img/wdm-android-res-0524.png"
+                                                         class="img-thumb"></a>
+            <a href="img/umeng-iphone-res-0524.png"> <img src="img/umeng-iphone-res-0524.png" class="img-thumb"></a>
+            <a href="img/wdm-iphone-res-0524.png"> <img src="img/wdm-iphone-res-0524.png" class="img-thumb"></a>
+            <a href="img/umeng-ipad-res-0524.png"> <img src="img/umeng-ipad-res-0524.png" class="img-thumb"></a>
+            <a href="img/wdm-ipad-res-0524.png"> <img src="img/wdm-ipad-res-0524.png" class="img-thumb"></a>
+            <a href="img/mgbs-res.png"> <img src="img/mgbs-res.png" class="img-thumb"></a>
+        </div>
+    </section>
+    <section>
+        <h2>数据：浏览器</h2>
+        <div class="lightbox-wrapper">
+            <a href="img/cnnic-browser-201206.png" title="CNNIC"> <img src="img/cnnic-browser-201206.png"
+                                                                       class="img-thumb"></a>
+            <!--<a href="img/cnnic-browser-use-201206.png"> <img src="img/cnnic-browser-use-201206.png" class="img"></a>-->
+            <!--<a href="img/chitika-ios-browser-201209.png"> <img src="img/chitika-ios-browser-201209.png" class="img"></a>-->
+            <a href="img/netapp-browser-201303.png" title="Net Applications"> <img
+                    src="img/netapp-browser-201303.png" class="img img-thumb"></a>
+            <a href="img/mgbs-browser.png"> <img src="img/mgbs-browser.png" class="img img-thumb"></a>
+        </div>
+    </section>
+    <section>
+        <h2>MGBS</h2>
+        <div class="lightbox-wrapper">
+            <a href="img/mgbs.png"><img src="img/mgbs.png" class="img-long"></a>
+        </div>
+    </section>
+    <section>
+        <h2>MGBS落地</h2>
+        <div class="lightbox-wrapper">
+            <a href="img/mgbs-tmall.png" title="MGBS落地天猫"><img src="img/mgbs-tmall.png" class="img"></a>
+        </div>
+        <aside class="notes">
+            无论是OS版本、分辨率分类、还是浏览器版本
+            我们的目标是用最少开发代价，覆盖满足业务需求的终端设备集
+            MGBS被天猫和其他兄弟公司所引用，落地到业务会有更明确
+        </aside>
+    </section>
+    <section>
+        <h2>MGBS 遗留问题</h2>
+        <div>
+            <ul>
+                <li>ipad retina (屏宽1536) 支持</li>
+                <li>android 屏宽 720/800 支持</li>
+                <li>所有移动设备的横屏支持</li>
+                <li>android 2.3.x与4.x的默认浏览器差异，以及可接受的退化处理范围</li>
+                <li>android qq浏览器是否仍然在使用的WebView，是否有必要放在A级</li>
+                <li>android qq浏览器有独立和内置两种形式，是否有差异</li>
+                <li>windows phone 支持</li>
+            </ul>
+        </div>
+    </section>
+</section>
+<section>
+    <section data-markdown>
+        ## 2. 多终端检测
+        <div>
+            <a href="javascript:;">MED</a>: <a href="javascript:;">M</a>ulti <a href="javascript:;">E</a>nd <a
+                href="javascript:;">D</a>etector
+        </div>
+    </section>
+</section>
+<section>
+    <section data-markdown>
+        ## 3. 前端数据接口
+        <div>
+            <a href="javascript:;">IF</a>: <a href="javascript:;">I</a>nter<a href="javascript:;">F</a>ace
+        </div>
+    </section>
+</section>
+<section>
+    <section data-markdown>
+        ## 4. 导航方案
+        <!--<div>
+            <ul>
+                <li>单页多视图导航</li>
+                <li>多页面导航</li>
+            </ul>
+        </div>-->
+    </section>
+    <section data-markdown>
+        ## 多视图导航
+        <div class="lightbox-wrapper">
+            <a href="img/nav-view.jpg" title="多视图导航"><img src="img/nav-view.jpg" class="img"/></a><br>
+        </div>
+
+        * [History-API Demo](http://html5demos.com/history)
+        * [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+    </section>
+    <section data-markdown>
+        ## 多页面导航
+        <div class="lightbox-wrapper">
+            <a href="img/nav-page.jpg" title="多页面导航"><img src="img/nav-page.jpg" class="img"/></a><br>
+        </div>
+    </section>
+</section>
+<section>
+    <section data-markdown>
+        ## 5. 跨终端预览
+
+        【截图】
+    </section>
+</section>
+<section data-markdown>
+    ## Demo
+
+    [点击访问PC版](http://luics.github.io/demo/d2-demo/index.html)<br>
+    或<br>
+    <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">
+        <img style="width:300px;"
+             src="http://ma.taobao.com/api/qrcode.html?activity=encode&text=http%253A%252F%252Fluics.github.io%252Fdemo%252Fd2-demo%252Findex.html&width=300&height=300&ecLevel=L&characterSet=gbk&t=1372599739542"/></a>
+</section>
+<section data-markdown>
+    ## Q & A
+    <br><br>
+    ### 天猫前端
+    #### [@徐凯-鬼道](http://weibo.com/777865156) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
+</section>
+</div>
 </div>
 
 <script src="lib/js/head.min.js"></script>
