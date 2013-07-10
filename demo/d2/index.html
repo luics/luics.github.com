@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>移动优先前端产品的探索</title>
+    <title>移动优先的跨终端Web</title>
     <meta name="description" content="Web的出现正在彻底改变着生活的各个方面，FE这个职业的发展历程">
     <meta name="author" content="徐凯 luics.xu@gmail.com">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -25,13 +25,36 @@
     <script src="js/jquery-min.js"></script>
     <script src="js/jquery.lightbox-0.5.pack.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen"/>
+    <style type="text/css">
+        a.large {
+            font-size: 140%;
+            font-weight: bold;
+        }
+
+        .img {
+            height: 220px;
+        }
+
+        .img-thumb {
+            height: 150px;
+        }
+
+        .img-long {
+            height: 448px;
+        }
+
+        .img-fat {
+            width: 400px;
+        }
+    </style>
 </head>
 <body>
 <div class="reveal">
-<!--TODO 确认现场wifi的情况，可能要考虑专辑demo所有图片下载到本地 
+<!--TODO 无wifi条件：把所有link在下点击一遍-->
+<!--TODO 有wifi条件：把所有link在下点击一遍-->
+<!--TODO 确认现场wifi的情况，所有demo本地化 
   已确认，可能比较烂，要有本地服务器 -->
-<!--TODO 使用演讲视图 -->
-<!--TODO 强烈推荐调试一遍投影仪 -->
+<!--CASE 强烈推荐调试一遍投影仪 -->
 <!--CASE 通知闭月，focus会再d2上演示 -->
 <!--CASE 易读性，避免上下导航 -->
 <!--CASE revealjs 是否有markdown渲染完毕的事件？ 
@@ -42,63 +65,62 @@
   找到的都是文字高亮，没有直接绘图的 -->
 
 <div class="slides">
-<style type="text/css">
-    .img {
-        height: 220px;
-    }
-
-    .img-thumb {
-        height: 150px;
-    }
-
-    .img-long {
-        height: 448px;
-    }
-
-    .img-fat {
-        width: 400px;
-    }
-</style>
 <section data-markdown>
-    # 移动优先跨终端的Web的解决方案
+    # 移动优先的跨终端Web
     <br><br>
-    ### 天猫前端
-    #### [@徐凯-鬼道](http://weibo.com/777865156) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
-</section>
-<section data-markdown>
-    ## 现状：终端碎片化
-    <!--<a data-notlb="1"-->
-       <!--href="http://focus.peaches.io/?url=http%3A%2F%2Fdetail.tmall.com%2Fitem.htm%3Fid%3D20771459742">终端碎片化</a>-->
-
-    <div class="lightbox-wrapper">
-        <a href="img/seller.png" height="100" title="终端碎片化"><img height="250" src="img/seller.png"/></a>
-    </div>
+    ### 徐凯 - 天猫前端
+    #### [@徐凯-鬼道](http://weibo.com/777865156)
+    <aside class="notes">
+        * 很遗憾，今天现场的网络不佳，这里没法用手机演示一些很酷的功能
+        * 我们首先来看标题中的2个概念：移动优先、跨终端Web
+    </aside>
 </section>
 <section data-markdown>
     ## 移动优先
+    <aside class="notes">
+        * 很遗憾，今天现场的网络不佳，这里没法用手机演示一些很酷的功能
+        * 我们首先来看标题中
+    </aside>
     [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
 
     <ol class="lightbox-wrapper">
         <li class="fragment"><a href="img/cnnic-user-201304.png" title="中国移动互联网发展状况报告 2013.04">流量急速膨胀</a><a
                 href="img/baidu-time-13q1.png" title="百度移动互联网发展趋势报告 2013年Q1"></a>
         </li>
-        <li class="fragment">小屏让你更专注</li>
+        <li class="fragment">小屏让你更专注<!-- - 怎么做？--></li>
         <li class="fragment"><a data-notlb="1"
-                                href="http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html">更先进</a>的人机<a
-                data-notlb="1" href="https://github.com/kissyteam/kissy-mobile/issues/3">交互体验</a>
+                                href="http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html">更先进</a>的人机交互体验
         </li>
     </ol>
 </section>
 <section data-markdown>
+    ## 跨终端Web
+    <aside class="notes">
+        * 这里的终端不仅仅是设备，还包括各类应用
+        * 那么，我们如何来做「移动优先的跨终端Web」，今天我会带来
+    </aside>
+
+    <div class="lightbox-wrapper">
+        <a href="img/sub-ol-pc.png" title="">PC 页面</a>
+    </div>
+    <ol>
+        <li class="fragment">
+            <div class="lightbox-wrapper"><a href="img/sub-ol-phone.png" title="">不跨终端</a></div>
+        </li>
+        <li class="fragment ">
+            <div class="lightbox-wrapper"><a href="img/sub-off-phone.png" title="">跨终端</a></div>
+        </li>
+    </ol>
+</section>
+<section data-markdown>
+    <aside class="notes">
+        以上5点，贯穿整个开发周期
+    </aside>
     ## 解决方案
 
     <div class="lightbox-wrapper">
         <a href="img/guideline.png"><img src="img/guideline.png" height="500"></a>
     </div>
-
-    <aside class="notes">
-        以上5点，贯穿整个开发周期
-    </aside>
 </section>
 <section>
     <section data-markdown>
@@ -274,37 +296,56 @@
 <section>
     <section data-markdown>
         ## 5. 跨终端预览
+        <a class="large" href="http://focus.peaches.io">Focus</a>
+        <ul>
+            <li>支持UA改写</li>
+            <li>支持Phone、Pad、PC</li>
+        </ul>
     </section>
     <section data-markdown>
         ## Phone
-        <div class="no-lightbox-wrapper">
-            <a href="img/focus-phone.png" title="多页面导航"><img src="img/focus-phone.png" height="600"/></a><br>
-        </div>
+        <img src="img/sub-off-phone.png" height="600"/>
     </section>
     <section data-markdown>
         ## Pad
-        <div class="no-lightbox-wrapper">
-            <a href="img/focus-pad.png" title="多页面导航"><img src="img/focus-pad.png" height="600"/></a><br>
-        </div>
+        <img src="img/sub-off-pad.png" height="600"/>
     </section>
     <section data-markdown>
         ## PC
-        <div class="no-lightbox-wrapper">
-            <a href="img/focus-mac.png" title="多页面导航"><img src="img/focus-mac.png" height="600"/></a><br>
-        </div>
+        <img src="img/sub-off-pc.png" height="600"/>
     </section>
+</section>
+<section data-markdown>
+    ## 回顾：解决方案
+
+    <div class="lightbox-wrapper">
+        <a href="img/guideline.png"><img src="img/guideline.png" height="500"></a>
+    </div>
 </section>
 <section data-markdown>
     ## Demo
 
-    [点击访问PC版](http://luics.github.io/demo/d2-demo/index.html)<br>
+    [点击访问PC版](http://luics.github.io/demo/d2-demo/demo/sub.html)<br>
     或<br>
     <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">
         <img style="width:300px;"
              src="http://ma.taobao.com/api/qrcode.html?activity=encode&text=http%253A%252F%252Fluics.github.io%252Fdemo%252Fd2-demo%252Findex.html&width=300&height=300&ecLevel=L&characterSet=gbk&t=1372599739542"/></a>
 </section>
 <section data-markdown>
+    ## 重要资源
+
+    * [跨终端 Demo](http://luics.github.io/demo/d2-demo/demo/sub.html)
+    * [IF Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
+    * [Focus](http://focus.peaches.io)
+    * [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
+    * [触屏事件](https://github.com/kissyteam/kissy-mobile/issues/3)
+    * [HTML5资源](http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html)
+    * [History-API Demo](http://html5demos.com/history)
+    * [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+</section>
+<section data-markdown>
     ## Q & A
+
     <br><br>
     ### 天猫前端
     #### [@徐凯-鬼道](http://weibo.com/777865156) | [luics@gmail](mailto:luics.xu@gmail.com) | [luics.github.io](http://luics.github.io)
