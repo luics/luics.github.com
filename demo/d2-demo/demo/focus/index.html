@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="gbk">
+    <title>Focus Site</title>
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js"></script>
+    <link rel="icon" href="https://i.alipayobjects.com/e/201307/fbtGQBGtT.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="http://static.manny.peaches.io/css/focus/src/index.css">
+</head>
+<body>
+<div class="head">
+    <div class="head-wrap">
+        <h1 class="logo">FOCUS.</h1>
+
+        <form action="#" method="get" id="J_UrlForm">
+            <input type="text" id="J_Url" placeholder="输入你要测试的页面地址" class="inp-text"
+                   name="url" value="http://www.tmall.com"
+                   autocomplete="autocomplete" autofocus="autofocus"/>
+            <input type="submit" id="J_Sub" class="inp-btn" value="Go"/>
+            <input type="hidden" name="type" id="J_UrlType" value="phone"/>
+        </form>
+    </div>
+</div>
+<div class="bd" id="J_Content">
+    <div class="phone-box j_showBox" id="J_Phone" data-show="show">
+        <div class="item iphone4s">
+            <iframe class="j_showIframe" src=""></iframe>
+        </div>
+        <div class="item Android">
+            <iframe class="j_showIframe" src=""></iframe>
+        </div>
+    </div>
+    <div class="pad-box j_showBox hidden" id="J_Pad"></div>
+    <div class="mac-box j_showBox Mac15 hidden" id="J_Mac"></div>
+</div>
+<div class="sidebar sidebar-close" id="J_SideBar">
+    <form action="#" method="get" class="type-box" id="J_Type">
+        <label class="type phone"><input class="inp-check j_type" type="radio" name="type" value="Phone"/>Phone</label>
+        <label class="type pad"><input class="inp-check j_type" type="radio" name="type" value="Pad"/>Pad</label>
+        <label class="type mac"><input class="inp-check j_type" type="radio" name="type" value="Mac"/>Mac</label>
+    </form>
+    <div class="qrcode" id="J_QrCode"></div>
+    <b class="side-nav" id="J_SideNav">&gt;</b>
+</div>
+<script>
+    (function() {
+        var S = KISSY, D = S.DOM, E = S.Event,
+                subBtn = D.get('#J_Sub'),
+
+                config = {
+                    content: D.get('#J_Content'),
+                    urlForm: D.get('#J_UrlForm'),
+                    urlBox: D.get('#J_Url'),
+                    showIframeCls: '.j_showIframe',
+                    macSizeNavCls: '.size',
+                    sideBar: D.get('#J_SideBar'),
+                    sideNav: D.get('#J_SideNav'),
+                    macBoxID: '#J_Mac',
+                    type: D.get('#J_Type'),
+
+                    Phone: '<div class="item iphone4s"><iframe class="j_showIframe" src=""></iframe></div>' +
+                            '<div class="item Android"><iframe class="j_showIframe" src=""></iframe></div>',
+                    Pad: '<div class="item Pad"><iframe class="j_showIframe" src=""></iframe></div>',
+                    Mac: '<div class="item"></div>' +
+                            '<iframe class="j_showIframe" src=""></iframe>' +
+                            '<div class="macNav"><b class="size" data-size="13">13"</b><b class="size select" data-size="15">15"</b></div>'
+                }
+
+
+        function Focus() {
+            this._init()
+
+        }
+
+        Focus.prototype = {
+            _init: function() {
+                var self = this;
+                this.Show(config.urlBox.value);
+                this.initType() // url控制设备类型
+                E.on(config.urlForm, 'submit', function(e) {
+                    e.stopPropagation();
+                    self.Show(config.urlBox.value);
+                    window.history.pushState({}, 0, 'http://' + window.location.host + '/focus/?url=' + url);
+                    return false;
+                })
+                this.ChooseType(config.type);
+                this.SideBar();
+
+            },
+            initType: function() {
+                if (window.localStorage.getItem("state") == 'open') {
+                    D.css(config.sideBar, {
+                        '-webkit-transition': 'none',
+                        '-moz-transition': "none",
+                        '-ms-transition': "none",
+                        'transition': "none"
+                    })
+                    D.removeClass(config.sideBar, 'sidebar-close')
+                    config.sideNav.innerHTML = '&lt;'
+                }
+                else if (window.localStorage.getItem("state") == 'close') {
+                    D.addClass(config.sideBar, 'sidebar-close')
+                    config.sideNav.innerHTML = '&gt;'
+                }
+                var qs = S.unparam(location.href.indexOf('?') > -1 ? location.href.split('?')[1] : '');
+                if (qs && qs.type) {
+                    var type = qs.type //生成的连接后面默认待个'#'
+                    type = type.indexOf('#') > -1 ? type.split('#')[0] : type
+                    if (type && D.get('.' + type)) {
+                        var par = D.get('.' + type)
+                        this.ShowType(D.get('input', par))
+                    }
+                }
+                else {
+                    this.ShowType(D.get('input', 'label.phone'))
+                }
+            },
+            CreatQrCode: function(url) {
+                var qrBox = D.get('#J_QrCode')
+                //var qrimgSrc = 'http://chart.apis.google.com/chart?cht=qr&chl=' + url + '&chld=L|0&chs=120x120'
+                var qrimgSrc = 'http://ma.taobao.com/api/qrcode.html?activity=encode&text=' + url + '&width=150&height=150&ecLevel=L&characterSet=gbk&t=' + new Date().getTime()
+                if (D.attr(qrBox, 'data-init') != 'init') {
+                    qrBox.innerHTML = '<img id="J_ArCodeImg" src="' + qrimgSrc + '" width="120" height="120" />'
+                    D.attr(qrBox, 'data-init', 'init') ////data-init 控制内容是否已经生成
+
+                }
+                else {
+                    D.get('#J_ArCodeImg').src = qrimgSrc
+                }
+
+            },
+            Show: function(url) {
+                var emulateUrl = 'http://focus.peaches.io/proxy/iphone/';
+                var showUrl = ''
+
+                if (url === '') return;
+                showUrl = (url.indexOf('http://') < 0 ? 'http://' : '') + url;
+                var box = D.query('.j_showBox'), self = this
+                self.CreatQrCode(showUrl)
+                var loading = D.create('<div class="loading"></div>')
+                S.each(box, function(item) {
+                    if (D.css(item, 'display') == 'block') {
+                        var showList = D.query(config.showIframeCls, item)
+                        if (D.attr('.item', 'data-load') != 'init') {
+                            D.append(loading, '.item')
+                        }
+                        else {
+                            D.removeClass('.loading', 'hidden')
+                        }
+                        /*if (D.hasClass(item, 'phone-box')) {
+                         var phoneUrl = emulateUrl + '?url=' + encodeURIComponent(showUrl);
+                         self.ChangeUrl(showList, phoneUrl)
+                         } else {
+                         }*/
+                        self.ChangeUrl(showList, showUrl)
+                    }
+                })
+            },
+            SideBar: function() {
+                if (window.localStorage.show != 'initOpen') {
+                    setTimeout(function() {
+                        D.removeClass(config.sideBar, 'sidebar-close')
+                        config.sideNav.innerHTML = '&lt;'
+                    }, 1000)
+                    window.localStorage.show = 'initOpen'
+                }
+                E.on(config.sideNav, 'click tap', function() {
+                    D.css(config.sideBar, {
+                        '-webkit-transition': 'all .3s ease-out',
+                        '-moz-transition': "all .3s ease-out",
+                        '-ms-transition': "all .3s ease-out",
+                        'transition': "all .3s ease-out"
+                    })
+                    if (D.hasClass(config.sideBar, 'sidebar-close')) {
+                        D.removeClass(config.sideBar, 'sidebar-close')
+                        config.sideNav.innerHTML = '&lt;'
+                        window.localStorage.state = 'open'
+
+                    }
+                    else {
+                        D.addClass(config.sideBar, 'sidebar-close')
+                        config.sideNav.innerHTML = '&gt;'
+                        window.localStorage.state = 'close'
+                    }
+                })
+
+            },
+            ChooseType: function() {
+                var tar = '', self = this
+                E.on('.j_type', 'click', function(e) {
+                    tar = e.target;
+                    if (tar.checked == true) {
+                        self.ShowType(tar)
+                    }
+                })
+            },
+            ShowType: function(tar) {
+                D.removeClass('.type', 'select')
+                D.addClass(D.parent(tar), 'select');
+                D.addClass('.j_showBox', 'hidden')
+
+                var showType = tar.value;
+                var curShowBox = D.get('#J_' + showType);
+                if (D.attr(curShowBox, 'data-init') != 'init') {  //data-init 控制内容是否已经生成
+                    curShowBox.innerHTML = config[showType];
+                    D.attr(curShowBox, 'data-init', 'init')
+                }
+                var iframe = D.query('iframe', curShowBox)
+                D.removeClass(curShowBox, 'hidden')
+                if (showType == 'Mac') {
+                    this.ChangeMacSize(config.macSizeNavCls)
+                }
+                D.get('#J_UrlType').value = showType.toLowerCase()  // J_UrlType 隐藏域控制类型
+                this.Show(config.urlBox.value)
+            },
+            ChangeUrl: function(elCls, url) {
+                S.each(elCls, function(item) {
+                    if (item.src == url) {
+                        return
+                    }
+                    item.src = url
+                })
+            },
+            ChangeMacSize: function(elemCls) {
+                var clickSize = '', tar = '', nowCls = '', box = ''
+                E.on(elemCls, 'click', function(e) {
+                    tar = e.target
+                    D.removeClass(elemCls, 'select')
+                    D.addClass(tar, 'select');
+                    clickSize = D.attr(tar, 'data-size');
+                    box = D.get(config.macBoxID)
+                    nowCls = D.attr(box, 'class')
+                    D.replaceClass(box, nowCls, 'mac-box j_showBox Mac' + clickSize)
+
+                })
+            }
+        }
+
+        var test = new Focus()
+    })()
+
+</script>
+</body>
+</html>
