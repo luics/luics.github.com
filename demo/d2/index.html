@@ -32,15 +32,15 @@
         }
 
         .img {
-            height: 220px;
+            height: 200px;
         }
 
         .img-thumb {
-            height: 150px;
+            height: 220px;
         }
 
         .img-long {
-            height: 448px;
+            height: 600px;
         }
 
         .img-fat {
@@ -50,8 +50,8 @@
 </head>
 <body>
 <div class="reveal">
-<!--TODO 无wifi条件：把所有link在下点击一遍-->
 <!--TODO 有wifi条件：把所有link在下点击一遍-->
+<!--TODO 无wifi条件：把所有link在下点击一遍-->
 <!--TODO 考虑配图统一样式？ -->
 <!--TODO 确认现场wifi的情况，所有demo本地化 
   已确认，可能比较烂，要有本地服务器 -->
@@ -77,31 +77,15 @@
     </aside>
 </section>
 <section data-markdown>
-    ## 移动优先
-    <aside class="notes">
-        * 很遗憾，今天现场的网络不佳，这里没法用手机演示一些很酷的功能
-        * 我们首先来看标题中
-    </aside>
-    [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
-
-    <ol class="lightbox-wrapper">
-        <li class="fragment"><a href="img/cnnic-user-201304.png" title="中国移动互联网发展状况报告 2013.04">流量急速膨胀</a><a
-                href="img/baidu-time-13q1.png" title="百度移动互联网发展趋势报告 2013年Q1"></a>
-        </li>
-        <li class="fragment">小屏让你更专注<!-- - 怎么做？--></li>
-        <li class="fragment"><a data-notlb="1"
-                                href="http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html">更先进</a>的人机交互体验
-        </li>
-    </ol>
-</section>
-<section data-markdown>
-    ## 跨终端Web
+    ## 跨终端的Web
     <aside class="notes">
         * 这里的终端不仅仅是设备，还包括各类应用
         * 那么，我们如何来做「移动优先的跨终端Web」，今天我会带来
     </aside>
 
-    <div class="lightbox-wrapper">
+    <img src="img/facebook-mobile-phones.png" height="500"/>
+    ### 终端 vs 设备
+    <!--<div class="lightbox-wrapper">
         <a href="img/sub-ol-pc.png" title="">PC 页面</a>
     </div>
     <ol>
@@ -111,10 +95,47 @@
         <li class="fragment ">
             <div class="lightbox-wrapper"><a href="img/sub-off-phone.png" title="">跨终端</a></div>
         </li>
-    </ol>
+    </ol>-->
 </section>
 <section data-markdown>
+    ## 跨终端的Web
     <aside class="notes">
+    </aside>
+
+    <img src="img/seller.png" height="600"/>
+</section>
+<section data-markdown>
+    ## 移动优先
+    <aside class="notes">
+        * 很遗憾，今天现场的网络不佳，这里没法用手机演示一些很酷的功能
+        * 我们首先来看标题中
+    </aside>
+    [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
+
+    <ol class="lightbox-wrapper">
+        <li class="fragment"><a href="img/cnnic-user-201304.png" title="中国移动互联网发展状况报告 2013.04">移动端的用户和流量越来越多</a><a
+                href="img/baidu-time-13q1.png" title="百度移动互联网发展趋势报告 2013年Q1"></a>
+        </li>
+        <li class="fragment">各种屏幕让我们更聚焦业务的本质</li>
+        <li class="fragment">移动设备有<a data-notlb="1"
+                                     href="http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html">更先进</a>的人机交互体验
+        </li>
+    </ol>
+</section>
+<!--<section data-markdown>
+    ## 移动优先的跨终端Web
+    
+    1. 从移动端做起
+</section>-->
+<section data-markdown>
+    <aside class="notes">
+        下面来看，我们如何来实现移动优先的跨终端Web
+        介绍5点，
+        * 分别解决了调试/测试的范围
+        * 页面跳转
+        * 流程复用
+        * 导航？
+        * 主要面向商家的预览工具
         以上5点，贯穿整个开发周期
     </aside>
     ## 解决方案
@@ -125,25 +146,25 @@
 </section>
 <section>
     <section data-markdown>
-        <h2>1. 移动硬件测试基准</h2>
+        <h2>1. 基准</h2>
         <div>
             <a href="javascript:;">MGBS</a>: <a href="javascript:;">M</a>obile <a href="javascript:;">G</a>raded
             <a href="javascript:;">B</a>rowser <a href="javascript:;">S</a>upport
         </div>
     </section>
-    <!--<section>
+    <section>
         <h2>MGBS v.s. GBS</h2>
         <div class="lightbox-wrapper">
-            <a href="img/mgbs.png"> <img src="img/mgbs.png" class="img-long"></a>
-            <a href="img/gbs.png"> <img src="img/gbs.png" class="img-long"></a>
+            <a href="img/gbs.png"> <img src="img/gbs.png" height="500"></a>
+            <a href="img/mgbs.png"> <img src="img/mgbs.png" height="500"></a>
         </div>
-    </section>-->
+    </section>
     <section>
         <h2>数据</h2>
         <div>
             <ul>
-                <li><a href="http://wdm.taobao.com/publicos.htm">淘宝无线数据指数 (WDM)</a>：数据来自阿里巴巴90%的App</li>
-                <li><a href="http://www.umindex.com/">友盟指数</a>：数据来自10w+ App，App统计市场占有率第一</li>
+                <li><a href="http://wdm.taobao.com/pub2/publicos.htm">无线数读 (WDM)</a>：数据来自阿里巴巴90%的App</li>
+                <li><a href="http://www.umindex.com/#android_system">友盟指数</a>：数据来自10w+ App，App统计市场占有率第一</li>
             </ul>
         </div>
     </section>
@@ -173,13 +194,13 @@
             </li>
         </ul>
         <div class="lightbox-wrapper">
-            <a href="img/umeng-android-res-0524.png"> <img src="img/umeng-android-res-0524.png"
-                                                           class="img-thumb"></a>
+            <!--<a href="img/umeng-android-res-0524.png"> <img src="img/umeng-android-res-0524.png"-->
+            <!--class="img-thumb"></a>-->
             <a href="img/wdm-android-res-0524.png"> <img src="img/wdm-android-res-0524.png"
                                                          class="img-thumb"></a>
-            <a href="img/umeng-iphone-res-0524.png"> <img src="img/umeng-iphone-res-0524.png" class="img-thumb"></a>
+            <!--<a href="img/umeng-iphone-res-0524.png"> <img src="img/umeng-iphone-res-0524.png" class="img-thumb"></a>-->
             <a href="img/wdm-iphone-res-0524.png"> <img src="img/wdm-iphone-res-0524.png" class="img-thumb"></a>
-            <a href="img/umeng-ipad-res-0524.png"> <img src="img/umeng-ipad-res-0524.png" class="img-thumb"></a>
+            <!--<a href="img/umeng-ipad-res-0524.png"> <img src="img/umeng-ipad-res-0524.png" class="img-thumb"></a>-->
             <a href="img/wdm-ipad-res-0524.png"> <img src="img/wdm-ipad-res-0524.png" class="img-thumb"></a>
             <a href="img/mgbs-res.png"> <img src="img/mgbs-res.png" class="img-thumb"></a>
         </div>
@@ -191,19 +212,19 @@
                                                                        class="img-thumb"></a>
             <!--<a href="img/cnnic-browser-use-201206.png"> <img src="img/cnnic-browser-use-201206.png" class="img"></a>-->
             <!--<a href="img/chitika-ios-browser-201209.png"> <img src="img/chitika-ios-browser-201209.png" class="img"></a>-->
-            <a href="img/netapp-browser-201303.png" title="Net Applications"> <img
-                    src="img/netapp-browser-201303.png" class="img img-thumb"></a>
+            <a href="img/netapp-browser-201306.png" title="Net Applications"> <img
+                    src="img/netapp-browser-201306.png" class="img img-thumb"></a>
             <a href="img/mgbs-browser.png"> <img src="img/mgbs-browser.png" class="img img-thumb"></a>
         </div>
     </section>
     <section>
-        <h2>MGBS</h2>
+        <h2>基准</h2>
         <div class="lightbox-wrapper">
             <a href="img/mgbs.png"><img src="img/mgbs.png" class="img-long"></a>
         </div>
     </section>
     <section>
-        <h2>MGBS落地</h2>
+        <h2>基准落地</h2>
         <div class="lightbox-wrapper">
             <a href="img/mgbs-tmall.png" title="MGBS落地天猫"><img src="img/mgbs-tmall.png" class="img"></a>
         </div>
@@ -214,17 +235,17 @@
         </aside>
     </section>
     <section>
-        <h2>MGBS 遗留问题</h2>
+        <h2>遗留问题</h2>
         <div>
-            <ul>
+            <ol>
                 <li>ipad retina (屏宽1536) 支持</li>
                 <li>android 屏宽 720/800 支持</li>
                 <li>所有移动设备的横屏支持</li>
-                <li>android 2.3.x与4.x的默认浏览器差异，以及可接受的退化处理范围</li>
-                <li>android qq浏览器是否仍然在使用的WebView，是否有必要放在A级</li>
+                <li>android 2.3.x与4.x的默认浏览器差异</li>
+                <li>android qq浏览器是否仍然在使用WebView，是否有必要放在A级</li>
                 <li>android qq浏览器有独立和内置两种形式，是否有差异</li>
-                <li>windows phone 支持</li>
-            </ul>
+                <li class="lightbox-wrapper"><a href="img/wdm-os-201307.png">windows phone 支持</a></li>
+            </ol>
         </div>
     </section>
 </section>
@@ -238,7 +259,7 @@
     </section>
     <section data-markdown>
         <div class="lightbox-wrapper">
-            <a href="img/med.png" title="MED"><img src="img/med.png" height="600"/></a>
+            <a href="img/med-guidao.png" title="MED"><img src="img/med-guidao.png" height="600"/></a>
         </div>
     </section>
 </section>
@@ -335,14 +356,14 @@
 <section data-markdown>
     ## 重要资源
 
-    * [跨终端 Demo](http://luics.github.io/demo/d2-demo/demo/sub.html)
-    * [IF Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
-    * [Focus](http://focus.peaches.io)
-    * [Mobile First](http://www.lukew.com/ff/entry.asp?933)
-    * [触屏事件](https://github.com/kissyteam/kissy-mobile/issues/3)
-    * [HTML5资源](http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html)
-    * [History-API Demo](http://html5demos.com/history)
-    * [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+    0. [跨终端 Demo](http://luics.github.io/demo/d2-demo/demo/sub.html)
+    0. [IF Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
+    0. [Focus](http://focus.peaches.io)
+    0. [Mobile First](http://www.lukew.com/ff/entry.asp?933)
+    0. [触屏事件](https://github.com/kissyteam/kissy-mobile/issues/3)
+    0. [HTML5资源](http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html)
+    0. [History-API Demo](http://html5demos.com/history)
+    0. [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
 </section>
 <section data-markdown>
     ## Q & A
