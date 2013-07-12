@@ -3,17 +3,17 @@ LIST_DATA = {
 	"cat": 50026786, /*所属大类目*/
 	"data":[
 		{
-			"banner":'http://img03.taobaocdn.com/tps/i3/T1GC4sFj8dXXXxBCLh-460-320.jpg',
+			"banner":'img/T1GC4sFj8dXXXxBCLh-460-320.jpg',
 			"title":"美标夏季新款女士纯真丝桑蚕丝短袖睡裙家居服",
 			"listId":1
 		},
 		{
-			"banner":'http://img03.taobaocdn.com/tps/i3/T1Y5xtFjtcXXXxBCLh-460-320.jpg',
+			"banner":'img/T1Y5xtFjtcXXXxBCLh-460-320.jpg',
 			"title":"夏装男士短袖t恤男款男t恤男装t男恤新款韩版潮",
 			"listId":2
 		},
 		{
-			"banner":'http://img04.taobaocdn.com/tps/i4/T1BAdrFb4gXXXxBCLh-460-320.jpg',
+			"banner":'img/T1BAdrFb4gXXXxBCLh-460-320.jpg',
 			"title":"2013夏季新款女士时尚百搭短袖针织棉单上衣",
 			"listId":3
 		}

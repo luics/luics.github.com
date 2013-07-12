@@ -38,7 +38,6 @@ Reveal.initialize({
 
 Reveal.addEventListener('ready', function(event) {
     $.each($('.lightbox-wrapper'), function(i, wrapper) {
-        console.log(wrapper);
         $(wrapper).find('a[data-notlb!="1"]').lightBox();
     });
 });
