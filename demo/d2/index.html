@@ -99,7 +99,7 @@
     <div class="right" style="margin-left: 20px">
         <br>
         <ul style="">
-            <li>13.04 - 至今&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天猫前端</li>
+            <li>13.04 - 至今&nbsp;&nbsp;&nbsp;天猫前端</li>
             <li>11.04 - 13.03 百度商务搜索部</li>
             <li>09.10 - 11.04 爱立信、SAP、百度 实习</li>
             <li>08.09 - 11.04 同济大学，计算机硕士</li>
@@ -108,7 +108,7 @@
     </div>
 </section>
 <section data-markdown>
-    ## Demo：跨终端的Web 
+    ## Demo：跨终端的Web
 
     <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">点击访问PC版</a><br>
     或<br>
@@ -118,7 +118,7 @@
 </section>
 <section data-markdown>
     ## 终端 vs 设备
-    
+
     <img src="img/facebook-mobile-phones.png" height="500"/>
     <aside class="notes">
         * 这里的终端不仅仅是设备，还包括各类应用
@@ -127,7 +127,7 @@
 </section>
 <section data-markdown>
     ## 跨终端的Web
-    
+
     目的：页面达到所有终端
 
     1. 单页 - 多模板
@@ -174,227 +174,217 @@
         <a href="img/guideline.png"><img src="img/guideline.png" height="600"></a>
     </div>
 </section>
+<section data-markdown>
+    <h2>1. 基准</h2>
+</section>
 <section>
-    <section data-markdown>
-        <h2>1. 基准</h2>
-    </section>
-    <section>
-        <h2>MGBS v.s. GBS</h2>
-        <div>
-            <a href="javascript:;">MGBS</a>: <a href="javascript:;">M</a>obile <a href="javascript:;">G</a>raded
-            <a href="javascript:;">B</a>rowser <a href="javascript:;">S</a>upport
-        </div>
-        <div class="lightbox-wrapper">
-            <a href="img/gbs.png"> <img src="img/gbs.png" height="500"></a>
-            <a href="img/mgbs.png"> <img src="img/mgbs.png" height="500"></a>
-        </div>
-    </section>
-    <section>
-        <h2>数据</h2>
-        <div>
-            <ul>
-                <li><a href="http://wdm.taobao.com/pub2/publicos.htm">淘宝无线数读 - 数据指数（wdm）</a></li>
-                <li><a href="http://www.umindex.com/#android_system">友盟指数（umeng）</a></li>
-            </ul>
-        </div>
-    </section>
-    <section>
-        <h2>数据：OS</h2>
-        <div class="lightbox-wrapper">
-            <a href="img/android-os.png" title="Android OS 分布"><img src="img/android-os.png" class="img-thumb"></a>
-            <!--<a href="img/android-os-umeng.png"> <img src="img/android-os-umeng.png" class="img-thumb"></a>-->
-            <a href="img/ios-os.png" title="iOS OS 分布"> <img src="img/ios-os.png" class="img-thumb"></a>
-            <!--<a href="img/ios-os-umeng.png"> <img src="img/ios-os-umeng.png" class="img-thumb"></a>-->
-            <br>
-            <a href="img/mgbs-os.png"> <img src="img/mgbs-os.png" class="img-thumb"></a>
-        </div>
-    </section>
-    <section>
-        <h2>数据：屏幕分辨率</h2>
+    <h2>MGBS v.s. GBS</h2>
+    <div>
+        <a href="javascript:;">MGBS</a>: <a href="javascript:;">M</a>obile <a href="javascript:;">G</a>raded
+        <a href="javascript:;">B</a>rowser <a href="javascript:;">S</a>upport
+    </div>
+    <div class="lightbox-wrapper">
+        <a href="img/gbs.png"> <img src="img/gbs.png" height="500"></a>
+        <a href="img/mgbs.png"> <img src="img/mgbs.png" height="500"></a>
+    </div>
+</section>
+<section>
+    <h2>数据</h2>
+    <div>
         <ul>
-            <li>
-                <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">MDN
-                    Viewport</a>
-                | <a
-                    href="http://i-skool.co.uk/mobile-development/web-design-for-mobiles-and-tablets-viewport-sizes/">
-                Viewport size</a>
-            </li>
-            <li>
-                Android 简化至： <b>480</b>/320/540/240系、<b>640</b>/720/800系
-            </li>
+            <li><a href="http://wdm.taobao.com/pub2/publicos.htm">淘宝无线数读 - 数据指数（wdm）</a></li>
+            <li><a href="http://www.umindex.com/#android_system">友盟指数（umeng）</a></li>
         </ul>
-        <div class="lightbox-wrapper">
-            <!--<a href="img/umeng-android-res-0524.png"> <img src="img/umeng-android-res-0524.png"-->
-            <!--class="img-thumb"></a>-->
-            <a href="img/wdm-android-res-0524.png"> <img src="img/wdm-android-res-0524.png"
-                                                         class="img-thumb"></a>
-            <!--<a href="img/umeng-iphone-res-0524.png"> <img src="img/umeng-iphone-res-0524.png" class="img-thumb"></a>-->
-            <a href="img/wdm-iphone-res-0524.png"> <img src="img/wdm-iphone-res-0524.png" class="img-thumb"></a>
-            <!--<a href="img/umeng-ipad-res-0524.png"> <img src="img/umeng-ipad-res-0524.png" class="img-thumb"></a>-->
-            <a href="img/wdm-ipad-res-0524.png"> <img src="img/wdm-ipad-res-0524.png" class="img-thumb"></a>
-            <a href="img/mgbs-res.png"> <img src="img/mgbs-res.png" class="img-thumb"></a>
-        </div>
-    </section>
-    <section>
-        <h2>数据：浏览器</h2>
-        <div class="lightbox-wrapper">
-            <a href="img/cnnic-browser-201206.png" title="CNNIC"> <img src="img/cnnic-browser-201206.png"
-                                                                       class="img-thumb"></a>
-            <!--<a href="img/cnnic-browser-use-201206.png"> <img src="img/cnnic-browser-use-201206.png" class="img"></a>-->
-            <!--<a href="img/chitika-ios-browser-201209.png"> <img src="img/chitika-ios-browser-201209.png" class="img"></a>-->
-            <a href="img/netapp-browser-201306.png" title="Net Applications"> <img
-                    src="img/netapp-browser-201306.png" class="img img-thumb"></a>
-            <a href="img/mgbs-browser.png"> <img src="img/mgbs-browser.png" class="img img-thumb"></a>
-        </div>
-    </section>
-    <section>
-        <h2>基准</h2>
-        <div class="lightbox-wrapper">
-            <a href="img/mgbs.png"><img src="img/mgbs.png" class="img-long"></a>
-        </div>
-    </section>
-    <section>
-        <h2>基准落地</h2>
-        <div class="lightbox-wrapper">
-            <a href="img/mgbs-tmall.png" title="MGBS落地天猫"><img src="img/mgbs-tmall.png" class="img"></a>
-        </div>
-        <aside class="notes">
-            无论是OS版本、分辨率分类、还是浏览器版本
-            我们的目标是用最少开发代价，覆盖满足业务需求的终端设备集
-            MGBS被天猫和其他兄弟公司所引用，落地到业务会有更明确
-        </aside>
-    </section>
-    <section>
-        <h2>遗留问题</h2>
-        <div>
-            <ol>
-                <li>ipad retina (屏宽1536) 支持</li>
-                <li>android 屏宽 720/800 支持</li>
-                <li>所有移动设备的横屏支持</li>
-                <li>android 2.3.x与4.x的默认浏览器差异</li>
-                <li>android qq浏览器是否仍然在使用WebView，是否有必要放在A级</li>
-                <li>android qq浏览器有独立和内置两种形式，是否有差异</li>
-                <li class="lightbox-wrapper"><a href="img/wdm-os-201307.png">windows phone 支持</a></li>
-            </ol>
-        </div>
-    </section>
+    </div>
 </section>
 <section>
-    <section data-markdown>
-        ## 2. 检测
-    </section>
-    <section data-markdown>
-        多终端检测（<a href="javascript:;">MED</a>: <a href="javascript:;">M</a>ulti <a href="javascript:;">E</a>nd <a
-            href="javascript:;">D</a>etector）
-        <div class="lightbox-wrapper">
-            <a href="img/med-guidao.png" title="MED"><img src="img/med-guidao.png" height="600"/></a>
-        </div>
-    </section>
-    <section data-markdown>
-        ## HTTP API
-
-        ```javascript
-        @param {Object} MED
-        @param {string} MED.os // 'android' | 'ios' | 'wp'
-        @param {string} MED.osVersion // 'a.b.c'
-        @param {number} MED.screenWidth // px
-        @param {number} MED.screenHeight // px
-        // More ...
-        ```
-    </section>
-</section>
-<section>
-    <section data-markdown>
-        ## 3. 接口
-    </section>
-    <section data-markdown>
-        ## IF：结构
-
-        前后端接口（<a href="javascript:;">IF</a>: <a href="javascript:;">I</a>nter<a href="javascript:;">F</a>ace）
-        <!--TODO 加入vm层-->
-        <img src="img/if.png" height="500"/>
-    </section>
-    <section data-markdown>
-        ## IF：蓝图
-        <img src="img/if-blueprint.png" height="600"/>
-    </section>
-    <section data-markdown>
-        ## IF：流程
-        <img src="img/if-process.png" height="600"/>
-    </section>
-    <section data-markdown>
-        ## IF：校验
-        <!--CASE 放大demo字体-->
-        <a href="http://local.tmall.net/toolkit/public/index.html#json.html">本地校验 Demo</a>
-    </section>
-    <section data-markdown>
-        ## IF：数据文件
-        <img src="img/if-data.png" height="600"/>
-    </section>
-    <section data-markdown>
-        ## IF：接口文档
-        [接口文档生成工具 if-sync](https://npmjs.org/package/if-sync)
+    <h2>数据：OS</h2>
+    <div class="lightbox-wrapper">
+        <a href="img/android-os.png" title="Android OS 分布"><img src="img/android-os.png" class="img-thumb"></a>
+        <!--<a href="img/android-os-umeng.png"> <img src="img/android-os-umeng.png" class="img-thumb"></a>-->
+        <a href="img/ios-os.png" title="iOS OS 分布"> <img src="img/ios-os.png" class="img-thumb"></a>
+        <!--<a href="img/ios-os-umeng.png"> <img src="img/ios-os-umeng.png" class="img-thumb"></a>-->
         <br>
-        <img src="img/if-api.png" height="600"/>
-    </section>
-    <section data-markdown>
-        ## IF：总结
-        [下载接口Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
-
-        0. 接口带来的流程可复用
-        0. 接口规范的单测、冒烟测试保障
-        0. 调试数据和接口文档的同步
-    </section>
+        <a href="img/mgbs-os.png"> <img src="img/mgbs-os.png" class="img-thumb"></a>
+    </div>
 </section>
 <section>
-    <section data-markdown>
-        ## 4. 定位
-
-    </section>
-    <section data-markdown>
-        ## 多页面定位
-        <div class="lightbox-wrapper">
-            <a href="img/nav-page.jpg" title="多页面定位"><img src="img/nav-page.jpg" height="600"/></a><br>
-        </div>
-    </section>
-    <section data-markdown>
-        ## 多视图定位
-        <div class="lightbox-wrapper">
-            <a href="img/nav-view.jpg" title="多视图定位"><img src="img/nav-view.jpg" height="600"/></a><br>
-        </div>
-    </section>
-    <section data-markdown>
-        ## 定位的实现
-        <!--TODO 搭建本地demo-->
-        * [History-API Demo](http://html5demos.com/history)
-        * [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
-    </section>
+    <h2>数据：屏幕分辨率</h2>
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">MDN
+                Viewport</a>
+            | <a
+                href="http://i-skool.co.uk/mobile-development/web-design-for-mobiles-and-tablets-viewport-sizes/">
+            Viewport size</a>
+        </li>
+        <li>
+            Android 简化至： <b>480</b>/320/540/240系、<b>640</b>/720/800系
+        </li>
+    </ul>
+    <div class="lightbox-wrapper">
+        <!--<a href="img/umeng-android-res-0524.png"> <img src="img/umeng-android-res-0524.png"-->
+        <!--class="img-thumb"></a>-->
+        <a href="img/wdm-android-res-0524.png"> <img src="img/wdm-android-res-0524.png"
+                                                     class="img-thumb"></a>
+        <!--<a href="img/umeng-iphone-res-0524.png"> <img src="img/umeng-iphone-res-0524.png" class="img-thumb"></a>-->
+        <a href="img/wdm-iphone-res-0524.png"> <img src="img/wdm-iphone-res-0524.png" class="img-thumb"></a>
+        <!--<a href="img/umeng-ipad-res-0524.png"> <img src="img/umeng-ipad-res-0524.png" class="img-thumb"></a>-->
+        <a href="img/wdm-ipad-res-0524.png"> <img src="img/wdm-ipad-res-0524.png" class="img-thumb"></a>
+        <a href="img/mgbs-res.png"> <img src="img/mgbs-res.png" class="img-thumb"></a>
+    </div>
 </section>
 <section>
-    <section data-markdown>
-        ## 5. 预览
-    </section>
-    <section data-markdown>
-        ## 跨终端预览工具
-        <a class="large" href="http://focus.peaches.io/?url=www.tmall.com&type=mac">Focus</a>
+    <h2>数据：浏览器</h2>
+    <div class="lightbox-wrapper">
+        <a href="img/cnnic-browser-201206.png" title="CNNIC"> <img src="img/cnnic-browser-201206.png"
+                                                                   class="img-thumb"></a>
+        <!--<a href="img/cnnic-browser-use-201206.png"> <img src="img/cnnic-browser-use-201206.png" class="img"></a>-->
+        <!--<a href="img/chitika-ios-browser-201209.png"> <img src="img/chitika-ios-browser-201209.png" class="img"></a>-->
+        <a href="img/netapp-browser-201306.png" title="Net Applications"> <img
+                src="img/netapp-browser-201306.png" class="img img-thumb"></a>
+        <a href="img/mgbs-browser.png"> <img src="img/mgbs-browser.png" class="img img-thumb"></a>
+    </div>
+</section>
+<section>
+    <h2>基准</h2>
+    <div class="lightbox-wrapper">
+        <a href="img/mgbs.png"><img src="img/mgbs.png" class="img-long"></a>
+    </div>
+</section>
+<section>
+    <h2>基准落地</h2>
+    <div class="lightbox-wrapper">
+        <a href="img/mgbs-tmall.png" title="MGBS落地天猫"><img src="img/mgbs-tmall.png" class="img"></a>
+    </div>
+    <aside class="notes">
+        无论是OS版本、分辨率分类、还是浏览器版本
+        我们的目标是用最少开发代价，覆盖满足业务需求的终端设备集
+        MGBS被天猫和其他兄弟公司所引用，落地到业务会有更明确
+    </aside>
+</section>
+<section>
+    <h2>遗留问题</h2>
+    <div>
         <ol>
-            <li>支持UA改写</li>
-            <li>支持多设备</li>
-            <li>与业务系统的深度整合</li>
+            <li>ipad retina (屏宽1536) 支持</li>
+            <li>android 屏宽 720/800 支持</li>
+            <li>所有移动设备的横屏支持</li>
+            <li>android 2.3.x与4.x的默认浏览器差异</li>
+            <li>android qq浏览器是否仍然在使用WebView，是否有必要放在A级</li>
+            <li>android qq浏览器有独立和内置两种形式，是否有差异</li>
+            <li class="lightbox-wrapper"><a href="img/wdm-os-201307.png">windows phone 支持</a></li>
         </ol>
-    </section>
-    <section data-markdown>
-        ## Phone
-        <img src="img/sub-off-phone.png" height="600"/>
-    </section>
-    <section data-markdown>
-        ## Pad
-        <img src="img/sub-off-pad.png" height="600"/>
-    </section>
-    <section data-markdown>
-        ## PC
-        <img src="img/sub-off-pc.png" height="600"/>
-    </section>
+    </div>
+</section>
+<section data-markdown>
+    ## 2. 检测
+</section>
+<section data-markdown>
+    多终端检测（<a href="javascript:;">MED</a>: <a href="javascript:;">M</a>ulti <a href="javascript:;">E</a>nd <a
+        href="javascript:;">D</a>etector）
+    <div class="lightbox-wrapper">
+        <a href="img/med-guidao.png" title="MED"><img src="img/med-guidao.png" height="600"/></a>
+    </div>
+</section>
+<section data-markdown>
+    ## HTTP API
+
+    ```javascript
+    @param {Object} MED
+    @param {string} MED.os // 'android' | 'ios' | 'wp'
+    @param {string} MED.osVersion // 'a.b.c'
+    @param {number} MED.screenWidth // px
+    @param {number} MED.screenHeight // px
+    // More ...
+    ```
+</section>
+<section data-markdown>
+    ## 3. 接口
+</section>
+<section data-markdown>
+    ## IF：结构
+
+    前后端接口（<a href="javascript:;">IF</a>: <a href="javascript:;">I</a>nter<a href="javascript:;">F</a>ace）
+    <!--TODO 加入vm层-->
+    <img src="img/if.png" height="500"/>
+</section>
+<section data-markdown>
+    ## IF：蓝图
+    <img src="img/if-blueprint.png" height="600"/>
+</section>
+<section data-markdown>
+    ## IF：流程
+    <img src="img/if-process.png" height="600"/>
+</section>
+<section data-markdown>
+    ## IF：校验
+    <!--CASE 放大demo字体-->
+    <a href="http://local.tmall.net/toolkit/public/index.html#json.html">本地校验 Demo</a>
+</section>
+<section data-markdown>
+    ## IF：数据文件
+    <img src="img/if-data.png" height="600"/>
+</section>
+<section data-markdown>
+    ## IF：接口文档
+    [接口文档生成工具 if-sync](https://npmjs.org/package/if-sync)
+    <br>
+    <img src="img/if-api.png" height="600"/>
+</section>
+<section data-markdown>
+    ## IF：总结
+    [下载接口Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
+
+    0. 接口带来的流程可复用
+    0. 接口规范的单测、冒烟测试保障
+    0. 调试数据和接口文档的同步
+</section>
+<section data-markdown>
+    ## 4. 定位
+
+</section>
+<section data-markdown>
+    ## 多页面定位
+    <div class="lightbox-wrapper">
+        <a href="img/nav-page.jpg" title="多页面定位"><img src="img/nav-page.jpg" height="600"/></a><br>
+    </div>
+</section>
+<section data-markdown>
+    ## 多视图定位
+    <div class="lightbox-wrapper">
+        <a href="img/nav-view.jpg" title="多视图定位"><img src="img/nav-view.jpg" height="600"/></a><br>
+    </div>
+</section>
+<section data-markdown>
+    ## 定位的实现
+    <!--TODO 搭建本地demo-->
+    * [History-API Demo](http://html5demos.com/history)
+    * [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+</section>
+<section data-markdown>
+    ## 5. 预览
+</section>
+<section data-markdown>
+    ## 跨终端预览工具
+    <a class="large" href="http://focus.peaches.io/?url=www.tmall.com&type=mac">Focus</a>
+    <ol>
+        <li>支持UA改写</li>
+        <li>支持多设备</li>
+        <li>与业务系统的深度整合</li>
+    </ol>
+</section>
+<section data-markdown>
+    ## Phone
+    <img src="img/sub-off-phone.png" height="600"/>
+</section>
+<section data-markdown>
+    ## Pad
+    <img src="img/sub-off-pad.png" height="600"/>
+</section>
+<section data-markdown>
+    ## PC
+    <img src="img/sub-off-pc.png" height="600"/>
 </section>
 <section data-markdown>
     ## 回顾：解决方案
