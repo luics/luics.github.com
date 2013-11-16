@@ -14,7 +14,7 @@ $(function() {
             //console.log('toolkit display:none');
             if ($window.scrollTop() > $body.height() - $window.height()) {
                 //console.log('toolkit expand');
-                $toolkit.fadeIn(3000);
+                //$toolkit.fadeIn(3000);
             }
         }
     });
