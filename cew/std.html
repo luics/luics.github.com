@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Mobile Page Standard Template</title>
+    
+    <!-- 纠正：user-scalable=no 还是需要添加的，发现在某些设备上仅有 initial 和 maximum 仍然无法阻止缩放 -->
+    <meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" name="viewport"/>
+
+    <!-- touch-icon 在 iOS 中用于桌面图标，详见 http://www.atatech.org/article/detail/8472/786-->
+    <link href="http://img01.taobaocdn.com/tps/i1/T1zo51XxXfXXXeOHro-144-144.png" rel="apple-touch-icon-precomposed"/>
+
+    <!-- 从桌面 icon 启动 iOS Safari 是否进入全屏状态（App模式） yes | no-->
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <!-- iOS Safari 全屏状态下的状态栏样式  default | balck | black-translucent-->
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <!-- iOS 设备上禁止将数字识别为可点击的 tel link -->
+    <meta content="telephone=no" name="format-detection"/>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .body {
+            /* 默认设置固定宽度320px */
+            width: 320px;
+            margin: 0 auto;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+<div class="body">
+    <h1>移动页面标准模板</h1>
+    <h2>请查看源码</h2>
+    <h2>1234567</h2>
+</div>
+</body>
+</html>
