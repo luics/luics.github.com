@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>移动优先的跨终端Web - 阿里技术嘉年华 D2</title>
+    <meta name="description" content="Web的出现正在彻底改变着生活的各个方面，FE这个职业的发展历程">
+    <meta name="author" content="徐凯 luics.xu@gmail.com">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script><![endif]-->
+
+    <base target="_blank"/>
+    <!--这么写更方便slide中插入script，此处忽略性能吧-->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.lightbox-0.5.pack.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen"/>
+    <style type="text/css">
+        a.large {
+            font-size: 140%;
+            font-weight: bold;
+        }
+
+        .img {
+            height: 200px;
+        }
+
+        .img-thumb {
+            height: 220px;
+        }
+
+        .img-long {
+            height: 600px;
+        }
+
+        .img-fat {
+            width: 400px;
+        }
+
+        .left {
+            float: left;
+            margin-right: 20px;
+        }
+
+        .right {
+            float: left;
+            /*margin-left: 200px;*/
+            padding: 20px 0 0 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+
+<div class="slides">
+<section data-markdown>
+    <aside class="notes">
+        * 很遗憾，今天现场的网络不佳，这里没法用手机演示一些很酷的功能
+        * 我们首先来看标题中的2个概念：移动优先、跨终端Web
+    </aside>
+
+    # 移动优先的跨终端 Web
+    <br><br>
+    ## 徐凯/鬼道 - 天猫前端
+    ## [@徐凯-鬼道](http://weibo.com/777865156)
+    <br>
+    ### 2013 W3CTECH
+</section>
+<section data-markdown>
+    ## 个人介绍
+
+    <div class="left">
+        <img src="img/luics.jpg" width="300"/>
+    </div>
+    <div class="right" style="margin-left: 20px">
+        <br>
+        <ul style="">
+            <li>13.04 - 至今&nbsp;&nbsp;&nbsp;天猫前端</li>
+            <li>11.04 - 13.03 百度商务搜索部</li>
+            <li>09.10 - 11.04 爱立信、SAP、百度 实习</li>
+            <li>08.09 - 11.04 同济大学，计算机硕士</li>
+            <li>「靠谱单身男青年」 - 朋友的评价</li>
+        </ul>
+    </div>
+</section>
+<section data-markdown>
+    ## Demo：跨终端的Web
+
+    <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">点击访问PC版</a><br>
+    或<br>
+    <img style="height:300px;" src="img/qrcode.png"/>
+    <!--<a href="http://luics.github.io/demo/d2-demo/demo/sub.html"><img style="width:300px;"-->
+    <!--src="http://ma.taobao.com/api/qrcode.html?activity=encode&text=http%253A%252F%252Fluics.github.io%252Fdemo%252Fd2-demo%252Fdemo%252Fsub.html&width=300&height=300&ecLevel=L&characterSet=gbk&t=1372599739542"/></a>-->
+</section>
+<section data-markdown>
+    ## 终端 vs 设备
+
+    <img src="img/facebook-mobile-phones.png" height="500"/>
+    <aside class="notes">
+        * 这里的终端不仅仅是设备，还包括各类应用
+        * 那么，我们如何来做「移动优先的跨终端Web」，今天我会带来
+    </aside>
+</section>
+<section data-markdown>
+    ## 跨终端的Web
+
+    目的：页面达到所有终端
+
+    1. 单页 - 多模板
+    2. 单页 - Media Query
+    3. 多页 - 自适应跳转
+    4. 多平台 App
+</section>
+<section data-markdown>
+    ## 跨终端的Web
+    <img src="img/seller.png" height="600"/>
+</section>
+<section data-markdown>
+    ## 移动优先
+    <aside class="notes">
+        * 很遗憾，今天现场的网络不佳，这里没法用手机演示一些很酷的功能
+        * 我们首先来看标题中
+    </aside>
+    [《Mobile First》](http://www.lukew.com/ff/entry.asp?933)
+
+    <ol class="lightbox-wrapper">
+        <li class="fragment"><a href="img/cnnic-user-201304.png" title="中国移动互联网发展状况报告 2013.04">移动端的用户和流量越来越多</a><a
+                href="img/baidu-time-13q1.png" title="百度移动互联网发展趋势报告 2013年Q1"></a>
+        </li>
+        <li class="fragment">各种屏幕让我们更聚焦业务的本质</li>
+        <li class="fragment">移动设备有<a data-notlb="1"
+                                     href="http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html">更先进</a>的人机交互体验
+        </li>
+    </ol>
+</section>
+<section data-markdown>
+    <aside class="notes">
+        下面来看，我们如何来实现移动优先的跨终端Web
+        介绍5点，
+        * 分别解决了调试/测试的范围
+        * 页面跳转
+        * 流程复用
+        * 导航？
+        * 主要面向商家的预览工具
+        以上5点，贯穿整个开发周期
+    </aside>
+    ## 解决方案
+
+    <div class="lightbox-wrapper">
+        <a href="img/guideline.png"><img src="img/guideline.png" height="600"></a>
+    </div>
+</section>
+<section data-markdown>
+    ## 1. 基准
+    <div class="lightbox-wrapper">
+        <a href="img/guideline-1.png"><img src="img/guideline-1.png" height="600"></a>
+    </div>
+</section>
+<section>
+    <h2>MGBS v.s. GBS</h2>
+    <div>
+        <a href="javascript:;">MGBS</a>: <a href="javascript:;">M</a>obile <a href="javascript:;">G</a>raded
+        <a href="javascript:;">B</a>rowser <a href="javascript:;">S</a>upport
+    </div>
+    <div class="lightbox-wrapper">
+        <a href="img/gbs.png"> <img src="img/gbs.png" height="500"></a>
+        <a href="img/mgbs.png"> <img src="img/mgbs.png" height="500"></a>
+    </div>
+</section>
+<section>
+    <h2>数据</h2>
+    <div>
+        <ul>
+            <li><a href="http://wdm.taobao.com/pub2/publicos.htm">淘宝无线数读 - 数据指数（wdm）</a></li>
+            <li><a href="http://www.umindex.com/#android_system">友盟指数（umeng）</a></li>
+        </ul>
+    </div>
+</section>
+<section>
+    <h2>数据：OS</h2>
+    <div class="lightbox-wrapper">
+        <a href="img/android-os.png" title="Android OS 分布"><img src="img/android-os.png" class="img-thumb"></a>
+        <!--<a href="img/android-os-umeng.png"> <img src="img/android-os-umeng.png" class="img-thumb"></a>-->
+        <a href="img/ios-os.png" title="iOS OS 分布"> <img src="img/ios-os.png" class="img-thumb"></a>
+        <!--<a href="img/ios-os-umeng.png"> <img src="img/ios-os-umeng.png" class="img-thumb"></a>-->
+        <br>
+        <a href="img/mgbs-os.png"> <img src="img/mgbs-os.png" class="img-thumb"></a>
+    </div>
+</section>
+<section>
+    <h2>数据：屏幕分辨率</h2>
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">MDN
+                Viewport</a>
+            | <a
+                href="http://i-skool.co.uk/mobile-development/web-design-for-mobiles-and-tablets-viewport-sizes/">
+            Viewport size</a>
+        </li>
+        <li>
+            Android 简化至： <b>480</b>/320/540/240系、<b>640</b>/720/800系
+        </li>
+    </ul>
+    <div class="lightbox-wrapper">
+        <!--<a href="img/umeng-android-res-0524.png"> <img src="img/umeng-android-res-0524.png"-->
+        <!--class="img-thumb"></a>-->
+        <a href="img/wdm-android-res-0524.png"> <img src="img/wdm-android-res-0524.png"
+                                                     class="img-thumb"></a>
+        <!--<a href="img/umeng-iphone-res-0524.png"> <img src="img/umeng-iphone-res-0524.png" class="img-thumb"></a>-->
+        <a href="img/wdm-iphone-res-0524.png"> <img src="img/wdm-iphone-res-0524.png" class="img-thumb"></a>
+        <!--<a href="img/umeng-ipad-res-0524.png"> <img src="img/umeng-ipad-res-0524.png" class="img-thumb"></a>-->
+        <a href="img/wdm-ipad-res-0524.png"> <img src="img/wdm-ipad-res-0524.png" class="img-thumb"></a>
+        <a href="img/mgbs-res.png"> <img src="img/mgbs-res.png" class="img-thumb"></a>
+    </div>
+</section>
+<section>
+    <h2>数据：浏览器</h2>
+    <div class="lightbox-wrapper">
+        <a href="img/cnnic-browser-201206.png" title="CNNIC"> <img src="img/cnnic-browser-201206.png"
+                                                                   class="img-thumb"></a>
+        <!--<a href="img/cnnic-browser-use-201206.png"> <img src="img/cnnic-browser-use-201206.png" class="img"></a>-->
+        <!--<a href="img/chitika-ios-browser-201209.png"> <img src="img/chitika-ios-browser-201209.png" class="img"></a>-->
+        <a href="img/netapp-browser-201306.png" title="Net Applications"> <img
+                src="img/netapp-browser-201306.png" class="img img-thumb"></a>
+        <a href="img/mgbs-browser.png"> <img src="img/mgbs-browser.png" class="img img-thumb"></a>
+    </div>
+</section>
+<section>
+    <h2>基准</h2>
+    <div class="lightbox-wrapper">
+        <a href="img/mgbs.png"><img src="img/mgbs.png" class="img-long"></a>
+    </div>
+</section>
+<section>
+    <h2>基准落地</h2>
+    <div class="lightbox-wrapper">
+        <a href="img/mgbs-tmall.png" title="MGBS落地天猫"><img src="img/mgbs-tmall.png" class="img"></a>
+    </div>
+    <aside class="notes">
+        无论是OS版本、分辨率分类、还是浏览器版本
+        我们的目标是用最少开发代价，覆盖满足业务需求的终端设备集
+        MGBS被天猫和其他兄弟公司所引用，落地到业务会有更明确
+    </aside>
+</section>
+<section>
+    <h2>遗留问题</h2>
+    <div>
+        <ol>
+            <li>ipad retina (屏宽1536) 支持</li>
+            <li>android 屏宽 720/800 支持</li>
+            <li>所有移动设备的横屏支持</li>
+            <li>android 2.3.x与4.x的默认浏览器差异</li>
+            <li>android qq浏览器是否仍然在使用WebView，是否有必要放在A级</li>
+            <li>android qq浏览器有独立和内置两种形式，是否有差异</li>
+            <li class="lightbox-wrapper"><a href="img/wdm-os-201307.png">windows phone 支持</a></li>
+        </ol>
+    </div>
+</section>
+<section data-markdown>
+    ## 2. 检测
+    <div class="lightbox-wrapper">
+        <a href="img/guideline-2.png"><img src="img/guideline-2.png" height="600"></a>
+    </div>
+</section>
+<section data-markdown>
+    多终端检测（<a href="javascript:;">MED</a>: <a href="javascript:;">M</a>ulti <a href="javascript:;">E</a>nd <a
+        href="javascript:;">D</a>etector）
+    <div class="lightbox-wrapper">
+        <a href="img/med-guidao.png" title="MED"><img src="img/med-guidao.png" height="600"/></a>
+    </div>
+</section>
+<section data-markdown>
+    ## HTTP API
+
+    ```javascript
+    @param {Object} MED
+    @param {string} MED.os // 'android' | 'ios' | 'wp'
+    @param {string} MED.osVersion // 'a.b.c'
+    @param {number} MED.screenWidth // px
+    @param {number} MED.screenHeight // px
+    // More ...
+    ```
+</section>
+<section data-markdown>
+    ## 3. 接口
+    <div class="lightbox-wrapper">
+        <a href="img/guideline-3.png"><img src="img/guideline-3.png" height="600"></a>
+    </div>
+</section>
+<section data-markdown>
+    ## IF：结构
+
+    前后端接口（<a href="javascript:;">IF</a>: <a href="javascript:;">I</a>nter<a href="javascript:;">F</a>ace）
+    <!--TODO 加入vm层-->
+    <img src="img/if.png" height="500"/>
+</section>
+<section data-markdown>
+    ## IF：蓝图
+    <img src="img/if-blueprint.png" height="600"/>
+</section>
+<section data-markdown>
+    ## IF：流程
+    <img src="img/if-process.png" height="600"/>
+</section>
+<section data-markdown>
+    ## IF：校验
+    <!--CASE 放大demo字体-->
+    <a href="http://local.tmall.net/toolkit/public/index.html#json.html">本地校验 Demo</a>
+</section>
+<section data-markdown>
+    ## IF：数据文件
+    <img src="img/if-data.png" height="600"/>
+</section>
+<section data-markdown>
+    ## IF：接口文档
+    [接口文档生成工具 if-sync](https://npmjs.org/package/if-sync)
+    <br>
+    <img src="img/if-api.png" height="600"/>
+</section>
+<section data-markdown>
+    ## IF：总结
+    [下载接口Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
+
+    0. 接口带来的流程可复用
+    0. 接口规范的单测、冒烟测试保障
+    0. 调试数据和接口文档的同步
+</section>
+<section data-markdown>
+    ## 4. 定位
+    <div class="lightbox-wrapper">
+        <a href="img/guideline-4.png"><img src="img/guideline-4.png" height="600"></a>
+    </div>
+</section>
+<section data-markdown>
+    ## 多页面定位
+    <div class="lightbox-wrapper">
+        <a href="img/nav-page.jpg" title="多页面定位"><img src="img/nav-page.jpg" height="600"/></a><br>
+    </div>
+</section>
+<section data-markdown>
+    ## 多视图定位
+    <div class="lightbox-wrapper">
+        <a href="img/nav-view.jpg" title="多视图定位"><img src="img/nav-view.jpg" height="600"/></a><br>
+    </div>
+</section>
+<section data-markdown>
+    ## 定位的实现
+    <!--TODO 搭建本地demo-->
+    * [History-API Demo](http://html5demos.com/history)
+    * [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+</section>
+<section data-markdown>
+    ## 5. 预览
+    <div class="lightbox-wrapper">
+        <a href="img/guideline-5.png"><img src="img/guideline-5.png" height="600"></a>
+    </div>
+</section>
+<section data-markdown>
+    ## 跨终端预览工具
+    <a class="large" href="http://focus.peaches.io/?url=www.tmall.com&type=mac">Focus</a>
+    <ol>
+        <li>支持UA改写</li>
+        <li>支持多设备</li>
+        <li>与业务系统的深度整合</li>
+    </ol>
+</section>
+<section data-markdown>
+    ## Phone
+    <img src="img/sub-off-phone.png" height="600"/>
+</section>
+<section data-markdown>
+    ## Pad
+    <img src="img/sub-off-pad.png" height="600"/>
+</section>
+<section data-markdown>
+    ## PC
+    <img src="img/sub-off-pc.png" height="600"/>
+</section>
+<section data-markdown>
+    ## 回顾：解决方案
+
+    <div class="lightbox-wrapper">
+        <a href="img/guideline.png"><img src="img/guideline.png" height="600"></a>
+    </div>
+</section>
+<section data-markdown>
+    ## 重要资源
+    0. [跨终端的Web Demo](http://luics.github.io/demo/d2-demo/demo/sub.html)
+    0. [接口 Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
+    0. [接口文档生成工具 if-sync](https://npmjs.org/package/if-sync)
+    0. [Focus](http://focus.peaches.io)
+    0. [Mobile First](http://www.lukew.com/ff/entry.asp?933)
+    0. [触屏事件](https://github.com/kissyteam/kissy-mobile/issues/3)
+    0. [HTML5资源](http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html)
+    0. [History-API Demo](http://html5demos.com/history)
+    0. [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+</section>
+<section data-markdown>
+    ## 感谢
+    * 感谢，天猫前端所有提出建议的同学
+    * 感谢，老大 <a href="javascript:;">@三七</a> 对大纲颠覆性的建议
+    <!--* 感谢，老大 <a href="javascript:;">@小马</a> 对Demo展示的意见-->
+    * 感谢，「预览」Focus的 美女前端<a href="javascript:;">@闭月</a>
+    * 感谢，「检测」MED的所有成员
+    * 感谢，天猫前端在「跨终端的Web」方向上坚定决心
+</section>
+<section data-markdown>
+    ## Q & A
+
+    <br><br>
+    ## [@徐凯-鬼道](http://weibo.com/777865156) | [luics@github](http://luics.github.io)
+</section>
+</div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+
+</script>
+</body>
+</html>
