@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>移动优先的跨终端Web - 阿里技术嘉年华 D2</title>
+    <title>移动优先的跨终端Web - W3CTECH 2013</title>
     <meta name="description" content="Web的出现正在彻底改变着生活的各个方面，FE这个职业的发展历程">
     <meta name="author" content="徐凯 luics.xu@gmail.com">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -64,17 +64,12 @@
 
 <div class="slides">
 <section data-markdown>
-    <aside class="notes">
-        * 很遗憾，今天现场的网络不佳，这里没法用手机演示一些很酷的功能
-        * 我们首先来看标题中的2个概念：移动优先、跨终端Web
-    </aside>
-
     # 移动优先的跨终端 Web
     <br><br>
-    ## 徐凯/鬼道 - 天猫前端
+    ## 天猫前端
     ## [@徐凯-鬼道](http://weibo.com/777865156)
     <br>
-    ### 2013 W3CTECH
+    ### W3CTECH 2013
 </section>
 <section data-markdown>
     ## 个人介绍
@@ -85,22 +80,13 @@
     <div class="right" style="margin-left: 20px">
         <br>
         <ul style="">
-            <li>13.04 - 至今&nbsp;&nbsp;&nbsp;天猫前端</li>
-            <li>11.04 - 13.03 百度商务搜索部</li>
-            <li>09.10 - 11.04 爱立信、SAP、百度 实习</li>
-            <li>08.09 - 11.04 同济大学，计算机硕士</li>
-            <li>「靠谱单身男青年」 - 朋友的评价</li>
+            <li>2013.04 天猫 前端</li>
+            <li>2011.04 百度 移动变现</li>
+            <!--<li>2009.10 爱立信 SAP 实习</li>-->
+            <li>2008.09 同济 模式识别硕士</li>
+            <!--<li>「靠谱单身男青年」 - 朋友的评价</li>-->
         </ul>
     </div>
-</section>
-<section data-markdown>
-    ## Demo：跨终端的Web
-
-    <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">点击访问PC版</a><br>
-    或<br>
-    <img style="height:300px;" src="img/qrcode.png"/>
-    <!--<a href="http://luics.github.io/demo/d2-demo/demo/sub.html"><img style="width:300px;"-->
-    <!--src="http://ma.taobao.com/api/qrcode.html?activity=encode&text=http%253A%252F%252Fluics.github.io%252Fdemo%252Fd2-demo%252Fdemo%252Fsub.html&width=300&height=300&ecLevel=L&characterSet=gbk&t=1372599739542"/></a>-->
 </section>
 <section data-markdown>
     ## 终端 vs 设备
@@ -244,7 +230,7 @@
 <section>
     <h2>基准落地</h2>
     <div class="lightbox-wrapper">
-        <a href="img/mgbs-tmall.png" title="MGBS落地天猫"><img src="img/mgbs-tmall.png" class="img"></a>
+        <a href="img/mgbs-tmall.png" title="MGBS落地天猫"><img src="img/mgbs-tmall.png" class=""></a>
     </div>
     <aside class="notes">
         无论是OS版本、分辨率分类、还是浏览器版本
@@ -276,20 +262,15 @@
     多终端检测（<a href="javascript:;">MED</a>: <a href="javascript:;">M</a>ulti <a href="javascript:;">E</a>nd <a
         href="javascript:;">D</a>etector）
     <div class="lightbox-wrapper">
-        <a href="img/med-guidao.png" title="MED"><img src="img/med-guidao.png" height="600"/></a>
+        <a href="img/med.gif" title="MED"><img src="img/med.gif" height="400"/></a>
     </div>
 </section>
 <section data-markdown>
     ## HTTP API
 
-    ```javascript
-    @param {Object} MED
-    @param {string} MED.os // 'android' | 'ios' | 'wp'
-    @param {string} MED.osVersion // 'a.b.c'
-    @param {number} MED.screenWidth // px
-    @param {number} MED.screenHeight // px
-    // More ...
-    ```
+    <div class="lightbox-wrapper">
+        <a href="img/med-http.gif" title="MED"><img src="img/med-http.gif" height="300"/></a>
+    </div>
 </section>
 <section data-markdown>
     ## 3. 接口
@@ -310,12 +291,13 @@
 </section>
 <section data-markdown>
     ## IF：流程
-    <img src="img/if-process.png" height="600"/>
+    <img src="img/mallbar-flow.gif" height="600"/>
 </section>
 <section data-markdown>
     ## IF：校验
     <!--CASE 放大demo字体-->
-    <a href="http://local.tmall.net/toolkit/public/index.html#json.html">本地校验 Demo</a>
+    0. [本地校验 Demo](http://local.tmall.net/toolkit/public/index.html#json.html)
+    0. [node & browser 版本](https://npmjs.org/package/ift)
 </section>
 <section data-markdown>
     ## IF：数据文件
@@ -323,7 +305,7 @@
 </section>
 <section data-markdown>
     ## IF：接口文档
-    [接口文档生成工具 if-sync](https://npmjs.org/package/if-sync)
+    [接口文档生成工具 ift](https://npmjs.org/package/ift)
     <br>
     <img src="img/if-api.png" height="600"/>
 </section>
@@ -332,8 +314,8 @@
     [下载接口Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
 
     0. 接口带来的流程可复用
-    0. 接口规范的单测、冒烟测试保障
-    0. 调试数据和接口文档的同步
+    0. 接口校验的测试保障
+    0. 接口定义、接口文档、调试数据 三者同步
 </section>
 <section data-markdown>
     ## 4. 定位
@@ -406,19 +388,27 @@
     0. [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
 </section>
 <section data-markdown>
-    ## 感谢
-    * 感谢，天猫前端所有提出建议的同学
-    * 感谢，老大 <a href="javascript:;">@三七</a> 对大纲颠覆性的建议
-    <!--* 感谢，老大 <a href="javascript:;">@小马</a> 对Demo展示的意见-->
-    * 感谢，「预览」Focus的 美女前端<a href="javascript:;">@闭月</a>
-    * 感谢，「检测」MED的所有成员
-    * 感谢，天猫前端在「跨终端的Web」方向上坚定决心
+    ## Demo：跨终端的Web
+
+    <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">点击访问PC版</a><br>
+    或<br>
+    <img style="height:300px;" src="img/qrcode.png"/>
 </section>
+<!--<section data-markdown>-->
+<!--## 感谢-->
+<!--* 感谢，天猫前端所有提出建议的同学-->
+<!--* 感谢，老大 <a href="javascript:;">@三七</a> 对大纲颠覆性的建议-->
+<!--&lt;!&ndash;* 感谢，老大 <a href="javascript:;">@小马</a> 对Demo展示的意见&ndash;&gt;-->
+<!--* 感谢，「预览」Focus的 美女前端<a href="javascript:;">@闭月</a>-->
+<!--* 感谢，「检测」MED的所有成员-->
+<!--* 感谢，天猫前端在「跨终端的Web」方向上坚定决心-->
+<!--</section>-->
 <section data-markdown>
     ## Q & A
 
     <br><br>
-    ## [@徐凯-鬼道](http://weibo.com/777865156) | [luics@github](http://luics.github.io)
+    ## [@徐凯-鬼道](http://weibo.com/777865156) 
+    ## [//luics.github.io](http://luics.github.io)
 </section>
 </div>
 </div>
