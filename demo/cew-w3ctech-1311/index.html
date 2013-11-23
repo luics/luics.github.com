@@ -74,19 +74,20 @@
 <section data-markdown>
     ## 个人介绍
 
-    <div class="left">
-        <img src="img/luics.jpg" width="300"/>
-    </div>
-    <div class="right" style="margin-left: 20px">
-        <br>
-        <ul style="">
-            <li>2013.04 天猫 前端</li>
-            <li>2011.04 百度 移动变现</li>
-            <!--<li>2009.10 爱立信 SAP 实习</li>-->
-            <li>2008.09 同济 模式识别硕士</li>
-            <!--<li>「靠谱单身男青年」 - 朋友的评价</li>-->
-        </ul>
-    </div>
+    <!--<div class="left">-->
+        <!--<img src="img/luics.jpg" width="300"/>-->
+    <!--</div>-->
+    <!--<div class="right" style="margin-left: 20px">-->
+        <!--<br>-->
+    <!--</div>-->
+    <ul style="">
+        <li>2013.04 天猫 前端</li>
+        <li>2011.04 百度 移动变现</li>
+        <!--<li>2009.10 爱立信 SAP 实习</li>-->
+        <li>2008.09 同济 模式识别 硕士</li>
+        <!--<li>2004.09 山大 应用数学 本科</li>-->
+        <!--<li>「靠谱单身男青年」 - 朋友的评价</li>-->
+    </ul>
 </section>
 <section data-markdown>
     ## 终端 vs 设备
@@ -98,19 +99,23 @@
     </aside>
 </section>
 <section data-markdown>
-    ## 跨终端的Web
+    ## 跨终端 Web
 
-    目的：页面达到所有终端
-
-    1. 单页 - 多模板
-    2. 单页 - Media Query
-    3. 多页 - 自适应跳转
-    4. 多平台 App
+    0. 单域 - Media Query
+    0. 单域 - 多模板
+    0. 多域 - 跳转
+    0. 多平台 App
 </section>
 <section data-markdown>
-    ## 跨终端的Web
-    <img src="img/seller.png" height="600"/>
+    ## 跨终端 Web
+
+    0. 目的：页面达到所有终端
+    0. 例子：PC 分享、移动购买
 </section>
+<!--<section data-markdown>-->
+    <!--## 跨终端 Web-->
+    <!--<img src="img/seller.png" height="600"/>-->
+<!--</section>-->
 <section data-markdown>
     ## 移动优先
     <aside class="notes">
@@ -128,6 +133,13 @@
                                      href="http://www.cnblogs.com/luics/archive/2012/11/17/2775190.html">更先进</a>的人机交互体验
         </li>
     </ol>
+</section>
+<section data-markdown>
+    ## Demo：跨终端 Web
+
+    <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">访问PC版</a><br>
+    或<br>
+    <img style="height:300px;" src="img/qrcode.png"/>
 </section>
 <section data-markdown>
     <aside class="notes">
@@ -286,18 +298,23 @@
     <img src="img/if.png" height="500"/>
 </section>
 <section data-markdown>
-    ## IF：蓝图
-    <img src="img/if-blueprint.png" height="600"/>
+    ## IF：接口模型
+
+    <img src="img/if-model.png" height=""/>
 </section>
 <section data-markdown>
     ## IF：流程
     <img src="img/mallbar-flow.gif" height="600"/>
 </section>
 <section data-markdown>
-    ## IF：校验
-    <!--CASE 放大demo字体-->
-    0. [本地校验 Demo](http://local.tmall.net/toolkit/public/index.html#json.html)
-    0. [node & browser 版本](https://npmjs.org/package/ift)
+    ## IF：组成
+    
+    0. [接口规范](https://github.com/luics/ift/blob/master/if-spec.md)
+    0. 接口工具集：[文档](https://github.com/luics/ift/wiki/IF#3-if-%E6%8E%A5%E5%8F%A3%E5%B7%A5%E5%85%B7%E9%9B%86)、[校验](https://github.com/luics/ift/wiki/IF#2-if-%E6%8E%A5%E5%8F%A3%E6%A0%A1%E9%AA%8C%E5%B7%A5%E5%85%B7)
+</section>
+<section data-markdown>
+    ## IF：蓝图
+    <img src="img/if-blueprint.png" height="600"/>
 </section>
 <section data-markdown>
     ## IF：数据文件
@@ -310,12 +327,18 @@
     <img src="img/if-api.png" height="600"/>
 </section>
 <section data-markdown>
+    ## IF：校验
+    <!--CASE 放大demo字体-->
+    0. [本地校验 Demo](http://local.tmall.net/toolkit/public/index.html#json.html)
+    0. [node & browser 版本](https://npmjs.org/package/ift)
+</section>
+<section data-markdown>
     ## IF：总结
     [下载接口Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
 
     0. 接口带来的流程可复用
     0. 接口校验的测试保障
-    0. 接口定义、接口文档、调试数据 三者同步
+    0. 接口文档和调试数据同步
 </section>
 <section data-markdown>
     ## 4. 定位
@@ -377,7 +400,7 @@
 </section>
 <section data-markdown>
     ## 重要资源
-    0. [跨终端的Web Demo](http://luics.github.io/demo/d2-demo/demo/sub.html)
+    0. [跨终端 Web Demo](http://luics.github.io/demo/d2-demo/demo/sub.html)
     0. [接口 Demo](http://luics.github.io/demo/d2-demo/demo/if.zip)
     0. [接口文档生成工具 if-sync](https://npmjs.org/package/if-sync)
     0. [Focus](http://focus.peaches.io)
@@ -388,9 +411,9 @@
     0. [History API 与 Hashbang 的对比](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
 </section>
 <section data-markdown>
-    ## Demo：跨终端的Web
+    ## Demo：跨终端 Web
 
-    <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">点击访问PC版</a><br>
+    <a href="http://luics.github.io/demo/d2-demo/demo/sub.html">访问PC版</a><br>
     或<br>
     <img style="height:300px;" src="img/qrcode.png"/>
 </section>
@@ -401,7 +424,7 @@
 <!--&lt;!&ndash;* 感谢，老大 <a href="javascript:;">@小马</a> 对Demo展示的意见&ndash;&gt;-->
 <!--* 感谢，「预览」Focus的 美女前端<a href="javascript:;">@闭月</a>-->
 <!--* 感谢，「检测」MED的所有成员-->
-<!--* 感谢，天猫前端在「跨终端的Web」方向上坚定决心-->
+<!--* 感谢，天猫前端在「跨终端 Web」方向上坚定决心-->
 <!--</section>-->
 <section data-markdown>
     ## Q & A
