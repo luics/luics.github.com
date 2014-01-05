@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html style="">
+<head>
+    <meta charset="utf-8"/>
+    <title>Viewport Tale</title>
+
+    <!--<meta content="width=320" name="viewport"/>-->
+
+    <style type="text/css">
+        html {
+            background-color: #333;
+
+        }
+
+        body {
+            margin: 0;
+            background-color: #eee;
+            height: 1000px;
+        }
+
+        button {
+            /*width: 120px;*/
+            height: 60px;
+            font-size: 140%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<br/>
+
+<h1>Viewport Tale</h1>
+
+<h2>请查看源码</h2>
+
+<a href="http://www.quirksmode.org/mobile/viewports.html" target="_blank">原文《A tale of two viewports》</a>
+
+<div id="log"></div>
+<button onclick="stat">显示 Event 坐标</button>
+<script>
+    function log() {
+        document.getElementById('log').innerHTML = Array.prototype.join.call(arguments, ' ');
+    }
+    function stat(event) {
+        console.log(event);
+        event = event || window.event || {};
+        log(
+                'screen.width/height: ', screen.width, screen.height, '<br>',
+                'window.innerWidth/Height: ', window.innerWidth, window.innerHeight, '<br>',
+                'window.pageX/YOffset: ', window.pageXOffset, window.pageYOffset, '<br>',
+                'document.documentElement.clientWidth/Height: ', document.documentElement.clientWidth, document.documentElement.clientHeight, '<br>',
+                'document.documentElement.style.width/height: ', document.documentElement.style.width, document.documentElement.style.height, '<br>',
+                'document.documentElement.offsetWidth/Height: ', document.documentElement.offsetWidth, document.documentElement.offsetHeight, '<br>',
+                'event.pageX/Y', event.pageX, event.pageY, '<br>',
+                'event.clientX/Y', event.clientX, event.clientY, '<br>',
+                'event.screenX/Y', event.screenX, event.screenY, '<br>'
+        );
+    }
+    //document.documentElement.offsetHeight=1500;
+
+    stat();
+    if (window.addEventListener) {
+        window.addEventListener('scroll', stat, false);
+        window.addEventListener('resize', stat, false);
+        window.addEventListener('click', stat, false);
+    }
+    else {
+        window.attachEvent('onscroll', stat);
+        window.attachEvent('onresize', stat);
+        window.attachEvent('onclick', stat);
+    }
+</script>
+</body>
+</html>
