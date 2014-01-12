@@ -1,0 +1,13 @@
+{
+    "name": "cew-proxy",
+    "version": "0.0.1",
+    "description": "基于 Express 的 HTTP Proxy Server",
+    "author": {
+        "name": "luics",
+        "email": "luics.xu@gmail.com"
+    },
+    "dependencies": {
+        "express": "*",
+        "request": "*"
+    }
+}

@@ -2,30 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Viewport 动态</title>
-
-    <link href="http://img01.taobaocdn.com/tps/i1/T1zo51XxXfXXXeOHro-144-144.png" rel="apple-touch-icon-precomposed"/>
-    <meta content="yes" name="apple-mobile-web-app-capable"/>
-    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-    <meta content="telephone=no" name="format-detection"/>
+    <title>Viewport 动态加载</title>
 
     <style type="text/css">
         body {
             margin: 0;
-        }
-
-        .body {
-            /* 默认设置固定宽度320px */
-            width: 320px;
-            height: 320px;
-            padding: 0;
-            margin: 0 auto;
-            background-color: #eee;
-            text-align: center;
+            background: #eee;
         }
 
         .chv {
-            margin-top: 120px;
             width: 300px;
             height: 80px;
             font-size: 30px;
@@ -33,22 +18,20 @@
     </style>
 </head>
 <body>
+<h1>Viewport 动态加载</h1>
+<button id="J_Chv" class="chv">切换 Viewport</button>
 
-<div class="body">
-    <button id="J_Chv" class="chv">切换 Viewport</button>
-
-    <div id="J_Meta"></div>
-</div>
-
-<script type="text/javascript" src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js"></script>
 <script type="text/javascript">
-    KISSY.use('', function(S) {
-        S.one('#J_Chv').on('click', function() {
-            S.one('<meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" name="viewport"/>')
-                    .appendTo(document.body);
-            //alert('viewport changed');
-        });
-    });
+    function addViewportSupport() {
+        var viewport = document.createElement('meta');
+        viewport.name = 'viewport';
+        viewport.content = 'initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width';
+        document.body.appendChild(viewport);
+    }
+
+    document.getElementById('J_Chv').onclick = function() {
+        addViewportSupport();
+    };
 </script>
 </body>
 </html>
