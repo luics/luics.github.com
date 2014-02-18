@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History API</title>
+    <!--<meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" name="viewport"/>-->
+</head>
+<body>
+<h1>History API</h1>
+
+<ul>
+    <li><a href="path1">path1</a></li>
+    <li><a href="path2">path2</a></li>
+    <li><a href="path3">path3</a></li>
+</ul>
+
+<script>
+    var supportHistoryAPI = !!history.pushState;
+    if (supportHistoryAPI) {
+        var anchors = document.getElementsByTagName('a');
+        for (var i = 0; i < anchors.length; ++i) {
+            anchors[i].addEventListener('click', function(event) {
+                event.preventDefault();
+                var title = this.innerHTML;
+                var url = this.href;
+                console.log(title, url);
+                history.pushState({url: url, title: title}, title, url);
+            });
+        }
+
+        /**
+         * 页面首次加载、回退或前进时触发
+         */
+        window.onpopstate = function(event) {
+            var data = event.state;
+            console.log('popstate', data, event);
+        };
+    }
+</script>
+</body>
+</html>

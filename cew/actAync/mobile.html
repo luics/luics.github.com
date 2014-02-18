@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mobile Client</title>
+<style>
+#example{width:100px;height:100px;background:#f00;}
+</style>
+<script>
+/*
+ * 需要前置到头部重置addEventListener方法的代码
+*/
+;(function(){
+	var __addEventListener = Element.prototype.addEventListener;
+	Element.prototype.addEventListener = function(type,handler,capture){
+		if(!this['events']){ this['events'] = {}; }
+		this['events'][type] = 1;
+		return __addEventListener.apply(this,[type,handler,capture]);
+	}
+})();
+</script>
+<script src="/static/zepto.min.js"></script>
+<script src="/static/get_selector.js"></script>
+</head>
+
+<body>
+<div id="example"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect('/');
+socket.on('connect', function (data) {
+	socket.on("pc", function(data){
+		//在这里来处理来自PC端的事件
+		var eventMap = {
+			click : "touchstart"
+		};
+
+		$(data.target).trigger(eventMap[data.action]);
+	});
+});
+
+document.getElementById("example").ontouchstart = function(){
+	this.style.background = "#00c";
+}
+</script>
+
+<script src="/static/recorder.js"></script>
+<script>
+startRecord("mobile");
+</script>
+</body>
+</html>

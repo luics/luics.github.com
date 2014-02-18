@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hash/Hashbang</title>
+    <meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" name="viewport"/>
+</head>
+<body>
+<h1>Hash/Hashbang</h1>
+
+<ul>
+    <li><a href="#path1">path1</a></li>
+    <li><a href="#path2">path2</a></li>
+    <li><a href="#path3">path3</a></li>
+</ul>
+
+<script>
+    /**
+     * 监听Hash变化，支持IE6+和其他现代浏览器
+     */
+    function onHashChanged(callback) {
+        // IE 8+ 支持 window.hashchange 事件
+        // 这里的判断是简化形式，可改进
+        var supportHashChangeEvent = !!window.addEventListener;
+
+        if (supportHashChangeEvent) {
+            window.addEventListener('hashchange', function() {
+                callback(location.hash);
+            });
+        }
+        else {
+            var oldHash = location.hash;
+            setInterval(function() {
+                var hash = location.hash;
+                if (hash !== oldHash) {
+                    oldHash = hash;
+                    callback(hash);
+                }
+            }, 100);
+        }
+    }
+
+    // 监听	
+    onHashChanged(function(hash) {
+        alert(hash);
+    });
+</script>
+
+</body>
+</html>
