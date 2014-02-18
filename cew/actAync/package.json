@@ -1,7 +1,7 @@
 {
-	"name" : "sample",
+	"name" : "actSync",
 	"version" : "0.0.1",
-	"author" : "xxx",
+	"author" : "supersha@foxmail.com",
 	"dependencies" : {
 		"express" : "3.1.1",
 		"socket.io" : "*"
