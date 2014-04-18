@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>传感器 in Hybrid API</title>
+
+    <meta name="author" content="luics.xu@gmail.com">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+<div class="slides">
+<section>
+    <h1>传感器</h1>
+    <br/>
+
+    <h3>Hybrid API</h3>
+    <br/>
+
+    <div>
+        天猫前端 &nbsp;<a href="http://luics.github.io/">@鬼道</a>
+    </div>
+</section>
+<section>
+    <h2>传感器分类</h2>
+    <div>
+        <br>
+    </div>
+    <div>
+        <ol>
+            <li>动作</li>
+            <li>环境</li>
+            <li>音频</li>
+            <li>视频</li>
+        </ol>
+    </div>
+</section>
+<section>
+    <section>
+        <h2>动作</h2>
+        <div>
+            <br>
+        </div>
+        <div>
+            <ol>
+                <li>陀螺仪</li>
+                <li>加速计</li>
+                <li>距离传感器</li>
+            </ol>
+        </div>
+    </section>
+    <section>
+        <h2>案例：竖蛋</h2>
+        <div>陀螺仪</div>
+        <div>
+            <img src="http://gtms03.alicdn.com/tps/i3/T1KLCqFzpdXXbzlxAc-640-1136.png"
+                 style="width: 335.5008072350795px; height: 594.9078016281128px; max-height: none; max-width: none;">
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>案例：<a
+                href="http://chart.apis.google.com/chart?cht=qr&amp;chl=http://wangjin.demo.taobao.net/tools/fla/example/billd/?stage=3&amp;chs=480x480"
+                data-spm-anchor-id="0.0.0.0">小鸡快跑</a>
+        </h2>
+        <div>陀螺仪</div>
+        <div>&nbsp;<img
+                src="http://chart.apis.google.com/chart?cht=qr&amp;chl=http://wangjin.demo.taobao.net/tools/fla/example/billd/?stage=3&amp;chs=480x480">
+        </div>
+    </section>
+    <section>
+        <h2>案例：iOS桌面</h2>
+        <div>陀螺仪</div>
+        <div>
+            <img src="http://gtms02.alicdn.com/tps/i2/T1BiC3FpRdXXcYjxAc-640-1136.jpg">
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>陀螺 - 二维</h2>
+        <div>
+            <img src="http://gtms01.alicdn.com/tps/i1/T111ihFtJfXXXwR56A-1920-800.jpg">
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>陀螺 - 三维</h2>
+        <div>
+            <img src="http://gtms01.alicdn.com/tps/i1/T1EmlpFRVaXXbjbnvU-375-375.gif">
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2><a href="http://w3c.github.io/deviceorientation/spec-source-orientation.html">W3C Orientation API</a></h2>
+        <div>
+            <img src="http://w3c.github.io/deviceorientation/start.png">
+            <img src="http://w3c.github.io/deviceorientation/c-rotation.png">
+        </div>
+    </section>
+    <section>
+        <h2>
+            <span>案例：摇一摇</span>
+        </h2>
+        <div>
+            <span>加速计</span>
+        </div>
+        <div>
+            <img src="http://gtms02.alicdn.com/tps/i2/T1KoaLFBxaXXamPtZ.-453-451.jpg"
+                 style="width: 280.9078016281128px; height: 278.4323403064917px; max-height: none; max-width: none;">
+            <div>
+                <br>
+            </div>
+        </div>
+        <div>
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>案例： <a
+                href="http://gitlab.alibaba-inc.com/x/kung-fu-cat/raw/master/server/public/pc/race.html?f2e&debug">小猫快跑</a>
+        </h2>
+        <div>加速计</div>
+        <div>
+            <img src="http://gtms03.alicdn.com/tps/i3/T1fmmDFD8dXXbzlxAc-640-1136.png">
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>加速计</h2>
+        <div>（重力感应）</div>
+        <div>
+            <img src="http://gtms04.alicdn.com/tps/i4/T1vYawFthgXXXF6j2y-500-280.png">
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>案例：锁屏</h2>
+        <div>距离传感器</div>
+        <div>
+            <img src="http://gtms01.alicdn.com/tps/i1/T13CJqFKhXXXbzlxAc-640-1136.png" alt=""/>
+        </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2 style="font-style: normal; font-variant: normal;">环境</h2>
+        <div>
+            <br>
+        </div>
+        <div>
+            <ol>
+                <li style="text-align: left;">
+                    <span style="text-align: center;">GPS</span>
+                </li>
+                <li style="text-align: left;">
+                    <span style="text-align: center;">磁力计</span>
+                </li>
+                <li style="text-align: left;">
+                    <span style="text-align: center;">光线传感器</span>
+                    <br>
+                </li>
+                <li style="text-align: left;">
+                    <span style="text-align: center;">气压</span>
+      <span style="text-align: center;">
+       <span style="font-size: 35.46099090576172px; font-style: normal; font-variant: normal;">传感器</span>
+      </span>
+                    <br>
+                </li>
+                <li style="text-align: left;">
+                    <span style="text-align: center;">气温</span>
+      <span style="text-align: center;">
+       <span style="font-size: 35.46099090576172px; font-style: normal; font-variant: normal;">传感器</span>
+      </span>
+                    <br>
+                </li>
+                <li style="text-align: left;">
+                    <span style="text-align: center;">湿度</span>
+      <span style="text-align: center;">
+       <span style="font-size: 35.46099090576172px; font-style: normal; font-variant: normal;">传感器</span>
+      </span>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section>
+        <h2>指南针</h2>
+        <div>
+            <span style="text-align: left;">磁力计</span>
+        </div>
+        <div>
+            <img src="http://gtms02.alicdn.com/tps/i2/T19gtmFIReXXbzlxAc-640-1136.png" alt=""/>
+        </div>
+    </section>
+    <section>
+        <h2>
+            案例：导航</h2>
+
+        <div style="float:left;margin-left:20px;text-align:left;">
+            <br>
+            <br>传感器组合：<br>
+            GPS + 磁力计<br>
+
+        </div>
+        <div style="float:right;margin-right:100px">
+            <img src="http://gtms03.alicdn.com/tps/i3/T1ORGMFBxXXXcYjxAc-640-1136.jpg"
+                 style="width: 299.5290261498908px; height: 542.9078016281128px; max-height: none; max-width: none;">&nbsp;<br>
+        </div>
+
+
+    </section>
+    <section>
+        <h2>
+            <span>案例：智能感光</span>
+        </h2>
+        <div>
+            <img src="http://gtms02.alicdn.com/tps/i2/T1D15KFppfXXcj5mwn-498-802.png"
+                 style="width: 336.9078016281128px; height: 541.3827235922981px; max-height: none; max-width: none;">
+            <img src="http://gtms01.alicdn.com/tps/i1/T1NqyOFpNaXXXpDFMj-496-790.png"
+                 style="width: 341.9078016281128px; height: 543.7518641713588px; max-height: none; max-width: none;">
+     <span>
+      <br>
+     </span>
+        </div>
+        <div>
+     <span>
+      <br>
+     </span>
+        </div>
+    </section>
+    <section>
+        <h2>
+            <img src="http://gtms01.alicdn.com/tps/i1/T1qjSMFCRbXXbo6izX-1024-896.png">
+            <br>
+        </h2>
+    </section>
+    <section>
+        <h2>其他</h2>
+        <div>
+            <br>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <span style="text-align: center;">气压传感器 - 海拔</span>
+                    <br>
+                </li>
+                <li>
+                    <span style="text-align: center;">温度</span>
+                </li>
+                <li>
+                    <span style="text-align: center;">湿度</span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <br>
+        </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>音频</h2>
+        <div>
+            <br>
+        </div>
+        <div>
+            <ol>
+                <li>麦克风</li>
+                <li>扬声器</li>
+            </ol>
+        </div>
+    </section>
+    <section>
+        <h2>案例：呐喊</h2>
+        <div>麦克风&nbsp;</div>
+        <div>
+            <img src="http://gtms03.alicdn.com/tps/i3/T1fmmDFD8dXXbzlxAc-640-1136.png">
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>案例：咻一咻</h2>
+        <div>
+            <span>麦克风</span>
+        </div>
+        <div>
+            <img src="http://gtms02.alicdn.com/tps/i2/T1.1aMFvVaXXaQEF3s-640-640.jpg"
+                 style="width: 336.9078016281128px; height: 336.90780162811274px; max-height: none; max-width: none;">
+     <span>
+      <br>
+     </span>
+        </div>
+    </section>
+    <section>
+        <h2>案例：吹</h2>
+        <div>
+            <span>麦克风</span>
+        </div>
+        <div>
+            <div style="text-align: center;">
+                <img src="http://125.76.238.27/vnetcms2_files/upload/0/news/attachment/247/1260003532972.jpg"
+                     style="width: 276.649839153217px; height: 367.9078016281128px; max-height: none; max-width: none;">
+                <br>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>案例：语音识别</h2>
+        <div>
+            <img src="http://gtms03.alicdn.com/tps/i3/T14m5KFD8cXXbigprK-716-992.png"
+                 style="width: 379.9078016281128px; height: 525.5565623961614px; max-height: none; max-width: none;">
+            <br>
+        </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>视频</h2>
+        <div>
+            <br>
+        </div>
+        <div>
+            <ol>
+                <li>摄像头</li>
+                <li>显示器</li>
+            </ol>
+        </div>
+    </section>
+    <section>
+        <h2>案例：拍照</h2>
+        <div>AirPlay Demo</div>
+    </section>
+    <section>
+        <h2>案例：<a href="http://tiejun.demo.taobao.net/trys/" data-spm-anchor-id="0.0.0.0">试戴</a>
+        </h2>
+        <div>
+            <img src="http://gtms01.alicdn.com/tps/i1/T17BWmFwReXXcCfhrt-602-637.png">
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>案例：试衣间</h2>
+        <div>
+            <br>
+        </div>
+        <div>
+            <img src="http://gtms03.alicdn.com/tps/i3/T122RnFTNcXXXCFRzI-930-620.jpg">
+            <br>
+        </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>
+            <span>增强现实</span>
+        </h2>
+        <div>
+            <span>AR (Augmented Reality)</span>
+        </div>
+    </section>
+    <section>
+        <h2>案例：Star Chart</h2>
+        <div><img src="http://gtms04.alicdn.com/tps/i4/T1HV4oFHBcXXXFih67-490-716.jpg" alt=""/></div>
+    </section>
+    <section>
+        <h2>案例：Google Glass</h2>
+        <div>
+            <img src="http://hotandtrendymag.com/wp-content/uploads/2013/05/Google-glasses.jpg">
+        </div>
+    </section>
+    <section>
+        <h2>案例：实景</h2>
+
+        <object width="480" height="400" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">
+            <param name="src" value="http://player.youku.com/player.php/sid/XMzY5MzcyMjM2/v.swf">
+            <param name="allowfullscreen" value="true">
+            <param name="quality" value="high">
+            <param name="allowscriptaccess" value="always">
+            <embed width="480" height="400" type="application/x-shockwave-flash"
+                   src="http://player.youku.com/player.php/sid/XMzY5MzcyMjM2/v.swf" allowfullscreen="true"
+                   quality="high" allowscriptaccess="always">
+        </object>
+    </section>
+    <section>
+        <h2>
+            <a href="http://www.easyar.cn/category/goodcase/page/2/?spm=0.0.0.0.QJ8iCl"
+               data-spm-anchor-id="0.0.0.0">更多案例</a>
+        </h2>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Hybrid API</h2>
+        <div>
+            <img src="http://gtms04.alicdn.com/tps/i4/T1gh8fFUJcXXaT6Dw7-663-545.jpg">
+            <br>
+        </div>
+    </section>
+    <section>
+        <h2>目标</h2>
+        <div>
+            <ul>
+                <li>一份代码随处运行：客户端 + 独立浏览器</li>
+                <li>复杂传感器的功能封装</li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <h2><a href="http://work.tmall.net/projects/hybrid-api/wiki/Wiki">实现</a></h2>
+        <div>
+            <img src="http://gtms03.alicdn.com/tps/i3/T1w6poFPxbXXaZr0gD-1552-1172.png" alt=""/>
+        </div>
+    </section>
+    <section>
+        <h2>iOS 兼容性</h2>
+        <div>
+            <img src="http://gtms02.alicdn.com/tps/i2/T1j1aLFxtbXXc4aUZ9-793-568.jpeg">
+            <br>
+        </div>
+    </section>
+</section>
+<section>
+    <h2>Thanks.</h2>
+    <div><a href="#">@鬼道</a></div>
+</section>
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: 'night', //Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        leap: {
+            naturalSwipe: false,    // Invert swipe gestures
+            pointerOpacity: 0.5,      // Set pointer opacity to 0.5
+            pointerColor: '#d80000' // Red pointer
+        },
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'plugin/leap/leap.js', async: true },
+            { src: 'lib/js/classList.js', condition: function() {
+                return !document.body.classList;
+            } },
+            { src: 'plugin/markdown/marked.js', condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/markdown/markdown.js', condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
