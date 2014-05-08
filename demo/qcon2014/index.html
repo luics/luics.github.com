@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Mobile Web 性能和组件化</title>
+
+    <meta name="description" content="Conquering the uncanny valley - Andrew Betts">
+    <meta name="author" content="Andrew Betts">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/ftlabs.css" id="theme">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class='pointer'></div>
+
+<div class="reveal">
+<div class="slides">
+<section>
+    <h1>Mobile Web 性能和组件化</h1>
+</section>
+<section>
+    <h2>The uncanny valley</h2>
+
+    <p><img src='content/uncannyvalley.svg' class='stretch' style='max-height: 80%'/></p>
+
+    <aside class="notes">Robotics professor Masahiro Mori, 1970</aside>
+</section>
+
+<section data-background='content/evil-robot.jpg'>
+    <aside class='notes'>Uncanny valley teaches us not to try and be something we're not. This is often a problem experienced by web applications. Web apps that simply try to emulate native without balancing capabilities of tech with actual user needs likely to fall into uncanny valley. BUT, we think web is still the best way, going to explain briefly why</aside>
+</section>
+
+<section>
+    <h2>We've been doing this for a while</h2>
+    <img src='content/timeline.png' class='stretch'>
+    <aside class='notes'>The FT has actually been publishing content on mobile for 125 years. For most of that time we've used a technology we call a newspaper.</aisde>
+</section>
+
+<section>
+    <h2>Newsprint</h2>
+    <ul class='two-col'>
+        <li>Works offline</li>
+        <li>Portable</li>
+        <li>Long battery life</li>
+        <li>Can be read in bright sunlight</li>
+        <li>Cheap</li>
+        <li>Ubiquitous</li>
+        <li>Bookmarkable</li>
+        <li>Sharable</li>
+        <li>Fast start up</li>
+        <li>Supports clipping/saving</li>
+        <li>
+            <del>Can be read in the dark</del>
+        </li>
+        <li>
+            <del>Updates in real time</del>
+        </li>
+        <li>
+            <del>Electronic delivery</del>
+        </li>
+        <li>
+            <del>Search</del>
+        </li>
+        <li>
+            <del>Personalisation</del>
+        </li>
+        <li>
+            <del>Deep linking</del>
+        </li>
+    </ul>
+    <aside class='notes'>Might seem glib, but newsprint has a whole host of features that neither native apps, nor the web to date have been able to match</aside>
+</section>
+
+<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/red-blue.jpg'>
+    <blockquote>We need to care about <strong>supporting existing features</strong> as much as
+        <strong>getting new ones</strong></blockquote>
+    <aside class='notes'>And look ahead to new platforms, new ways that people will want to get our content</aside>
+</section>
+
+<section>
+    <h2>Lose the constraints</h2>
+    <ul class='two-col'>
+        <li>Tablet</li>
+        <li>Phone</li>
+        <li>Desktop</li>
+        <li>Laptop</li>
+        <li>TV</li>
+        <li>Games console</li>
+        <li>In car screen</li>
+        <li>In flight screen</li>
+        <li>Billboard</li>
+        <li>Kiosk</li>
+        <li>e-ink reader</li>
+        <li>Hot air balloon</li>
+    </ul>
+</section>
+
+<section data-background='content/balloon.jpg'>
+    <aside class='notes'>Obviously we don't think this is a viable way to read the FT, but it makes you think, doesn't it, about how the web might evolve and what we might come to use it for</aisde>
+</section>
+
+<section data-background='content/ft-web-app.jpg'>
+    <aside class='notes'>So with these ambitions in mind, and thinking about the UX innovations achieved by native app developers, and the risks of uncanny valley effects, the FT web app demonstrates an evolving compromise. Balances great UX that adapts to your needs, with what we can do on the web today.</aside>
+</section>
+
+<section data-background='content/economist.jpg'>
+    <aside class='notes'>For example, our economist app starts out assuming that you have a touchscreen, but if it detects a mouse cursor moving, we add hover effects, navigational aids and tune our click targets for use with a mouse.</aside>
+</section>
+
+<section>
+    <img src='content/blackberry-reviews.jpg' class='stretch'/>
+</section>
+
+<section class='dark-background' data-background='css/theme/ftlabs_images/purple-blue.jpg'>
+    <h1>Smooth transitions</h1>
+    <div class='stat'>16ms</div>
+</section>
+
+<section class='dark-background' data-background='css/theme/ftlabs_images/purple-blue.jpg'
+         data-background-transition='none'>
+    <h1>No pauses</h1>
+    <div class='stat'>100ms</div>
+</section>
+
+<section class='dark-background' data-background='css/theme/ftlabs_images/purple-blue.jpg'
+         data-background-transition='none'>
+    <h1>Matching expectations</h1>
+</section>
+
+<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
+    <h1>Network</h1>
+    <blockquote>HTTP requests are painful, so do fewer of them and <strong>make them count</strong>.</blockquote>
+</section>
+
+<section>
+    <h2>The basics</h2>
+    <ul>
+        <li>Async everything: <code>defer</code> and <code>async</code> on script tags</li>
+        <li>Even async scripts can block the load event:<br/>Start loading your scripts <strong>after</strong> onload
+        </li>
+        <li>Reduce HTTP requests with spriting and script concatenation</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Power yum yum</h2>
+    <img src='content/power-graph.png' class='stretch'/>
+
+    <p class='cite'>Source: <a
+            href='http://assets.en.oreilly.com/1/event/60/Understanding%20Mobile%20Web%20Browser%20Performance%20Presentation.pdf'>Qualcomm</a>
+    </p>
+</section>
+
+<section>
+    <h2>Latency by radio state</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>Chrome, MacOS,<br/>Velocity Conf wifi</th>
+            <th>Safari, iOS,<br/>T-Mobile EDGE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1s intervals</td>
+            <td>180ms</td>
+            <td>850ms</td>
+        </tr>
+        <tr>
+            <td>10s intervals</td>
+            <td>180ms</td>
+            <td>1500ms</td>
+        </tr>
+        <tr>
+            <td>20s intervals</td>
+            <td>180ms</td>
+            <td>2100ms</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class='cite'>Try it on the <a href='http://jsfiddle.net/sktbb/6/'>JSFiddle</a>.</p>
+</section>
+
+<section>
+    <h2>Batching</h2>
+    <ul>
+        <li>Aggressive batching - collect requests asynchronously:
+						<pre><code data-trim>
+                            api.add('getStory', {'path': '/1'}, callback1);
+                            api.add('getStory', {'path': '/1'}, callback2);
+                            api.send(callback3);
+                            api.add('healthcheck', params, callback4);
+                            api.send(callback5);
+                        </code></pre>
+        </li>
+        <li>Callbacks per action and per group</li>
+        <li>Process queues in the background</li>
+    </ul>
+</section>
+
+<section>
+    <h2>HTTP 2.0 / SPDY</h2>
+    <ul>
+        <li>Makes this unnecessary – in theory, but:
+            <ul>
+                <li>Not usable yet</li>
+                <li>Can't optimise cross-origin (third party scripts)</li>
+            </ul>
+        <li>Also see W3C Beacon API for analytics</li>
+        <li>Still use cases for delayed requests:
+            <ul>
+                <li>Offline persistence of queued requests</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h2>Images</h2>
+    <ul>
+        <li>Typically 70-95% of web page data is images</li>
+        <li>Use an accessible responsive images technique</li>
+        <li>Consider high resolution, high compression for high DPI screens</li>
+    </ul>
+</section>
+
+<section>
+    <section>
+        <h2>Third party scripts</h2>
+        <ul>
+            <li>One of the biggest users of polling timers, especially analytics</li>
+            <li>Often needlessly block the load event</li>
+            <li><a href='http://www.webpagetest.org'>Test your performance</a> before and after</li>
+            <li>Ask the right questions before you add a third party script</li>
+        </ul>
+        <p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>
+    </section>
+    <section>
+        <iframe class='stretch' src='http://triblondon.github.io/thirdpartysla'></iframe>
+        <p class='cite'>Interested in helping me with this? <a
+                href='http://github.com/triblondon/thirdpartysla'>Look at the code</a> and <a
+                href='mailto:third-party-scripts@googlegroups.com'>drop us a line</a>.</p>
+    </section>
+</section>
+
+<section>
+    <h2>Prefetch and friends</h2>
+    <img src='content/prefetch.png' class='stretch'>
+</section>
+
+<section>
+    <h2>Prefetch and friends</h2>
+
+    <p>Pre-resolve DNS hostnames for assets later in the page:</p>
+					<pre><code data-trim>
+                        &lt;link rel='dns-prefetch' href='hostname-to-resolve.com'&gt;
+                    </code></pre>
+    <p>Fetch subresources early so they're already there when needed:</p>
+					<pre><code data-trim>
+                        &lt;link rel='subresource' href='/path/to/some/script.js'&gt;
+                    </code></pre>
+    <p>Pre-fetch resources for likely future navgiations:</p>
+					<pre><code data-trim>
+                        &lt;link rel='prefetch' href='/most/likely/next/page.html'&gt;
+                    </code></pre>
+    <p>Pre-render an entire page in the background (Chrome only)</p>
+					<pre><code data-trim>
+                        &lt;link rel='prerender' href='/overwhelmingly/likely/next/page.html'&gt;
+                    </code></pre>
+</section>
+
+<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
+    <h1>Rendering</h1>
+    <blockquote>Layout, paints, animation frames and 'jank' coming up.</blockquote>
+</section>
+
+<section>
+    <h2>Use the tools</h2>
+    <ul>
+        <li>Timeline</li>
+        <li>Chrome tracing</li>
+        <li>FPS meter</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Old flexbox</h2>
+
+    <p>IE &lt;11, Firefox (current), Safari &lt;7, iOS &lt;7, Android (current), Blackberry <10</p>
+    <img src='content/flexbox-old.jpg' class='stretch'/>
+</section>
+
+<section>
+    <h2>New flexbox</h2>
+
+    <p>IE 11+, Chrome, iOS 7+, Blackberry 10+</p>
+    <img src='content/flexbox-new.png' class='stretch'/>
+</section>
+
+<section>
+    <section>
+        <h2>Hover effects</h2>
+
+        <p>Disable hover effects on non-hoverable devices and during scrolls</p>
+						<pre><code data-trim>
+                            .hoverable a:hover { ... }
+                        </code></pre>
+					<pre><code data-trim>
+                        &lt;body class='hoverable'>
+                        ...
+                        &lt;/body>
+                    </code></pre>
+        <p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>
+    </section>
+    <section>
+        <iframe src='https://dl.dropboxusercontent.com/u/2272348/codez/expensivescroll/demo.html'
+                class='stretch'></iframe>
+    </section>
+</section>
+
+<section>
+    <h2>Frame rates</h2>
+    <div class='row'>
+        <p>Activate meter in&nbsp;<a href='chrome://flags'>chrome://flags</a></p>
+        <div><img src='content/fps-meter.png' style='min-width: 400px'/></div>
+    </div>
+    <div class='row'>
+        <div style='min-width: 35%'><img src='content/border-radius-off.png' style='width:100%'></div>
+        <p>No border-radius</p>
+    </div>
+    <div class='row'>
+        <div style='min-width: 35%'><img src='content/border-radius-on.png' style='width:100%'></div>
+        <p>Border-radius</p>
+    </div>
+    <aside class='notes'>Eli Fidler from BlackBerry at Edge 2: 1px text-shadows are really expensive. Don't do that stuff</aside>
+</section>
+
+<section>
+    <h2>Layout boundary</h2>
+
+    <p>The area the browser has to re-layout when you change something</p>
+    <img src='content/layoutroot-before.png' class='stretch'>
+
+    <p class='cite'>For more info see <a
+            href='http://wilsonpage.co.uk/introducing-layout-boundaries/'>Wilson Page's post</a> or <a
+            href='https://github.com/paullewis/Boundarizr'>Boundarizr</a> by Paul Lewis.</p>
+</section>
+
+<section>
+    <h2>Layout boundary (fixed)</h2>
+    <img src='content/layoutroot-after.png' class='stretch'>
+</section>
+
+<section>
+    <h2>Layout 'thrashing'</h2>
+    <ul>
+        <li>DOM operations are synchronous but 'lazy' by default</li>
+        <li>Browser will batch writes for you</li>
+        <li>But you force it to write if you try to read something</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Interleaved reads/writes</h2>
+					<pre><code data-trim>
+                        var h1 = element1.clientHeight; &lt;== Read (measures the element)
+                        element1.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)
+                        var h2 = element2.clientHeight; &lt;== Read (measure again, so must trigger layout)
+                        element2.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)
+                        var h3 = element3.clientHeight; &lt;== Read (measure again, so must trigger layout)
+                        element3.style.height = (h3 * 2) + 'px'; &lt;== Write (invalidates current layout)
+                        etc.
+                    </code></pre>
+</section>
+
+<section>
+    <h2>Batching reads/writes manually</h2>
+					<pre><code data-trim>
+                        var h1 = element1.clientHeight; &lt;== Read
+                        var h2 = element2.clientHeight; &lt;== Read
+                        var h3 = element3.clientHeight; &lt;== Read
+                        element1.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)
+                        element2.style.height = (h1 * 2) + 'px'; &lt;== Write (layout already invalidated)
+                        element3.style.height = (h3 * 2) + 'px'; &lt;== Write (layout already invalidated)
+                        h3 = element3.clientHeight &lt;== Read (triggers layout)
+                        etc.
+                    </code></pre>
+</section>
+
+<section>
+    <div class='row'>
+        <div><img src='content/thrashing-before.png'></div>
+        <div><img src='content/thrashing-after.png'></div>
+    </div>
+</section>
+
+<section>
+    <section>
+        <h2>Asynchronous DOM?</h2>
+
+        <p>Use Wilson's <a
+                href='http://github.com/wilsonpage/fastdom'>FastDOM</a> library to get asynchronous DOM today.</p>
+						<pre><code data-trim>
+                            fastdom.read(function() {
+                            var h1 = element1.clientHeight;
+                            fastdom.write(function() {
+                            element1.style.height = (h1 * 2) + 'px';
+                            });
+                            });
+
+                            fastdom.read(function() {
+                            var h2 = element2.clientHeight;
+                            fastdom.write(function() {
+                            element2.style.height = (h1 * 2) + 'px';
+                            });
+                            });
+                        </code></pre>
+        <p>This works by using <code>requestAnimationFrame</code> to batch writes</p>
+
+        <p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>
+    </section>
+    <section>
+        <iframe src='http://jsbin.com/ebicuJu/2/' class='stretch'></iframe>
+    </section>
+</section>
+
+<section>
+    <h2>Images.</h2>
+    <img src='content/imageheavy.png' class='stretch'>
+</section>
+
+<section>
+    <h2>Image decoding</h2>
+
+    <p>Image decoding is probably the
+        <strong>most expensive</strong><br/> thing you ask the browser to do when your page loads.</p>
+    <ul>
+        <li>Don't load on demand (battery killer on mobile)</li>
+        <li>Load but don't decode? No native API (yet. Ahem)</li>
+        <li>Polyfill by downloading <code>data:</code> URIs
+            <ul>
+                <li>Base64-encode on server</li>
+                <li>Download with XHR</li>
+                <li>Insert string into <code>&lt;img src=''&gt;</code> to trigger decoding</li>
+            </ul>
+        </li>
+        <li>Con: Fools the browser, may mean you lose browser level optimisations</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Hardware accelerated transforms</h2>
+
+    <p>You need the GPU if you're going to animate a</p>
+
+    <p style='font-size: 3em'>move, scale<br/>filter, rotate</p>
+</section>
+
+<section>
+    <h2>Using accelerated animations</h2>
+    <ul>
+        <li>Repositioning elements causes a relayout</li>
+        <li>Accelerated animation = paint only</li>
+        <li>First: move element to GPU layer
+						<pre><code data-trim>
+                            .thing { -webkit-transform: translateZ(0); }
+                        </code></pre>
+        </li>
+        <li>Then: apply a transition or animation
+						<pre><code data-trim>
+                            .thing { -webkit-transition: all 3s ease-out; }
+                            .thing.left { -webkit-transform: translate3D(0px,0,0); }
+                            .thing.right { -webkit-transform: translate3D(600px,0,0); }
+                        </code></pre>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <img src='content/gpu-preacceleration.jpg' class='stretch'>
+</section>
+
+<section>
+    <img src='content/gpu-postacceleration.jpg' class='stretch'>
+    <aside class='notes'>This doesn't seem to be a hack - provided you do intend to transform an element, setting an initial transform of zero seems like a reasonable hint to the browser. Also note browsers are starting to do this automatically even if you just use the top and left offsets for animation (Eli)</aside>
+</section>
+
+<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
+    <h1>Storing data</h1>
+    <blockquote>HTML5 can store data on device too, it's just... well, <strong class='no-wrap'>it's complicated</strong>.
+    </blockquote>
+</section>
+
+<section>
+    <h2>A
+        <del>happy</del>
+        family of technologies
+    </h2>
+    <ul>
+        <li>WebSQL</li>
+        <li>IndexedDB</li>
+        <li>localStorage (and sessionStorage)</li>
+        <li>Cookies</li>
+        <li>HTML5 Application Cache</li>
+        <li>FileAPI</li>
+    </ul>
+</section>
+
+<section>
+    <div class='row storage-family'>
+        <div>
+            <img src='content/storage-cookies.png' style='width:100%'>
+
+            <p>Cookies</p>
+
+            <p><strong>Grandad<br>&nbsp;</strong></p>
+        </div>
+        <div>
+            <img src='content/storage-localstorage.png' style='width:100%'>
+
+            <p>localStorage</p>
+
+            <p><strong>Dad<br>&nbsp;</strong></p>
+        </div>
+        <div>
+            <img src='content/storage-indexeddb.png' style='width:100%'>
+
+            <p>IndexedDB</p>
+
+            <p><strong>Mum<br>&nbsp;</strong></p>
+        </div>
+        <div>
+            <img src='content/storage-appcache.png' style='width:100%'>
+
+            <p>AppCache</p>
+
+            <p><strong>Teen<br>&nbsp;</strong></p>
+        </div>
+        <div>
+            <img src='content/storage-filesapi.png' style='width:100%'>
+
+            <p>Files API</p>
+
+            <p><strong>Imaginary<br>friend</strong></p>
+        </div>
+    </div>
+    <aside class='notes'>Jonas Sicking wrote on Moz hacks, Moz prefers IndexedDB and device APIs for filesystem use cases</aside>
+</section>
+
+<section>
+    <h2>localStorage vs IndexedDB</h2>
+    <img src='content/storage-perf.png' class='stretch'>
+</section>
+
+<section>
+    <h2>HTML5 Application cache</h2>
+
+    <p class='stat'>Meh.</p>
+
+    <p class='cite'>If you really want to know more, <a
+            href='http://alistapart.com/article/application-cache-is-a-douchebag'>go read this</a> and <a
+            href='http://bdconf.com/ft'>watch this</a></p>
+</section>
+
+<section>
+    <img src='content/tweet-bastard.png'>
+</section>
+
+<section>
+    <h2>It's being replaced!</h2>
+
+    <p>By <strong>NavigationController</strong>!</p>
+
+    <p class='fragment'>Or maybe <strong>ResourceController</strong> or <strong>NetworkController</strong>?</p>
+
+    <p class='fragment'>No, wait. <strong>EventWorker</strong> it is!</p>
+
+    <p class='fragment'>Scratch that. <strong>ServiceWorker</strong></p>
+</section>
+
+<section>
+    <h2>It's like a server in the browser</h2>
+    <img src='content/morpheus-meme.jpg' class='stretch'>
+</section>
+
+<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
+    <h1>Storage optimisation</h1>
+    <blockquote>While we are limited by tiny quotas, we need to learn to <strong>live with less</strong>.</blockquote>
+</section>
+
+<section data-background='content/storage-trucks.png'></section>
+
+<section>
+    <h2>Text encoding 'compression'</h2>
+    <ul>
+        <li>JavaScript internally uses UTF-16 for text encoding</li>
+        <li>Great idea for processing: fast string operations, full support for Unicode BMP</li>
+        <li>Terrible idea for storage of English text or base-64 encoded images.</li>
+    </ul>
+</section>
+
+<section data-background='content/mini.jpg'></section>
+
+<section>
+    <h2>Squeeze your bits</h2>
+    <table class='centered-content'>
+        <tr>
+            <th>Text</th>
+            <td>S</td>
+            <td>i</td>
+            <td>m</td>
+            <td>p</td>
+            <td>l</td>
+            <td>e</td>
+        </tr>
+        <tr>
+            <th>Decimal</th>
+            <td>83</td>
+            <td>105</td>
+            <td>109</td>
+            <td>112</td>
+            <td>108</td>
+            <td>101</td>
+        </tr>
+        <tr>
+            <th>As binary</th>
+            <td style='color:#8F3F6D'>01010011</td>
+            <td style='color:#8F3F6D'>01101001</td>
+            <td style='color:#ED2939'>01101101</td>
+            <td style='color:#ED2939'>01110000</td>
+            <td style='color:#69BE28'>01101100</td>
+            <td style='color:#69BE28'>01100101</td>
+        </tr>
+    </table>
+    <table class='centered-content'>
+        <tr>
+            <th>Shifted</th>
+            <td style='color:#8F3F6D'>01010011 01101001</td>
+            <td style='color:#ED2939'>01101101 01110000</td>
+            <td style='color:#69BE28'>01101100 01100101</td>
+        </tr>
+        <tr>
+            <th>As hex</th>
+            <td>53 69</td>
+            <td>6D 70</td>
+            <td>6C 65</td>
+        </tr>
+        <tr>
+            <th>UTF-16</th>
+            <td>卩</td>
+            <td>浰</td>
+            <td>汥</td>
+        </tr>
+    </table>
+</section>
+
+<section>
+    <h2>ASCII packed into UTF-16</h2>
+					<pre><code data-trim>
+                        function compress(s) {
+                        var i, l, out='';
+                        if (s.length % 2 !== 0) s += ' ';
+                        for (i = 0, l = s.length; i &lt; l; i+=2) {
+                        out += String.fromCharCode((s.charCodeAt(i)&lt;&lt;8) + s.charCodeAt(i+1));
+                        }
+                        return out;
+                        }
+                    </code></pre>
+</section>
+
+<section>
+    <h2>Decompressing</h2>
+					<pre><code data-trim>
+                        function decompress_v1(data) {
+                        var i, l, n, m, out = '';
+                        for (i = 0, l = data.length; i &lt; l; i++) {
+                        n = data.charCodeAt(i);
+                        m = Math.floor(n / 256);
+                        out += String.fromCharCode(m) + String.fromCharCode(n % 256);
+                        }
+                        return out;
+                        }
+                    </code></pre>
+</section>
+
+<section>
+    <img src='content/idb-unicode.jpg' class='stretch'>
+</section>
+
+<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
+    <h1>Click delay</h1>
+    <blockquote>More click, less <strong>wait</strong>.</blockquote>
+</section>
+
+<section>
+    <section>
+        <h2>Fastclick</h2>
+        <ul>
+            <li><a href='http://github.com/ftlabs/fastclick'>github.com/ftlabs/fastclick</a></li>
+            <li>Removes 300ms delay on touch</li>
+            <li>Programmatic clicks aren't quite the same - we handle it where we can (eg apply focus)</li>
+        </ul>
+        <p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>
+    </section>
+    <section>
+        <div class='fastclick-demo row'>
+            <div class='stack slow'>
+                <h2>Unenhanced</h2>
+                <div class='block'></div>
+                <div class='block'></div>
+                <div class='block'></div>
+                <div class='block'></div>
+            </div>
+            <div class='stack fast'>
+                <h2>With fastclick</h2>
+                <div class='block'></div>
+                <div class='block'></div>
+                <div class='block'></div>
+                <div class='block'></div>
+            </div>
+        </div>
+        <p class='cite'>Note: This demo shows the effect of Fastclick without using Fastclick itself</p>
+    </section>
+</section>
+
+<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
+    <h1>Perception</h1>
+    <blockquote>When you can't make it any faster...<br>make it <strong>seem faster</strong>.</blockquote>
+</section>
+
+<section>
+    <img src='content/shreddies.jpg' class='stretch'>
+</section>
+
+<section>
+    <img src='content/economist-progbars.png' class='stretch'>
+</section>
+
+<section class='logo-title dark-background' data-background='css/theme/ftlabs_images/purple-blue-2.jpg'>
+    <h1>That's it!</h1>
+
+    <h3>Contact me:</h3>
+    <ul>
+        <li>Email: <a href='mailto:andrew@labs.ft.com'>andrew@labs.ft.com</a></li>
+        <li>Twitter: <a href='http://twitter.com/@triblondon'>@triblondon</a>, <a
+                href='http://twitter.com/@ftlabs'>@ftlabs</a></li>
+    </ul>
+    <p style='margin-top: 50px'>For jobs with FT Labs, visit <a href='http://labs.ft.com/jobs'>labs.ft.com/jobs</a></p>
+</section>
+
+
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+    Reveal.initialize({
+        width: 1280,
+        height: 800,
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'ftlabs',
+        transition: 'concave',
+        backgroundTransition: 'slide',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() {
+                return !document.body.classList;
+            } },
+            { src: 'plugin/markdown/marked.js', condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/markdown/markdown.js', condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } }
+        ]
+    });
+    Reveal.addEventListener('slidechanged', function(e) {
+        if (e.currentSlide.classList.contains('big-quote')) {
+            var h1 = e.currentSlide.querySelector('h1');
+            if (h1 && !e.currentSlide.querySelector('span.bghead')) {
+                var bgh1 = document.createElement('span');
+                bgh1.classList.add('bghead');
+                bgh1.innerHTML = h1.innerHTML;
+                h1.parentNode.appendChild(bgh1);
+            }
+        }
+    });
+
+    // Fastclick demo
+    (function() {
+        var fc = document.querySelector('.fastclick-demo');
+        var pointer = document.querySelector('.pointer');
+        var pointer_size = (pointer.offsetWidth / 2);
+        var timers = {};
+        fc.addEventListener('click', function(e) {
+            if (timers[e.target]) clearTimeout(timers[e.target]);
+            timers[e.target] = setTimeout(function() {
+                e.target.classList.toggle('selected');
+            }, e.target.parentNode.classList.contains('slow') ? 300 : 0);
+            console.log('Mouse position', e.x, e.y);
+            pointer.style.top = (e.y - pointer_size) + 'px';
+            pointer.style.left = (e.x - pointer_size) + 'px';
+            pointer.style.opacity = 0.7;
+            if (timers.pointer) clearTimeout(timers.pointer);
+            timers.pointer = setTimeout(function() {
+                pointer.style.opacity = 0;
+            }, 150);
+        });
+    }());
+
+    // Keyboard bindings for remote clicker
+    document.body.addEventListener('keyup', function(e) {
+        console.log(e);
+    });
+</script>
+
+</body>
+</html>

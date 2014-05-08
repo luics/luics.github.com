@@ -33,6 +33,7 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+    <base target="_blank"/>
 </head>
 
 <body>
@@ -88,15 +89,22 @@
         </div>
     </section>
     <section>
-        <h2>案例：<a
-                href="http://chart.apis.google.com/chart?cht=qr&amp;chl=http://wangjin.demo.taobao.net/tools/fla/example/billd/?stage=3&amp;chs=480x480"
-                data-spm-anchor-id="0.0.0.0">小鸡快跑</a>
-        </h2>
+        <h2>案例：指南针</h2>
         <div>陀螺仪</div>
-        <div>&nbsp;<img
-                src="http://chart.apis.google.com/chart?cht=qr&amp;chl=http://wangjin.demo.taobao.net/tools/fla/example/billd/?stage=3&amp;chs=480x480">
+        <div>
+            <img src="http://gtms02.alicdn.com/tps/i2/T19gtmFIReXXbzlxAc-640-1136.png" alt=""/>
         </div>
     </section>
+    <!--<section>-->
+    <!--<h2>案例：<a-->
+    <!--href="http://chart.apis.google.com/chart?cht=qr&amp;chl=http://wangjin.demo.taobao.net/tools/fla/example/billd/?stage=3&amp;chs=480x480"-->
+    <!--data-spm-anchor-id="0.0.0.0">小鸡快跑</a>-->
+    <!--</h2>-->
+    <!--<div>陀螺仪</div>-->
+    <!--<div>&nbsp;<img-->
+    <!--src="http://chart.apis.google.com/chart?cht=qr&amp;chl=http://wangjin.demo.taobao.net/tools/fla/example/billd/?stage=3&amp;chs=480x480">-->
+    <!--</div>-->
+    <!--</section>-->
     <section>
         <h2>案例：iOS桌面</h2>
         <div>陀螺仪</div>
@@ -215,7 +223,7 @@
         </div>
     </section>
     <section>
-        <h2>指南针</h2>
+        <h2>案例：指南针</h2>
         <div>
             <span style="text-align: left;">磁力计</span>
         </div>
@@ -488,7 +496,9 @@
 
         // Optional libraries used to extend on reveal.js
         dependencies: [
-            { src: 'plugin/leap/leap.js', async: true },
+//            { src: 'socket.io/socket.io.js', async: true },
+//            { src: 'plugin/notes-server/client.js', async: true },
+            //{ src: 'plugin/leap/leap.js', async: true },
             { src: 'lib/js/classList.js', condition: function() {
                 return !document.body.classList;
             } },
