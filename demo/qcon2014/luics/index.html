@@ -45,7 +45,10 @@
     <h2>分享范围</h2>
     <ul>
         <li>
-            <a href="http://triblondon.github.io/talk-components-origami/?spm=0.0.0.0.sWWlKt#/21">《让 WebApp 如 Native 般顺滑》</a> Andrew Betts @英国金融时报
+            <a href="http://triblondon.github.io/talk-html5perf/#/">《让 WebApp 如 Native 般顺滑》</a> Andrew Betts @英国金融时报
+        </li>
+        <li>
+            <a href="http://triblondon.github.io/talk-components-origami">《Introducing Origami》</a> Andrew Betts @英国金融时报
         </li>
         <li><a href="http://yunpan.alibaba-inc.com/share/link/MMEXEYaSr">《构建高可用移动Web应用》</a> 曹元彦 @阿里巴巴</li>
         <li>
@@ -178,22 +181,60 @@
 <section class='dark-background' data-background='css/theme/ftlabs_images/purple-blue.jpg'
          data-background-transition='none'>
     <h1>Matching expectations</h1>
-    <!--<h2>（满足期望）</h2>-->
+    <h2>（满足期望）</h2>
 </section>
 
 <section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
     <h1>Network</h1>
     <blockquote>HTTP requests are painful, so do fewer of them and <strong>make them count</strong>.</blockquote>
+    <blockquote>（HTTP 请求很痛苦, 所以减少请求并<strong>善用他们</strong>。）</blockquote>
+</section>
+
+<!--<section>-->
+    <!--<h2>Latency by radio state</h2>-->
+    <!--<table>-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th>&nbsp;</th>-->
+            <!--<th>Chrome, MacOS,<br/>Velocity Conf wifi</th>-->
+            <!--<th>Safari, iOS,<br/>T-Mobile EDGE</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+            <!--<td>1s intervals</td>-->
+            <!--<td>180ms</td>-->
+            <!--<td>850ms</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>10s intervals</td>-->
+            <!--<td>180ms</td>-->
+            <!--<td>1500ms</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>20s intervals</td>-->
+            <!--<td>180ms</td>-->
+            <!--<td>2100ms</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+    <!--<p class='cite'> Try it on the <a href='http://jsfiddle.net/sktbb/6/'>JSFiddle</a>.</p>-->
+<!--</section>-->
+
+<section>
+    <img src="https://cloud.githubusercontent.com/assets/677114/2875035/39b938ea-d408-11e3-8ef0-948914efef7f.png" alt=""/>
+    <br/>
+    <a href="http://www.atatech.org/articles/16606">《构建高可用移动Web应用》</a>
 </section>
 
 <section>
-    <h2>The basics</h2>
-    <ul>
-        <li>Async everything: <code>defer</code> and <code>async</code> on script tags</li>
-        <li>Even async scripts can block the load event:<br/>Start loading your scripts <strong>after</strong> onload
-        </li>
-        <li>Reduce HTTP requests with spriting and script concatenation</li>
-    </ul>
+    <img src="https://cloud.githubusercontent.com/assets/677114/2874986/7131e0f4-d405-11e3-841f-c238eb739ddf.png"
+         alt=""/>
+</section>
+
+<section>
+    <img src="https://cloud.githubusercontent.com/assets/677114/2875048/b8b24326-d408-11e3-8cf6-37ebd6044bad.png"
+         alt=""/>
 </section>
 
 <!--<section>-->
@@ -205,49 +246,31 @@
     <!--</p>-->
 <!--</section>-->
 
-<section>
-    <h2>Latency by radio state</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>&nbsp;</th>
-            <th>Chrome, MacOS,<br/>Velocity Conf wifi</th>
-            <th>Safari, iOS,<br/>T-Mobile EDGE</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1s intervals</td>
-            <td>180ms</td>
-            <td>850ms</td>
-        </tr>
-        <tr>
-            <td>10s intervals</td>
-            <td>180ms</td>
-            <td>1500ms</td>
-        </tr>
-        <tr>
-            <td>20s intervals</td>
-            <td>180ms</td>
-            <td>2100ms</td>
-        </tr>
-        </tbody>
-    </table>
-    <p class='cite'>Try it on the <a href='http://jsfiddle.net/sktbb/6/'>JSFiddle</a>.</p>
-</section>
-
-<section>
-    <img src="https://cloud.githubusercontent.com/assets/677114/2875035/39b938ea-d408-11e3-8ef0-948914efef7f.png" alt=""/>
-    <br/>
-    <a href="http://www.atatech.org/articles/16606">《构建高可用移动Web应用 》</a>
-</section>
 
 <section>
     <h1>基于 TCP 的优化</h1>
     <ul>
-        <li>无法让延迟时间变小，但可以让延迟数量变少；</li>
-        <li>无法改变三次握手机制，但可以复用连接避免三次握手；</li>
-        <li>无法改变慢启动机制，但可以控制首屏资源包在14KB内来减弱慢启动的影响；</li>
+        <li>让延迟数量变少；</li>
+        <li>复用连接避免三次握手；</li>
+        <li>控制首屏14KB以内，减弱慢启动。</li>
+    </ul>
+</section>
+
+<section>
+    <h1>为什么是14KB？</h1>
+    <img src="content/14KB.png" alt=""/>
+</section>
+
+<section><img src="https://cloud.githubusercontent.com/assets/677114/2874916/1bc18acc-d403-11e3-850e-bac42a71ab20.png"
+              alt=""/></section>
+
+<section>
+    <h2>The basics</h2>
+    <ul>
+        <li>Async everything: <code>defer</code> and <code>async</code> on script tags</li>
+        <li>Even async scripts can block the load event:<br/>Start loading your scripts <strong>after</strong> onload
+        </li>
+        <li>Reduce HTTP requests with spriting and script concatenation</li>
     </ul>
 </section>
 
@@ -285,14 +308,14 @@
     </ul>
 </section>
 
-<section>
-    <h2>Images</h2>
-    <ul>
-        <li>Typically 70-95% of web page data is images</li>
-        <li>Use an accessible responsive images technique</li>
-        <li>Consider high resolution, high compression for high DPI screens</li>
-    </ul>
-</section>
+<!--<section>-->
+    <!--<h2>Images</h2>-->
+    <!--<ul>-->
+        <!--<li>Typically 70-95% of web page data is images</li>-->
+        <!--<li>Use an accessible responsive images technique</li>-->
+        <!--<li>Consider high resolution, high compression for high DPI screens</li>-->
+    <!--</ul>-->
+<!--</section>-->
 
 <!--<section>-->
 <!--<section>-->
@@ -367,26 +390,26 @@
 <!--<img src='content/flexbox-new.png' class='stretch'/>-->
 <!--</section>-->
 
-<section>
-    <section>
-        <h2>Hover effects</h2>
+<!--<section>-->
+    <!--<section>-->
+        <!--<h2>Hover effects</h2>-->
 
-        <p>Disable hover effects on non-hoverable devices and during scrolls</p>
-						<pre><code data-trim>
-                            .hoverable a:hover { ... }
-                        </code></pre>
-					<pre><code data-trim>
-                        &lt;body class='hoverable'>
-                        ...
-                        &lt;/body>
-                    </code></pre>
-        <p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>
-    </section>
-    <section>
-        <iframe src='https://dl.dropboxusercontent.com/u/2272348/codez/expensivescroll/demo.html'
-                class='stretch'></iframe>
-    </section>
-</section>
+        <!--<p>Disable hover effects on non-hoverable devices and during scrolls</p>-->
+						<!--<pre><code data-trim>-->
+                            <!--.hoverable a:hover { ... }-->
+                        <!--</code></pre>-->
+					<!--<pre><code data-trim>-->
+                        <!--&lt;body class='hoverable'>-->
+                        <!--...-->
+                        <!--&lt;/body>-->
+                    <!--</code></pre>-->
+        <!--<p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>-->
+    <!--</section>-->
+    <!--<section>-->
+        <!--<iframe src='https://dl.dropboxusercontent.com/u/2272348/codez/expensivescroll/demo.html'-->
+                <!--class='stretch'></iframe>-->
+    <!--</section>-->
+<!--</section>-->
 
 <section>
     <h2>Frame rates</h2>
@@ -430,39 +453,39 @@
     </ul>
 </section>
 
-<section>
-    <h2>Interleaved reads/writes</h2>
-					<pre><code data-trim>
-                        var h1 = element1.clientHeight; &lt;== Read (measures the element)
-                        element1.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)
-                        var h2 = element2.clientHeight; &lt;== Read (measure again, so must trigger layout)
-                        element2.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)
-                        var h3 = element3.clientHeight; &lt;== Read (measure again, so must trigger layout)
-                        element3.style.height = (h3 * 2) + 'px'; &lt;== Write (invalidates current layout)
-                        etc.
-                    </code></pre>
-</section>
+<!--<section>-->
+    <!--<h2>Interleaved reads/writes</h2>-->
+					<!--<pre><code data-trim>-->
+                        <!--var h1 = element1.clientHeight; &lt;== Read (measures the element)-->
+                        <!--element1.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)-->
+                        <!--var h2 = element2.clientHeight; &lt;== Read (measure again, so must trigger layout)-->
+                        <!--element2.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)-->
+                        <!--var h3 = element3.clientHeight; &lt;== Read (measure again, so must trigger layout)-->
+                        <!--element3.style.height = (h3 * 2) + 'px'; &lt;== Write (invalidates current layout)-->
+                        <!--etc.-->
+                    <!--</code></pre>-->
+<!--</section>-->
 
-<section>
-    <h2>Batching reads/writes manually</h2>
-					<pre><code data-trim>
-                        var h1 = element1.clientHeight; &lt;== Read
-                        var h2 = element2.clientHeight; &lt;== Read
-                        var h3 = element3.clientHeight; &lt;== Read
-                        element1.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)
-                        element2.style.height = (h1 * 2) + 'px'; &lt;== Write (layout already invalidated)
-                        element3.style.height = (h3 * 2) + 'px'; &lt;== Write (layout already invalidated)
-                        h3 = element3.clientHeight &lt;== Read (triggers layout)
-                        etc.
-                    </code></pre>
-</section>
+<!--<section>-->
+    <!--<h2>Batching reads/writes manually</h2>-->
+					<!--<pre><code data-trim>-->
+                        <!--var h1 = element1.clientHeight; &lt;== Read-->
+                        <!--var h2 = element2.clientHeight; &lt;== Read-->
+                        <!--var h3 = element3.clientHeight; &lt;== Read-->
+                        <!--element1.style.height = (h1 * 2) + 'px'; &lt;== Write (invalidates current layout)-->
+                        <!--element2.style.height = (h1 * 2) + 'px'; &lt;== Write (layout already invalidated)-->
+                        <!--element3.style.height = (h3 * 2) + 'px'; &lt;== Write (layout already invalidated)-->
+                        <!--h3 = element3.clientHeight &lt;== Read (triggers layout)-->
+                        <!--etc.-->
+                    <!--</code></pre>-->
+<!--</section>-->
 
-<section>
-    <div class='row'>
-        <div><img src='content/thrashing-before.png'></div>
-        <div><img src='content/thrashing-after.png'></div>
-    </div>
-</section>
+<!--<section>-->
+    <!--<div class='row'>-->
+        <!--<div><img src='content/thrashing-before.png'></div>-->
+        <!--<div><img src='content/thrashing-after.png'></div>-->
+    <!--</div>-->
+<!--</section>-->
 
 <section>
     <section>
