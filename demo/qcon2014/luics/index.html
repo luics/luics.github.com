@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Mobile Web 性能和组件化</title>
+    <title>Conquering the uncanny valley - Andrew Betts</title>
 
-    <meta name="description" content="Conquering the uncanny valley - Andrew Betts">
+    <meta name="description" content="A presentaiton about making HTML5 as smooth as native apps">
     <meta name="author" content="Andrew Betts">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -35,84 +35,118 @@
 <div class="reveal">
 <div class="slides">
 <section>
-    <h1>Mobile Web 性能和组件化</h1>
+    <h1>Mobile Web <br/>性能和组件化</h1>
+    <br/>
+    @鬼道 @铁军
+    <br/>
+    天猫前端 <br/>
 </section>
 <section>
-    <h2>The uncanny valley</h2>
-
-    <p><img src='content/uncannyvalley.svg' class='stretch' style='max-height: 80%'/></p>
-
-    <aside class="notes">Robotics professor Masahiro Mori, 1970</aside>
+    <h2>分享范围</h2>
+    <ul>
+        <li>
+            <a href="http://triblondon.github.io/talk-components-origami/?spm=0.0.0.0.sWWlKt#/21">《让 WebApp 如 Native 般顺滑》</a> Andrew Betts @英国金融时报
+        </li>
+        <li><a href="http://yunpan.alibaba-inc.com/share/link/MMEXEYaSr">《构建高可用移动Web应用》</a> 曹元彦 @阿里巴巴</li>
+        <li>
+            <a href="http://www.slideshare.net/dexter_yy/card-kit-domo-ui-finalpdf-33986217?spm=0.0.0.0.kx1PzZ">《移动时代技术与设计的十字路口》</a>蒙晨、杨扬 @豆瓣
+        </li>
+        <li><a href="https://speakerdeck.com/baidufe/kua-duan-zu-jian-shi-jian?spm=0.0.0.0.UKKwed">《跨端组件实践》</a>王集鹄 @百度
+        </li>
+        <li>
+            <a href="http://blog.xufei.gitpress.org/~posts/2014-04-27-%E5%9F%BA%E4%BA%8EAngularJS%E7%9A%84%E4%BC%81%E4%B8%9A%E8%BD%AF%E4%BB%B6%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84.md?spm=0.0.0.0.toYyej&file=2014-04-27-%BB%F9%D3%DAAngularJS%B5%C4%C6%F3%D2%B5%C8%ED%BC%FE%C7%B0%B6%CB%BC%DC%B9%B9.md">《大型前端应用的组件与模块》</a>徐飞 @易购
+        </li>
+    </ul>
 </section>
 
-<section data-background='content/evil-robot.jpg'>
-    <aside class='notes'>Uncanny valley teaches us not to try and be something we're not. This is often a problem experienced by web applications. Web apps that simply try to emulate native without balancing capabilities of tech with actual user needs likely to fall into uncanny valley. BUT, we think web is still the best way, going to explain briefly why</aside>
-</section>
+<!--<section class='logo-title dark-background' data-background='css/theme/ftlabs_images/purple-blue-2.jpg'>-->
+<!--<h1>Conquering the uncanny valley</h1>-->
+
+<!--<h3>Techniques for matching native app performance on the web with HTML5</h3>-->
+
+<!--<p>-->
+<!--<small>by Andrew Betts, FT Labs (<a href="http://trib.tv">trib.tv</a> / <a-->
+<!--href="http://twitter.com/triblondon">@triblondon</a>)-->
+<!--</small>-->
+<!--</p>-->
+<!--</section>-->
+
+<!--<section>-->
+<!--<h2>The uncanny valley</h2>-->
+
+<!--<p><img src='content/uncannyvalley.svg' class='stretch' style='max-height: 80%'/></p>-->
+
+<!--<aside class="notes">Robotics professor Masahiro Mori, 1970</aside>-->
+<!--</section>-->
+
+<!--<section data-background='content/evil-robot.jpg'>-->
+<!--<aside class='notes'>Uncanny valley teaches us not to try and be something we're not. This is often a problem experienced by web applications. Web apps that simply try to emulate native without balancing capabilities of tech with actual user needs likely to fall into uncanny valley. BUT, we think web is still the best way, going to explain briefly why</aside>-->
+<!--</section>-->
 
 <section>
-    <h2>We've been doing this for a while</h2>
+    <h2>英国金融时报</h2>
     <img src='content/timeline.png' class='stretch'>
     <aside class='notes'>The FT has actually been publishing content on mobile for 125 years. For most of that time we've used a technology we call a newspaper.</aisde>
 </section>
 
-<section>
-    <h2>Newsprint</h2>
-    <ul class='two-col'>
-        <li>Works offline</li>
-        <li>Portable</li>
-        <li>Long battery life</li>
-        <li>Can be read in bright sunlight</li>
-        <li>Cheap</li>
-        <li>Ubiquitous</li>
-        <li>Bookmarkable</li>
-        <li>Sharable</li>
-        <li>Fast start up</li>
-        <li>Supports clipping/saving</li>
-        <li>
-            <del>Can be read in the dark</del>
-        </li>
-        <li>
-            <del>Updates in real time</del>
-        </li>
-        <li>
-            <del>Electronic delivery</del>
-        </li>
-        <li>
-            <del>Search</del>
-        </li>
-        <li>
-            <del>Personalisation</del>
-        </li>
-        <li>
-            <del>Deep linking</del>
-        </li>
-    </ul>
-    <aside class='notes'>Might seem glib, but newsprint has a whole host of features that neither native apps, nor the web to date have been able to match</aside>
-</section>
+<!--<section>-->
+<!--<h2>Newsprint</h2>-->
+<!--<ul class='two-col'>-->
+<!--<li>Works offline</li>-->
+<!--<li>Portable</li>-->
+<!--<li>Long battery life</li>-->
+<!--<li>Can be read in bright sunlight</li>-->
+<!--<li>Cheap</li>-->
+<!--<li>Ubiquitous</li>-->
+<!--<li>Bookmarkable</li>-->
+<!--<li>Sharable</li>-->
+<!--<li>Fast start up</li>-->
+<!--<li>Supports clipping/saving</li>-->
+<!--<li>-->
+<!--<del>Can be read in the dark</del>-->
+<!--</li>-->
+<!--<li>-->
+<!--<del>Updates in real time</del>-->
+<!--</li>-->
+<!--<li>-->
+<!--<del>Electronic delivery</del>-->
+<!--</li>-->
+<!--<li>-->
+<!--<del>Search</del>-->
+<!--</li>-->
+<!--<li>-->
+<!--<del>Personalisation</del>-->
+<!--</li>-->
+<!--<li>-->
+<!--<del>Deep linking</del>-->
+<!--</li>-->
+<!--</ul>-->
+<!--<aside class='notes'>Might seem glib, but newsprint has a whole host of features that neither native apps, nor the web to date have been able to match</aside>-->
+<!--</section>-->
 
-<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/red-blue.jpg'>
-    <blockquote>We need to care about <strong>supporting existing features</strong> as much as
-        <strong>getting new ones</strong></blockquote>
-    <aside class='notes'>And look ahead to new platforms, new ways that people will want to get our content</aside>
-</section>
+<!--<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/red-blue.jpg'>-->
+<!--<blockquote>We need to care about <strong>supporting existing features</strong> as much as-->
+<!--<strong>getting new ones</strong></blockquote>-->
+<!--<aside class='notes'>And look ahead to new platforms, new ways that people will want to get our content</aside>-->
+<!--</section>-->
 
-<section>
-    <h2>Lose the constraints</h2>
-    <ul class='two-col'>
-        <li>Tablet</li>
-        <li>Phone</li>
-        <li>Desktop</li>
-        <li>Laptop</li>
-        <li>TV</li>
-        <li>Games console</li>
-        <li>In car screen</li>
-        <li>In flight screen</li>
-        <li>Billboard</li>
-        <li>Kiosk</li>
-        <li>e-ink reader</li>
-        <li>Hot air balloon</li>
-    </ul>
-</section>
+<!--<section>-->
+<!--<h2>Lose the constraints</h2>-->
+<!--<ul class='two-col'>-->
+<!--<li>Tablet</li>-->
+<!--<li>Phone</li>-->
+<!--<li>Desktop</li>-->
+<!--<li>Laptop</li>-->
+<!--<li>TV</li>-->
+<!--<li>Games console</li>-->
+<!--<li>In car screen</li>-->
+<!--<li>In flight screen</li>-->
+<!--<li>Billboard</li>-->
+<!--<li>Kiosk</li>-->
+<!--<li>e-ink reader</li>-->
+<!--<li>Hot air balloon</li>-->
+<!--</ul>-->
+<!--</section>-->
 
 <section data-background='content/balloon.jpg'>
     <aside class='notes'>Obviously we don't think this is a viable way to read the FT, but it makes you think, doesn't it, about how the web might evolve and what we might come to use it for</aisde>
@@ -144,6 +178,7 @@
 <section class='dark-background' data-background='css/theme/ftlabs_images/purple-blue.jpg'
          data-background-transition='none'>
     <h1>Matching expectations</h1>
+    <!--<h2>（满足期望）</h2>-->
 </section>
 
 <section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
@@ -161,14 +196,14 @@
     </ul>
 </section>
 
-<section>
-    <h2>Power yum yum</h2>
-    <img src='content/power-graph.png' class='stretch'/>
+<!--<section>-->
+    <!--<h2>Power yum yum</h2>-->
+    <!--<img src='content/power-graph.png' class='stretch'/>-->
 
-    <p class='cite'>Source: <a
-            href='http://assets.en.oreilly.com/1/event/60/Understanding%20Mobile%20Web%20Browser%20Performance%20Presentation.pdf'>Qualcomm</a>
-    </p>
-</section>
+    <!--<p class='cite'>Source: <a-->
+            <!--href='http://assets.en.oreilly.com/1/event/60/Understanding%20Mobile%20Web%20Browser%20Performance%20Presentation.pdf'>Qualcomm</a>-->
+    <!--</p>-->
+<!--</section>-->
 
 <section>
     <h2>Latency by radio state</h2>
@@ -199,6 +234,21 @@
         </tbody>
     </table>
     <p class='cite'>Try it on the <a href='http://jsfiddle.net/sktbb/6/'>JSFiddle</a>.</p>
+</section>
+
+<section>
+    <img src="https://cloud.githubusercontent.com/assets/677114/2875035/39b938ea-d408-11e3-8ef0-948914efef7f.png" alt=""/>
+    <br/>
+    <a href="http://www.atatech.org/articles/16606">《构建高可用移动Web应用 》</a>
+</section>
+
+<section>
+    <h1>基于 TCP 的优化</h1>
+    <ul>
+        <li>无法让延迟时间变小，但可以让延迟数量变少；</li>
+        <li>无法改变三次握手机制，但可以复用连接避免三次握手；</li>
+        <li>无法改变慢启动机制，但可以控制首屏资源包在14KB内来减弱慢启动的影响；</li>
+    </ul>
 </section>
 
 <section>
@@ -244,24 +294,24 @@
     </ul>
 </section>
 
-<section>
-    <section>
-        <h2>Third party scripts</h2>
-        <ul>
-            <li>One of the biggest users of polling timers, especially analytics</li>
-            <li>Often needlessly block the load event</li>
-            <li><a href='http://www.webpagetest.org'>Test your performance</a> before and after</li>
-            <li>Ask the right questions before you add a third party script</li>
-        </ul>
-        <p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>
-    </section>
-    <section>
-        <iframe class='stretch' src='http://triblondon.github.io/thirdpartysla'></iframe>
-        <p class='cite'>Interested in helping me with this? <a
-                href='http://github.com/triblondon/thirdpartysla'>Look at the code</a> and <a
-                href='mailto:third-party-scripts@googlegroups.com'>drop us a line</a>.</p>
-    </section>
-</section>
+<!--<section>-->
+<!--<section>-->
+<!--<h2>Third party scripts</h2>-->
+<!--<ul>-->
+<!--<li>One of the biggest users of polling timers, especially analytics</li>-->
+<!--<li>Often needlessly block the load event</li>-->
+<!--<li><a href='http://www.webpagetest.org'>Test your performance</a> before and after</li>-->
+<!--<li>Ask the right questions before you add a third party script</li>-->
+<!--</ul>-->
+<!--<p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>-->
+<!--</section>-->
+<!--<section>-->
+<!--<iframe class='stretch' src='http://triblondon.github.io/thirdpartysla'></iframe>-->
+<!--<p class='cite'>Interested in helping me with this? <a-->
+<!--href='http://github.com/triblondon/thirdpartysla'>Look at the code</a> and <a-->
+<!--href='mailto:third-party-scripts@googlegroups.com'>drop us a line</a>.</p>-->
+<!--</section>-->
+<!--</section>-->
 
 <section>
     <h2>Prefetch and friends</h2>
@@ -294,28 +344,28 @@
     <blockquote>Layout, paints, animation frames and 'jank' coming up.</blockquote>
 </section>
 
-<section>
-    <h2>Use the tools</h2>
-    <ul>
-        <li>Timeline</li>
-        <li>Chrome tracing</li>
-        <li>FPS meter</li>
-    </ul>
-</section>
+<!--<section>-->
+<!--<h2>Use the tools</h2>-->
+<!--<ul>-->
+<!--<li>Timeline</li>-->
+<!--<li>Chrome tracing</li>-->
+<!--<li>FPS meter</li>-->
+<!--</ul>-->
+<!--</section>-->
 
-<section>
-    <h2>Old flexbox</h2>
+<!--<section>-->
+<!--<h2>Old flexbox</h2>-->
 
-    <p>IE &lt;11, Firefox (current), Safari &lt;7, iOS &lt;7, Android (current), Blackberry <10</p>
-    <img src='content/flexbox-old.jpg' class='stretch'/>
-</section>
+<!--<p>IE &lt;11, Firefox (current), Safari &lt;7, iOS &lt;7, Android (current), Blackberry <10</p>-->
+<!--<img src='content/flexbox-old.jpg' class='stretch'/>-->
+<!--</section>-->
 
-<section>
-    <h2>New flexbox</h2>
+<!--<section>-->
+<!--<h2>New flexbox</h2>-->
 
-    <p>IE 11+, Chrome, iOS 7+, Blackberry 10+</p>
-    <img src='content/flexbox-new.png' class='stretch'/>
-</section>
+<!--<p>IE 11+, Chrome, iOS 7+, Blackberry 10+</p>-->
+<!--<img src='content/flexbox-new.png' class='stretch'/>-->
+<!--</section>-->
 
 <section>
     <section>
@@ -444,29 +494,29 @@
     </section>
 </section>
 
-<section>
-    <h2>Images.</h2>
-    <img src='content/imageheavy.png' class='stretch'>
-</section>
+<!--<section>-->
+<!--<h2>Images.</h2>-->
+<!--<img src='content/imageheavy.png' class='stretch'>-->
+<!--</section>-->
 
-<section>
-    <h2>Image decoding</h2>
+<!--<section>-->
+<!--<h2>Image decoding</h2>-->
 
-    <p>Image decoding is probably the
-        <strong>most expensive</strong><br/> thing you ask the browser to do when your page loads.</p>
-    <ul>
-        <li>Don't load on demand (battery killer on mobile)</li>
-        <li>Load but don't decode? No native API (yet. Ahem)</li>
-        <li>Polyfill by downloading <code>data:</code> URIs
-            <ul>
-                <li>Base64-encode on server</li>
-                <li>Download with XHR</li>
-                <li>Insert string into <code>&lt;img src=''&gt;</code> to trigger decoding</li>
-            </ul>
-        </li>
-        <li>Con: Fools the browser, may mean you lose browser level optimisations</li>
-    </ul>
-</section>
+<!--<p>Image decoding is probably the-->
+<!--<strong>most expensive</strong><br/> thing you ask the browser to do when your page loads.</p>-->
+<!--<ul>-->
+<!--<li>Don't load on demand (battery killer on mobile)</li>-->
+<!--<li>Load but don't decode? No native API (yet. Ahem)</li>-->
+<!--<li>Polyfill by downloading <code>data:</code> URIs-->
+<!--<ul>-->
+<!--<li>Base64-encode on server</li>-->
+<!--<li>Download with XHR</li>-->
+<!--<li>Insert string into <code>&lt;img src=''&gt;</code> to trigger decoding</li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--<li>Con: Fools the browser, may mean you lose browser level optimisations</li>-->
+<!--</ul>-->
+<!--</section>-->
 
 <section>
     <h2>Hardware accelerated transforms</h2>
@@ -572,140 +622,140 @@
     <img src='content/storage-perf.png' class='stretch'>
 </section>
 
-<section>
-    <h2>HTML5 Application cache</h2>
+<!--<section>-->
+    <!--<h2>HTML5 Application cache</h2>-->
 
-    <p class='stat'>Meh.</p>
+    <!--<p class='stat'>Meh.</p>-->
 
-    <p class='cite'>If you really want to know more, <a
-            href='http://alistapart.com/article/application-cache-is-a-douchebag'>go read this</a> and <a
-            href='http://bdconf.com/ft'>watch this</a></p>
-</section>
+    <!--<p class='cite'>If you really want to know more, <a-->
+            <!--href='http://alistapart.com/article/application-cache-is-a-douchebag'>go read this</a> and <a-->
+            <!--href='http://bdconf.com/ft'>watch this</a></p>-->
+<!--</section>-->
 
-<section>
-    <img src='content/tweet-bastard.png'>
-</section>
+<!--<section>-->
+    <!--<img src='content/tweet-bastard.png'>-->
+<!--</section>-->
 
-<section>
-    <h2>It's being replaced!</h2>
+<!--<section>-->
+<!--<h2>It's being replaced!</h2>-->
 
-    <p>By <strong>NavigationController</strong>!</p>
+<!--<p>By <strong>NavigationController</strong>!</p>-->
 
-    <p class='fragment'>Or maybe <strong>ResourceController</strong> or <strong>NetworkController</strong>?</p>
+<!--<p class='fragment'>Or maybe <strong>ResourceController</strong> or <strong>NetworkController</strong>?</p>-->
 
-    <p class='fragment'>No, wait. <strong>EventWorker</strong> it is!</p>
+<!--<p class='fragment'>No, wait. <strong>EventWorker</strong> it is!</p>-->
 
-    <p class='fragment'>Scratch that. <strong>ServiceWorker</strong></p>
-</section>
+<!--<p class='fragment'>Scratch that. <strong>ServiceWorker</strong></p>-->
+<!--</section>-->
 
-<section>
-    <h2>It's like a server in the browser</h2>
-    <img src='content/morpheus-meme.jpg' class='stretch'>
-</section>
+<!--<section>-->
+<!--<h2>It's like a server in the browser</h2>-->
+<!--<img src='content/morpheus-meme.jpg' class='stretch'>-->
+<!--</section>-->
 
-<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
-    <h1>Storage optimisation</h1>
-    <blockquote>While we are limited by tiny quotas, we need to learn to <strong>live with less</strong>.</blockquote>
-</section>
+<!--<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>-->
+<!--<h1>Storage optimisation</h1>-->
+<!--<blockquote>While we are limited by tiny quotas, we need to learn to <strong>live with less</strong>.</blockquote>-->
+<!--</section>-->
 
-<section data-background='content/storage-trucks.png'></section>
+<!--<section data-background='content/storage-trucks.png'></section>-->
 
-<section>
-    <h2>Text encoding 'compression'</h2>
-    <ul>
-        <li>JavaScript internally uses UTF-16 for text encoding</li>
-        <li>Great idea for processing: fast string operations, full support for Unicode BMP</li>
-        <li>Terrible idea for storage of English text or base-64 encoded images.</li>
-    </ul>
-</section>
+<!--<section>-->
+<!--<h2>Text encoding 'compression'</h2>-->
+<!--<ul>-->
+<!--<li>JavaScript internally uses UTF-16 for text encoding</li>-->
+<!--<li>Great idea for processing: fast string operations, full support for Unicode BMP</li>-->
+<!--<li>Terrible idea for storage of English text or base-64 encoded images.</li>-->
+<!--</ul>-->
+<!--</section>-->
 
-<section data-background='content/mini.jpg'></section>
+<!--<section data-background='content/mini.jpg'></section>-->
 
-<section>
-    <h2>Squeeze your bits</h2>
-    <table class='centered-content'>
-        <tr>
-            <th>Text</th>
-            <td>S</td>
-            <td>i</td>
-            <td>m</td>
-            <td>p</td>
-            <td>l</td>
-            <td>e</td>
-        </tr>
-        <tr>
-            <th>Decimal</th>
-            <td>83</td>
-            <td>105</td>
-            <td>109</td>
-            <td>112</td>
-            <td>108</td>
-            <td>101</td>
-        </tr>
-        <tr>
-            <th>As binary</th>
-            <td style='color:#8F3F6D'>01010011</td>
-            <td style='color:#8F3F6D'>01101001</td>
-            <td style='color:#ED2939'>01101101</td>
-            <td style='color:#ED2939'>01110000</td>
-            <td style='color:#69BE28'>01101100</td>
-            <td style='color:#69BE28'>01100101</td>
-        </tr>
-    </table>
-    <table class='centered-content'>
-        <tr>
-            <th>Shifted</th>
-            <td style='color:#8F3F6D'>01010011 01101001</td>
-            <td style='color:#ED2939'>01101101 01110000</td>
-            <td style='color:#69BE28'>01101100 01100101</td>
-        </tr>
-        <tr>
-            <th>As hex</th>
-            <td>53 69</td>
-            <td>6D 70</td>
-            <td>6C 65</td>
-        </tr>
-        <tr>
-            <th>UTF-16</th>
-            <td>卩</td>
-            <td>浰</td>
-            <td>汥</td>
-        </tr>
-    </table>
-</section>
+<!--<section>-->
+<!--<h2>Squeeze your bits</h2>-->
+<!--<table class='centered-content'>-->
+<!--<tr>-->
+<!--<th>Text</th>-->
+<!--<td>S</td>-->
+<!--<td>i</td>-->
+<!--<td>m</td>-->
+<!--<td>p</td>-->
+<!--<td>l</td>-->
+<!--<td>e</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<th>Decimal</th>-->
+<!--<td>83</td>-->
+<!--<td>105</td>-->
+<!--<td>109</td>-->
+<!--<td>112</td>-->
+<!--<td>108</td>-->
+<!--<td>101</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<th>As binary</th>-->
+<!--<td style='color:#8F3F6D'>01010011</td>-->
+<!--<td style='color:#8F3F6D'>01101001</td>-->
+<!--<td style='color:#ED2939'>01101101</td>-->
+<!--<td style='color:#ED2939'>01110000</td>-->
+<!--<td style='color:#69BE28'>01101100</td>-->
+<!--<td style='color:#69BE28'>01100101</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--<table class='centered-content'>-->
+<!--<tr>-->
+<!--<th>Shifted</th>-->
+<!--<td style='color:#8F3F6D'>01010011 01101001</td>-->
+<!--<td style='color:#ED2939'>01101101 01110000</td>-->
+<!--<td style='color:#69BE28'>01101100 01100101</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<th>As hex</th>-->
+<!--<td>53 69</td>-->
+<!--<td>6D 70</td>-->
+<!--<td>6C 65</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<th>UTF-16</th>-->
+<!--<td>卩</td>-->
+<!--<td>浰</td>-->
+<!--<td>汥</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</section>-->
 
-<section>
-    <h2>ASCII packed into UTF-16</h2>
-					<pre><code data-trim>
-                        function compress(s) {
-                        var i, l, out='';
-                        if (s.length % 2 !== 0) s += ' ';
-                        for (i = 0, l = s.length; i &lt; l; i+=2) {
-                        out += String.fromCharCode((s.charCodeAt(i)&lt;&lt;8) + s.charCodeAt(i+1));
-                        }
-                        return out;
-                        }
-                    </code></pre>
-</section>
+<!--<section>-->
+<!--<h2>ASCII packed into UTF-16</h2>-->
+<!--<pre><code data-trim>-->
+<!--function compress(s) {-->
+<!--var i, l, out='';-->
+<!--if (s.length % 2 !== 0) s += ' ';-->
+<!--for (i = 0, l = s.length; i &lt; l; i+=2) {-->
+<!--out += String.fromCharCode((s.charCodeAt(i)&lt;&lt;8) + s.charCodeAt(i+1));-->
+<!--}-->
+<!--return out;-->
+<!--}-->
+<!--</code></pre>-->
+<!--</section>-->
 
-<section>
-    <h2>Decompressing</h2>
-					<pre><code data-trim>
-                        function decompress_v1(data) {
-                        var i, l, n, m, out = '';
-                        for (i = 0, l = data.length; i &lt; l; i++) {
-                        n = data.charCodeAt(i);
-                        m = Math.floor(n / 256);
-                        out += String.fromCharCode(m) + String.fromCharCode(n % 256);
-                        }
-                        return out;
-                        }
-                    </code></pre>
-</section>
+<!--<section>-->
+<!--<h2>Decompressing</h2>-->
+<!--<pre><code data-trim>-->
+<!--function decompress_v1(data) {-->
+<!--var i, l, n, m, out = '';-->
+<!--for (i = 0, l = data.length; i &lt; l; i++) {-->
+<!--n = data.charCodeAt(i);-->
+<!--m = Math.floor(n / 256);-->
+<!--out += String.fromCharCode(m) + String.fromCharCode(n % 256);-->
+<!--}-->
+<!--return out;-->
+<!--}-->
+<!--</code></pre>-->
+<!--</section>-->
 
-<section>
-    <img src='content/idb-unicode.jpg' class='stretch'>
-</section>
+<!--<section>-->
+<!--<img src='content/idb-unicode.jpg' class='stretch'>-->
+<!--</section>-->
 
 <section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
     <h1>Click delay</h1>
@@ -743,31 +793,41 @@
     </section>
 </section>
 
-<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
-    <h1>Perception</h1>
-    <blockquote>When you can't make it any faster...<br>make it <strong>seem faster</strong>.</blockquote>
-</section>
+<!--<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>-->
+    <!--<h1>Perception</h1>-->
+    <!--<blockquote>When you can't make it any faster...<br>make it <strong>seem faster</strong>.</blockquote>-->
+<!--</section>-->
+
+<!--<section>-->
+    <!--<img src='content/shreddies.jpg' class='stretch'>-->
+<!--</section>-->
+<!--<section>-->
+    <!--<img src='content/economist-progbars.png' class='stretch'>-->
+<!--</section>-->
 
 <section>
-    <img src='content/shreddies.jpg' class='stretch'>
+    <h2><a href="http://cds.tmall.net/modify.php?act=show&id=311">组件化</a></h2>
+    @铁军
 </section>
+
+<!--<section class='logo-title dark-background' data-background='css/theme/ftlabs_images/purple-blue-2.jpg'>-->
+<!--<h1>That's it!</h1>-->
+
+<!--<h3>Contact me:</h3>-->
+<!--<ul>-->
+<!--<li>Email: <a href='mailto:andrew@labs.ft.com'>andrew@labs.ft.com</a></li>-->
+<!--<li>Twitter: <a href='http://twitter.com/@triblondon'>@triblondon</a>, <a-->
+<!--href='http://twitter.com/@ftlabs'>@ftlabs</a></li>-->
+<!--</ul>-->
+<!--<p style='margin-top: 50px'>For jobs with FT Labs, visit <a href='http://labs.ft.com/jobs'>labs.ft.com/jobs</a></p>-->
+<!--</section>-->
 
 <section>
-    <img src='content/economist-progbars.png' class='stretch'>
+    <h2>Thanks.</h2>
+    @鬼道 @铁军
+    <br/>
+    天猫前端 <br/>
 </section>
-
-<section class='logo-title dark-background' data-background='css/theme/ftlabs_images/purple-blue-2.jpg'>
-    <h1>That's it!</h1>
-
-    <h3>Contact me:</h3>
-    <ul>
-        <li>Email: <a href='mailto:andrew@labs.ft.com'>andrew@labs.ft.com</a></li>
-        <li>Twitter: <a href='http://twitter.com/@triblondon'>@triblondon</a>, <a
-                href='http://twitter.com/@ftlabs'>@ftlabs</a></li>
-    </ul>
-    <p style='margin-top: 50px'>For jobs with FT Labs, visit <a href='http://labs.ft.com/jobs'>labs.ft.com/jobs</a></p>
-</section>
-
 
 </div>
 
