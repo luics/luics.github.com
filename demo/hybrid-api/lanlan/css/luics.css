@@ -1,6 +1,7 @@
 .left {
     float: left;
 }
+
 .right {
     float: right;
 }
@@ -9,7 +10,20 @@
     height: 550px;
 }
 
+.img11 {
+    height: 450px;
+}
+
+.ref {
+    font-size: 60% !important;
+    text-align: right;
+}
+
 .img2 {
     width: 300px;
     /*height: 550px;*/
+}
+
+.qr {
+    height: 360px;
 }
