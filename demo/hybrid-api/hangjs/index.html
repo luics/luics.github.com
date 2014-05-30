@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<!-- TODO
+开篇介绍书籍
+话题中间设置3个问题
+-->
+<head>
+    <meta charset="utf-8">
+
+    <title>传感器 @懒懒</title>
+
+    <meta name="author" content="luics.xu@gmail.com">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/luics.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <base target="_blank"/>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+<section>
+    <h1>传感器</h1>
+    <br/>
+
+    <h2>in <a href="http://www.atatech.org/articles/17353">Hybrid API</a></h2>
+    <br/>
+
+    <h3>天猫前端 <a href="http://luics.github.io/">@鬼道</a></h3>
+    <div class="ref">懒懒分享会 87 期，2014.05.30</div>
+</section>
+<section>
+    <h1>历史</h1>
+    <ul>
+        <li>2014.03 <a href="http://luics.github.io/demo/hybrid-api/tmall-ued/#/">面向天猫设计师</a> <sub></sub></li>
+        <li>2014.04 <a href="http://luics.github.io/demo/hybrid-api/tmall-fe/#/">面向天猫前端 - 猫 π</a> <sub></sub></li>
+        <li>2014.05 懒懒分享会 <sub></sub></li>
+    </ul>
+</section>
+<section>
+    <h1>传感器分类</h1>
+    <ol>
+        <li>动作</li>
+        <li>环境</li>
+        <li>音频</li>
+        <li>视频</li>
+    </ol>
+</section>
+<section id="motion">
+    <h1>动作</h1>
+    <div>
+        <br>
+    </div>
+    <div>
+        <ol>
+            <li>陀螺仪</li>
+            <li>加速计</li>
+            <li>距离传感器</li>
+        </ol>
+    </div>
+</section>
+<section>
+    <h1>陀螺 - 二维</h1>
+    <blockquote>回转效应：陀螺环绕着固定的转轴不停地旋转</blockquote>
+    <img src="http://gtms01.alicdn.com/tps/i1/T111ihFtJfXXXwR56A-1920-800.jpg">
+</section>
+<section>
+    <h1>陀螺 - 三维</h1>
+    <img src="http://gtms01.alicdn.com/tps/i1/T1EmlpFRVaXXbjbnvU-375-375.gif">
+</section>
+<!--<section>-->
+<!--<h1>电子陀螺</h1>-->
+<!--</section>-->
+<section>
+    <h1>案例：竖蛋</h1>
+    <!--<div class="left">陀螺仪</div>-->
+    <div class="left">
+        <!--<a href="http://www.tmall.com/go/act/2014/egg/my-egg.php">竖蛋游戏</a>-->
+        <img class="qr" src="http://img01.daily.taobaocdn.net/tfscom/TB1S.WAXXXXXXaWaFXXXXXXXXXX.png" alt=""/>
+    </div>
+    <div class="right">
+        <img class="img1" src="http://gtms03.alicdn.com/tps/i3/T1KLCqFzpdXXbzlxAc-640-1136.png">
+    </div>
+</section>
+<section>
+    <a href="http://gitlab.alibaba-inc.com/tm/act-standegg/blob/master/src/js/game/game.js#L156">代码</a>
+    <img src="http://img01.daily.taobaocdn.net/tfscom/TB1JJmBXXXXXXc7XXXXXXXXXXXX.png" alt=""/>
+</section>
+<section>
+    <h1>W3C Orientation API</h1>
+    <div>
+        <!--<img src="http://w3c.github.io/deviceorientation/start.png">-->
+        <img src="http://w3c.github.io/deviceorientation/a-rotation.png">
+        <img src="http://w3c.github.io/deviceorientation/b-rotation.png" alt=""/>
+    </div>
+    <div class="ref">来源：<a
+            href="http://w3c.github.io/deviceorientation/spec-source-orientation.html">W3C Orientation API</a></div>
+</section>
+<section>
+    <h1>案例：水平仪</h1>
+    <!--<div class="left">陀螺仪</div>-->
+    <div>
+        <!--<img class="img1" src="http://gtms02.alicdn.com/tps/i2/T19gtmFIReXXbzlxAc-640-1136.png" alt=""/>-->
+        <img class="img1" src="http://img01.daily.taobaocdn.net/tfscom/TB1.MaBXXXXXXa8XXXXXXXXXXXX.png" alt=""/>
+        <img class="img1" src="http://img01.daily.taobaocdn.net/tfscom/TB1AtKBXXXXXXcaXXXXXXXXXXXX.png" alt=""/>
+    </div>
+</section>
+<!--<section>-->
+<!--<h1>案例：<a-->
+<!--href="http://chart.apis.google.com/chart?cht=qr&amp;chl=http://wangjin.demo.taobao.net/tools/fla/example/billd/?stage=3&amp;chs=480x480"-->
+<!--data-spm-anchor-id="0.0.0.0">小鸡快跑</a>-->
+<!--</h1>-->
+<!--<div>陀螺仪</div>-->
+<!--<div>&nbsp;<img-->
+<!--src="http://chart.apis.google.com/chart?cht=qr&amp;chl=http://wangjin.demo.taobao.net/tools/fla/example/billd/?stage=3&amp;chs=480x480">-->
+<!--</div>-->
+<!--</section>-->
+<section>
+    <h1>案例：iOS桌面</h1>
+    <!--<div class="left">陀螺仪</div>-->
+    <div>
+        <img class="img1" src="http://gtms02.alicdn.com/tps/i2/T1BiC3FpRdXXcYjxAc-640-1136.jpg">
+    </div>
+</section>
+
+<section>
+    <h1>加速计</h1>
+    <div class="left">
+        别称：重力感应 <br/>
+        <br/>
+        acceleration <br/>
+        or<br/>
+        accelerationIncludingGravity
+    </div>
+    <img class="img1" src="http://img01.daily.taobaocdn.net/tfscom/TB1KcGBXXXXXXb0XXXXXXXXXXXX.png" alt=""/>
+</section>
+<section>
+    <a href="http://gitlab.alibaba-inc.com/mui/device/blob/master/src/motion.js#L82">代码</a>
+    <img src="http://img01.daily.taobaocdn.net/tfscom/TB1fLaBXXXXXXb.XXXXXXXXXXXX.png" alt=""/>
+    <div class="ref">来源： <a
+            href="http://developer.android.com/guide/topics/sensors/sensors_motion.html#sensors-motion-accel">Android Motion Sensors</a>
+    </div>
+</section>
+<section>
+    <h1>案例：摇一摇</h1>
+    <!--<div class="left">加速计</div>-->
+    <!--<img class="" src="http://gtms02.alicdn.com/tps/i2/T1KoaLFBxaXXamPtZ.-453-451.jpg">-->
+    <img src="http://img01.daily.taobaocdn.net/tfscom/TB1udiBXXXXXXbFXpXXXXXXXXXX.png" alt=""/>
+</section>
+<section>
+    <h1>案例： <a
+            href="http://gitlab.alibaba-inc.com/x/kung-fu-cat/raw/master/server/public/pc/race.html?f2e&debug">小猫快跑</a>
+    </h1>
+    <div class="left">
+        摇晃强度 <br/>
+        Phonegap 插件 <br/>
+        <img width="600" src="http://img01.daily.taobaocdn.net/tfscom/TB12s9BXXXXXXbFXXXXXXXXXXXX.png" alt=""/>
+    </div>
+    <div class="right">
+        <img class="img1" src="http://gtms03.alicdn.com/tps/i3/T1fmmDFD8dXXbzlxAc-640-1136.png">
+        <!--<img class="img1" src="http://img01.daily.taobaocdn.net/tfscom/TB1x2aBXXXXXXa9XXXXXXXXXXXX.png">-->
+    </div>
+</section>
+<section>
+    <a href="http://geekpi.tmall.net/">2014 天猫技术部年会</a>
+    <div>
+        <img class="img1" src="http://img01.daily.taobaocdn.net/tfscom/TB1lJmBXXXXXXcQXXXXXXXXXXXX.png">
+        <img class="img1" src="http://img01.daily.taobaocdn.net/tfscom/TB1IbWBXXXXXXcWXpXXXXXXXXXX.png">
+    </div>
+</section>
+<section>
+    <h1>案例：网球</h1>
+    <img class="img11" src="http://gtms04.alicdn.com/tps/i4/T1vYawFthgXXXF6j2y-500-280.png">
+</section>
+<section>
+    <h1>距离传感器</h1>
+    <div>
+        <!--TODO -->
+    </div>
+</section>
+<section>
+    <h1>案例：锁屏</h1>
+    <!--<div class="left">距离传感器</div>-->
+    <div>
+        <img class="img1" src="http://gtms01.alicdn.com/tps/i1/T13CJqFKhXXXbzlxAc-640-1136.png" alt=""/>
+    </div>
+</section>
+<section id="env">
+    <h1>环境</h1>
+    <ol>
+        <li>GPS</li>
+        <li>磁力计</li>
+        <li>光线传感器</li>
+        <li>气压传感器</li>
+        <li>气温传感器</li>
+        <li>湿度传感器</li>
+    </ol>
+</section>
+<section>
+    <h1>案例：指南针</h1>
+    <!--<div class="left">-->
+    <!--磁力计-->
+    <!--</div>-->
+    <div>
+        <img class="img1" src="http://gtms02.alicdn.com/tps/i2/T19gtmFIReXXbzlxAc-640-1136.png" alt=""/>
+    </div>
+</section>
+<section>
+    <h1>案例：导航</h1>
+    <div class="left">传感器组合： <br/>GPS + 磁力计</div>
+    <img class="img1" src="http://gtms03.alicdn.com/tps/i3/T1ORGMFBxXXXcYjxAc-640-1136.jpg">
+</section>
+<section>
+    <h1>案例：智能感光</h1>
+    <div>
+        <img class="img1" src="http://gtms02.alicdn.com/tps/i2/T1D15KFppfXXcj5mwn-498-802.png">
+        <img class="img1" src="http://gtms01.alicdn.com/tps/i1/T1NqyOFpNaXXXpDFMj-496-790.png">
+    </div>
+</section>
+<section>
+    <img src="http://gtms01.alicdn.com/tps/i1/T1qjSMFCRbXXbo6izX-1024-896.png">
+</section>
+<section>
+    <h1>CSS light-level</h1>
+    <img src="http://img01.daily.taobaocdn.net/tfscom/TB11.SAXXXXXXbZXVXXXXXXXXXX.png" alt=""/>
+    <div class="ref">来源：<a
+            href="http://dev.w3.org/csswg/mediaqueries4/#mf-environment">CSS Media Queries Level 4: light-level</a>
+    </div>
+</section>
+<section>
+    <h1>其他</h1>
+    <ul>
+        <li>气压传感器 - 海拔</li>
+        <li>温度</li>
+        <li>湿度</li>
+    </ul>
+</section>
+<section id="audio">
+    <h1>音频</h1>
+    <ol>
+        <li>麦克风</li>
+        <li>扬声器</li>
+    </ol>
+</section>
+<section>
+    <h1>案例：呐喊</h1>
+    <div class="left"></div>
+    <div class="right">
+        <img class="img1" src="http://gtms03.alicdn.com/tps/i3/T1fmmDFD8dXXbzlxAc-640-1136.png">
+    </div>
+</section>
+<section>
+    <h1>案例：咻一咻</h1>
+    <div>
+        <img class="img1" src="http://gtms02.alicdn.com/tps/i2/T1.1aMFvVaXXaQEF3s-640-640.jpg">
+    </div>
+</section>
+<section>
+    <h1>案例：吹</h1>
+    <div>
+        <img class="img1" src="http://125.76.238.27/vnetcms2_files/upload/0/news/attachment/247/1260003532972.jpg">
+    </div>
+</section>
+<section>
+    <h1>案例：语音识别</h1>
+    <div>
+        <img class="img1" src="http://img01.daily.taobaocdn.net/tfscom/TB1f0KBXXXXXXabXXXXXXXXXXXX.png">
+        <!--<img class="img1" src="http://gtms03.alicdn.com/tps/i3/T14m5KFD8cXXbigprK-716-992.png">-->
+    </div>
+</section>
+<section id="video">
+    <h1>视频</h1>
+    <ol>
+        <li>摄像头</li>
+        <li>显示器</li>
+    </ol>
+</section>
+<!--<section>-->
+<!--<h1>案例：拍照</h1>-->
+<!--<div>AirPlay Demo</div>-->
+<!--</section>-->
+<section>
+    <h1>案例：试戴</h1>
+    <div>
+        <img class="img2" src="http://img01.daily.taobaocdn.net/tfscom/TB1TtSBXXXXXXX7XXXXXXXXXXXX.png" alt=""/>
+        <img class="img2" src="http://img01.daily.taobaocdn.net/tfscom/TB1oqaBXXXXXXbLapXXXXXXXXXX.png" alt=""/>
+        <img class="img2" src="http://img01.daily.taobaocdn.net/tfscom/TB1O2eBXXXXXXX6XXXXXXXXXXXX.png" alt=""/>
+        <!--<img class="img1" src="http://gtms01.alicdn.com/tps/i1/T17BWmFwReXXcCfhrt-602-637.png">-->
+    </div>
+</section>
+<section>
+    <a href="http://img01.daily.taobaocdn.net/tfscom/TB1jdSBXXXXXXX4XXXXXXXXXXXX.png">试戴（线上）</a>
+    <br/>
+    <img class="img1" src="http://img01.daily.taobaocdn.net/tfscom/TB1219BXXXXXXX6XXXXXXXXXXXX.png"/>
+</section>
+<section>
+    <h1>案例：试衣间</h1>
+    <div>
+        <img class="img1" src="http://gtms03.alicdn.com/tps/i3/T122RnFTNcXXXCFRzI-930-620.jpg">
+    </div>
+</section>
+<section>
+    <h1>案例： <a href="http://caowenhao.sinaapp.com/">肤色识别</a></h1>
+    <div>
+        Demo
+    </div>
+</section>
+<section>
+    <h1>增强现实</h1>
+    <div>AR（Augmented Reality）</div>
+</section>
+<section>
+    <h1>案例：Star Chart</h1>
+    <div><img class="img1" src="http://gtms04.alicdn.com/tps/i4/T1HV4oFHBcXXXFih67-490-716.jpg" alt=""/></div>
+</section>
+<section>
+    <h1>案例：Google Glass</h1>
+    <div>
+        <img src="http://hotandtrendymag.com/wp-content/uploads/2013/05/Google-glasses.jpg">
+    </div>
+</section>
+<section>
+    <h1>案例：实景</h1>
+
+    <object width="480" height="400" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">
+        <param name="src" value="http://player.youku.com/player.php/sid/XMzY5MzcyMjM2/v.swf">
+        <param name="allowfullscreen" value="true">
+        <param name="quality" value="high">
+        <param name="allowscriptaccess" value="always">
+        <embed width="480" height="400" type="application/x-shockwave-flash"
+               src="http://player.youku.com/player.php/sid/XMzY5MzcyMjM2/v.swf" allowfullscreen="true"
+               quality="high" allowscriptaccess="always">
+    </object>
+</section>
+<section>
+    <h1>虚拟现实（VR）</h1>
+    <ul>
+        <li><a href="http://www.36kr.com/p/210413.html">2014.3.15 沉浸式技术联盟（ITA）</a></li>
+        <li><a href="http://www.36kr.com/p/210682.html">2014.3.26 Facebook 20亿美元收购 Oculus</a></li>
+    </ul>
+    <img height="400" src="http://www.3dmgame.com/uploads/allimg/130430/154_130430093251_1.gif"/>
+
+</section>
+<!--<section>-->
+<!--<h1>-->
+<!--<a href="http://www.easyar.cn/category/goodcase/page/2/?spm=0.0.0.0.QJ8iCl"-->
+<!--data-spm-anchor-id="0.0.0.0">更多 AR 案例</a>-->
+<!--</h1>-->
+<!--</section>-->
+<section>
+    <h1>iOS 兼容性</h1>
+    <div>
+        <img src="http://gtms02.alicdn.com/tps/i2/T1j1aLFxtbXXc4aUZ9-793-568.jpeg">
+        <!--TODO 补充 Android 兼容性？-->
+    </div>
+</section>
+<section id="hybrid">
+    <h1>Hybrid API</h1>
+    <div>
+        <img src="http://gtms04.alicdn.com/tps/i4/T1Sb1_FQtaXXaT6Dw7-663-545.jpg">
+        <br>
+    </div>
+</section>
+<section>
+    <h1>目标</h1>
+    <div>
+        <ul>
+            <li>一份代码运行在：天猫/淘宝/xx客户端 + 独立浏览器</li>
+            <li>复杂传感器的功能封装</li>
+        </ul>
+    </div>
+</section>
+<section>
+    <h1>W3C Device API</h1>
+    <img class="img11" src="http://gtms04.alicdn.com/tps/i4/T19mEOFStXXXaiEq_.-2190-1366.png" alt=""/>
+    <div class="ref">来源：<a href="http://www.w3.org/2009/dap/">W3C Device APIs Working Group</a></div>
+</section>
+<section>
+    <h1>Phonegap</h1>
+    <img class="img11" src="http://img01.daily.taobaocdn.net/tfscom/TB1_m5AXXXXXXaQXVXXXXXXXXXX.png" alt=""/>
+    <div class="ref">来源：<a href="http://www.w3.org/2009/dap/">Phonegap Doc</a></div>
+</section>
+<section>
+    <h1>Polyfill</h1>
+    <div>
+
+    </div>
+    <img class="img11" src="http://gtms03.alicdn.com/tps/i3/T1VFQKFKlcXXXdgPvg-1030-580.png" alt=""/>
+    <div class="ref">来源：<a
+            href="http://gitlab.alibaba-inc.com/cross/hybrid-api/blob/master/src/vibration.js">Vibration</a></div>
+</section>
+<section>
+    <h1>Hybrid API 实现</h1>
+    <div>
+        <img class="img11" src="http://gtms01.alicdn.com/tps/i1/T1yE7PFGdXXXalRAEc-1392-1258.png"/>
+    </div>
+    <div class="ref">来源：<a href="http://work.tmall.net/projects/hybrid-api/wiki/Wiki">Hybrid API</a></div>
+</section>
+<section>
+    <h1>天猫互动游戏</h1>
+    <img src="http://gtms04.alicdn.com/tps/i4/T1l_IkFHleXXXpkt6y-574-610.jpg" alt=""/>
+</section>
+<section>
+    <div style="float: left;">
+        <h1>Q & A</h1>
+        <div><a href="#">@鬼道</a></div>
+
+        <br/><br/>
+        <!--《Hybrid API 概述》-->
+        <!--<div><a href="http://www.atatech.org/articles/17353#comment-18444">atatech.org/articles/17353</a></div>-->
+        <!--<img height="360" src="http://img01.daily.taobaocdn.net/tfscom/TB1P0WBXXXXXXa6XXXXXXXXXXXX.png"/>-->
+    </div>
+    <img style="float: right; border: 0;background: none;"
+         src="http://img01.daily.taobaocdn.net/tfscom/TB1dweBXXXXXXXqXXXXXXXXXXXX.png" alt=""/>
+</section>
+<section data-background="">
+    <img src="http://img01.daily.taobaocdn.net/tfscom/TB1C3WBXXXXXXXvXXXXXXXXXXXX.png" alt=""/>
+</section>
+
+</div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        touch: true,
+        mouseWheel: true,
+        hideAddressBar: true,
+
+        theme: 'night', //Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        leap: {
+            naturalSwipe: false,    // Invert swipe gestures
+            pointerOpacity: 0.5,      // Set pointer opacity to 0.5
+            pointerColor: '#d80000' // Red pointer
+        },
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'socket.io/socket.io.js', async: true },
+            { src: 'plugin/notes-server/client.js', async: true },
+            { src: 'plugin/leap/leap.js', async: true },
+            { src: 'lib/js/classList.js', condition: function() {
+                return !document.body.classList;
+            } },
+            { src: 'plugin/markdown/marked.js', condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/markdown/markdown.js', condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
