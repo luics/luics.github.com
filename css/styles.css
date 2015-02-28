@@ -685,7 +685,7 @@ hr {
   outline: none;
   height: 3px;
   background: transparent url("../img/hr.gif") center center repeat-x;
-  margin: 0 0 20px;
+  margin: 0 0 0px;
 }
 
 dt {
@@ -789,7 +789,7 @@ section {
 section #title {
   border: 0;
   outline: none;
-  margin: 0 0 50px 0;
+  margin: 0 0 0px 0;
   padding: 0 0 5px 0;
 }
 section #title h1 {
