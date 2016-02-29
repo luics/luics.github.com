@@ -58,7 +58,7 @@ KISSY.use(__IMPORT, function(S, Xtpl, Flipsnap, Hammer, Cookie, U) {
         S.ajax({
             type: 'get',
             dataType: 'json',
-            url: U.fm('data/sub-{0}.json', id),
+            url: U.format('data/sub-{0}.json', id),
             timeout: 3,
             success: function(data) {
                 if (!data.success) {

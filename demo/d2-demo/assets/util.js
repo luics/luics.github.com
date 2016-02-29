@@ -45,7 +45,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
          *
          * @returns {string}
          */
-        fm: function() {
+        format: function() {
             if (arguments.length == 0) {
                 return '';
             }
@@ -207,7 +207,7 @@ KISSY.add('tmallpromotion/util', function(S, XTemplate, Pager, PagerTemplate) {
             }
             var filename = path.substring(path.lastIndexOf('/') + 1, // 必须包含路径
                 (path.lastIndexOf('.') >= 0 ? path.lastIndexOf('.') : path.length));
-            path = U.fm('data/{0}.js{1}', filename, (query ? '?' + query : ''));
+            path = U.format('data/{0}.js{1}', filename, (query ? '?' + query : ''));
             opt.url = opt._mockUrl ? opt._mockUrl : path;
 
             opt.success = function() {
