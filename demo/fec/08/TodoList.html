@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--http://todomvc.com-->
+  <title>TodoMVC example</title>
+  <link rel="stylesheet" href="../common/TodoList.css">
+</head>
+<body>
+<div class="todoapp">
+  <header class="header">
+    <h1>todos</h1>
+    <!-- Add New Item -->
+    <input id="newTodo" class="new-todo" type="text" placeholder="What needs to be done?" autofocus>
+  </header>
+
+  <section class="main">
+    <input class="toggle-all" type="checkbox">
+    <!-- Show List -->
+    <ul id="todoList" class="todo-list"></ul>
+
+    <footer class="footer">
+      <span class="todo-count">
+        <strong id="doingNum">0</strong> item left
+      </span>
+
+      <ul class="filters">
+        <li><a class="selected" style="cursor:pointer;">All</a></li>
+        <li><a class="" style="cursor:pointer;">Active</a></li>
+        <li><a class="" style="cursor:pointer;">Completed</a></li>
+      </ul>
+    </footer>
+  </section>
+</div>
+
+<script src="TodoList.js"></script>
+</body>
+</html>
