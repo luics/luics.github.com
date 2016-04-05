@@ -17,7 +17,7 @@ function update() {
   for (i = 0; i < items.length; ++i) {
     item = items[i];
     if (!item.classList.contains(CL_COMPLETED)) leftNum++;
-    
+
     // filters
     display = 'none';
     if (status == 'All'
@@ -29,10 +29,14 @@ function update() {
     item.style.display = display;
   }
 
+  var completedNum = items.length - leftNum;
   var doingNum = $('#doingNum');
   doingNum.innerHTML = leftNum;
   var clearCompleted = $('.clear-completed');
-  clearCompleted.style.display = (items.length - leftNum) > 0 ? '' : 'none';
+  clearCompleted.style.visibility = completedNum > 0 ? 'visible' : 'hidden';
+  var toggleAll = $('.toggle-all');
+  toggleAll.style.visibility = items.length > 0 ? 'visible' : 'hidden';
+  toggleAll.checked = items.length == completedNum;
 }
 
 function addTodo(msg) {
@@ -87,19 +91,20 @@ function clearCompletedTodoList() {
       item.classList.remove(CL_COMPLETED);
     }
   }
-  update();
+  items.length || update();
 }
 
 function toggleAllTodoList() {
-  var todoList = $('.todo-list');
-  var items = todoList.querySelectorAll('li');
+  var items = $All('.todo-list li');
+  var toggleAll = $('.toggle-all');
+  var checked = toggleAll.checked;
   for (var i = 0; i < items.length; ++i) {
     var item = items[i];
-    if (item.classList.contains(CL_COMPLETED)) {
-      var toggle = item.querySelector('.toggle');
-      //toggle.click(); perf
-      toggle.checked = false;
-      item.classList.remove(CL_COMPLETED);
+    var toggle = item.querySelector('.toggle');
+    if (toggle.checked != checked) {
+      toggle.checked = checked;
+      if (checked) item.classList.add(CL_COMPLETED);
+      else item.classList.remove(CL_COMPLETED);
     }
   }
   update();
