@@ -1,12 +1,39 @@
-var guid = 0;
-var CL_COMPLETED = 'completed';
-var CL_SELECTED = 'selected';
 var $ = function(sel) {
   return document.querySelector(sel);
 };
 var $All = function(sel) {
   return document.querySelectorAll(sel);
 };
+var guid = 0;
+var CL_COMPLETED = 'completed';
+var CL_SELECTED = 'selected';
+
+function update() {
+  var todoList = $('.todo-list');
+  var items = todoList.querySelectorAll('li');
+  var status = $('.filters li a.selected').innerHTML;
+  var leftNum = 0;
+  var item, i, display;
+  for (i = 0; i < items.length; ++i) {
+    item = items[i];
+    if (!item.classList.contains(CL_COMPLETED)) leftNum++;
+    
+    // filters
+    display = 'none';
+    if (status == 'All'
+      || (status == 'Active' && !item.classList.contains(CL_COMPLETED))
+      || (status == 'Completed' && item.classList.contains(CL_COMPLETED))) {
+
+      display = '';
+    }
+    item.style.display = display;
+  }
+
+  var doingNum = $('#doingNum');
+  doingNum.innerHTML = leftNum;
+  var clearCompleted = $('.clear-completed');
+  clearCompleted.style.display = (items.length - leftNum) > 0 ? '' : 'none';
+}
 
 function addTodo(msg) {
   var todoList = $('.todo-list');
@@ -48,31 +75,19 @@ function removeTodo(itemId) {
   update();
 }
 
-function update() {
+function clearCompletedTodoList() {
   var todoList = $('.todo-list');
   var items = todoList.querySelectorAll('li');
-  var leftNum = 0;
   for (var i = 0; i < items.length; ++i) {
     var item = items[i];
-    if (!item.classList.contains(CL_COMPLETED)) leftNum++;
-  }
-
-  var doingNum = $('#doingNum');
-  doingNum.innerHTML = leftNum;
-}
-
-function filterTodoList(status) {
-  var items = $All('.todo-list li');
-  for (var item, display, i = 0; i < items.length; ++i) {
-    item = items[i];
-    display = 'none';
-    if (status == 'All'
-      || (status == 'Active' && !item.classList.contains(CL_COMPLETED))
-      || (status == 'Completed' && item.classList.contains(CL_COMPLETED))) {
-      display = '';
+    if (item.classList.contains(CL_COMPLETED)) {
+      var toggle = item.querySelector('.toggle');
+      //toggle.click(); perf
+      toggle.checked = false;
+      item.classList.remove(CL_COMPLETED);
     }
-    item.style.display = display;
   }
+  update();
 }
 
 // init
@@ -85,7 +100,6 @@ window.onload = function init() {
     }
 
     var msg = newTodo.value;
-    // check 
     if (msg == '') {
       console.warn('msg is empty');
       return;
@@ -95,6 +109,12 @@ window.onload = function init() {
     newTodo.value = '';
   }, false);
 
+  var clearCompleted = $('.clear-completed');
+  clearCompleted.addEventListener('click', function(ev) {
+    clearCompletedTodoList();
+  }, false);
+
+
   var filters = $All('.filters li a');
   for (var i = 0; i < filters.length; ++i) {
     (function(filter) {
@@ -103,8 +123,10 @@ window.onload = function init() {
           filters[j].classList.remove(CL_SELECTED);
         }
         filter.classList.add(CL_SELECTED);
-        filterTodoList(this.innerHTML);
+        update();
       }, false);
     })(filters[i])
   }
+
+  update();
 };
