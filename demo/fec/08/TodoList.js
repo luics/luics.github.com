@@ -90,6 +90,21 @@ function clearCompletedTodoList() {
   update();
 }
 
+function toggleAllTodoList() {
+  var todoList = $('.todo-list');
+  var items = todoList.querySelectorAll('li');
+  for (var i = 0; i < items.length; ++i) {
+    var item = items[i];
+    if (item.classList.contains(CL_COMPLETED)) {
+      var toggle = item.querySelector('.toggle');
+      //toggle.click(); perf
+      toggle.checked = false;
+      item.classList.remove(CL_COMPLETED);
+    }
+  }
+  update();
+}
+
 // init
 window.onload = function init() {
   var newTodo = $('.new-todo');
@@ -110,10 +125,14 @@ window.onload = function init() {
   }, false);
 
   var clearCompleted = $('.clear-completed');
-  clearCompleted.addEventListener('click', function(ev) {
+  clearCompleted.addEventListener('click', function() {
     clearCompletedTodoList();
   }, false);
 
+  var toggleAll = $('.toggle-all');
+  toggleAll.addEventListener('change', function() {
+    toggleAllTodoList();
+  }, false);
 
   var filters = $All('.filters li a');
   for (var i = 0; i < filters.length; ++i) {
