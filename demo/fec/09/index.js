@@ -9,20 +9,20 @@ var CL_COMPLETED = 'completed';
 var CL_SELECTED = 'selected';
 
 function update() {
-  var todoList = $('.todo-list');
-  var items = todoList.querySelectorAll('li');
-  var status = $('.filters li a.selected').innerHTML;
+  var items = $All('.todo-list li');
+  var filter = $('.filters li a.selected').innerHTML;
   var leftNum = 0;
   var item, i, display;
+  
   for (i = 0; i < items.length; ++i) {
     item = items[i];
     if (!item.classList.contains(CL_COMPLETED)) leftNum++;
 
     // filters
     display = 'none';
-    if (status == 'All'
-      || (status == 'Active' && !item.classList.contains(CL_COMPLETED))
-      || (status == 'Completed' && item.classList.contains(CL_COMPLETED))) {
+    if (filter == 'All'
+      || (filter == 'Active' && !item.classList.contains(CL_COMPLETED))
+      || (filter == 'Completed' && item.classList.contains(CL_COMPLETED))) {
 
       display = '';
     }
@@ -30,10 +30,12 @@ function update() {
   }
 
   var completedNum = items.length - leftNum;
-  var doingNum = $('#doingNum');
-  doingNum.innerHTML = leftNum;
+  var count = $('.todo-count');
+  count.innerHTML = (leftNum || 'No') + (leftNum > 1 ? ' items' : ' item') + ' left';
+
   var clearCompleted = $('.clear-completed');
   clearCompleted.style.visibility = completedNum > 0 ? 'visible' : 'hidden';
+
   var toggleAll = $('.toggle-all');
   toggleAll.style.visibility = items.length > 0 ? 'visible' : 'hidden';
   toggleAll.checked = items.length == completedNum;
@@ -82,16 +84,13 @@ function removeTodo(itemId) {
 function clearCompletedTodoList() {
   var todoList = $('.todo-list');
   var items = todoList.querySelectorAll('li');
-  for (var i = 0; i < items.length; ++i) {
+  for (var i = items.length - 1; i >= 0; --i) {
     var item = items[i];
     if (item.classList.contains(CL_COMPLETED)) {
-      var toggle = item.querySelector('.toggle');
-      //toggle.click(); perf
-      toggle.checked = false;
-      item.classList.remove(CL_COMPLETED);
+      todoList.removeChild(item);
     }
   }
-  items.length || update();
+  update();
 }
 
 function toggleAllTodoList() {
@@ -110,11 +109,10 @@ function toggleAllTodoList() {
   update();
 }
 
-// init
 window.onload = function init() {
   var newTodo = $('.new-todo');
   newTodo.addEventListener('keyup', function(ev) {
-    // enter key
+    // Enter
     if (ev.keyCode != 13) {
       return;
     }
