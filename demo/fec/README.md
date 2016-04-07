@@ -2,7 +2,10 @@
 
 > Guideline for Tongji University Course "Script Programming Design". (同济大学《脚本程序设计》)
 
-## 09 - TodoList: A real application
+## Welcome to real web development 
+
+> 从1-8课中, 你已经在梁老师课上了解到了Web开发的基础: HTML/CSS/JS.
+
 0. recall: building house & web development
 0. TodoList
     0. Structure: html
@@ -11,10 +14,10 @@
       0. new functions(forEach, classList, join...)
       0. closure?
 0. Start a new web journey
-    0. Forget IE 6/7
-    0. //caniuse.com
-    0. Mozilla
-    0. polyfill
+    0. Everything from https://developer.mozilla.org
+    0. Use Morden Browsers, Forget IE 6-9
+        0. http://caniuse.com
+        0. polyfill
 0. How to debug
     0. Why is debugging?
     0. Web Debuggers
@@ -28,8 +31,8 @@
     0. Atom
     0. Others: Sublime
 
-## 10 - AdVanced Features
-0. Module
+## Advanced Features
+
 1. Network
     0. Ajax
     0. Cross Domain
@@ -45,19 +48,28 @@
     0. File
 0. Animation
 
-## 11 - Mobile Web
+## Mobile Web
 
+0. Mobile Introduction
+    0. Mobile is almost all
+    0. Mobile devices
+    0. Some demos
 1. Difference with PC Web
     0. Viewport
     0. Debug
     0. ...
 0. Media Query
-0. TodoList for phone
+    0. 
 
-## 12 - Flexbox
-1. necessary？
+##  TodoList Mobile
 
-## 13 - Performance
+0. Action
+0. Debug
+0. Viewport
+0. Media Query
+
+## Performance
+
 0. YSlow rules
 0. Performance problems in TodoList
 0. 11 - Build
@@ -66,8 +78,9 @@
     0. script/grunt/gulp
     0. Build TodoList        
 
-## 14 - More
-1. Design Basic
+## More
+
+0. Module
     1. 4 key points
     0. Color, Color, Color
     0. design in TodoList
@@ -82,6 +95,11 @@
     0. React/React native
     0. Vue/Weex
     0. TODOMVC: real world
+0. Flexbox
+    1. necessary？
+1. Design Basic
+    0. Align, repeat, contrast, merge
+    0. Color
 0. Real web development?
     0. intros
 

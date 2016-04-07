@@ -7,13 +7,14 @@ var $All = function(sel) {
 var guid = 0;
 var CL_COMPLETED = 'completed';
 var CL_SELECTED = 'selected';
+var CL_EDITING = 'editing';
 
 function update() {
   var items = $All('.todo-list li');
   var filter = $('.filters li a.selected').innerHTML;
   var leftNum = 0;
   var item, i, display;
-  
+
   for (i = 0; i < items.length; ++i) {
     item = items[i];
     if (!item.classList.contains(CL_COMPLETED)) leftNum++;
@@ -50,10 +51,44 @@ function addTodo(msg) {
   item.innerHTML = [
     '<div class="view">',
     '  <input class="toggle" type="checkbox">',
-    '  <label>' + msg + '</label>',
+    '  <label class="todo-label">' + msg + '</label>',
     '  <button class="destroy"></button>',
     '</div>'
   ].join('');
+
+  var label = item.querySelector('.todo-label');
+  label.addEventListener('dblclick', function() {
+    item.classList.add(CL_EDITING);
+
+    var edit = document.createElement('input');
+    var finished = false;
+    edit.setAttribute('type', 'text');
+    edit.setAttribute('class', 'edit');
+    edit.setAttribute('value', label.innerHTML);
+    function finish() {
+      if (finished) return;
+      finished = true;
+      item.removeChild(edit);
+      item.classList.remove(CL_EDITING);
+    }
+
+    edit.addEventListener('blur', function() {
+      finish();
+    }, false);
+
+    edit.addEventListener('keyup', function(ev) {
+      if (ev.keyCode == 27) { // Esc
+        finish();
+      }
+      else if (ev.keyCode == 13) {
+        label.innerHTML = this.value;
+        finish();
+      }
+    }, false);
+
+    item.appendChild(edit);
+    edit.focus();
+  }, false);
 
   item.querySelector('.toggle').addEventListener('change', function() {
     updateTodo(id, this.checked);
@@ -113,9 +148,7 @@ window.onload = function init() {
   var newTodo = $('.new-todo');
   newTodo.addEventListener('keyup', function(ev) {
     // Enter
-    if (ev.keyCode != 13) {
-      return;
-    }
+    if (ev.keyCode != 13) return;
 
     var msg = newTodo.value;
     if (msg == '') {
