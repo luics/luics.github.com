@@ -6,30 +6,33 @@
 
 > 从1-8课中, 你已经在梁老师课上了解到了Web开发的基础: HTML/CSS/JS.
 
-0. recall: building house & web development
-0. TodoList
-    0. Structure: html
-    0. Decoration: style
-    0. Action: script
-      0. new functions(forEach, classList, join...)
-      0. closure?
-0. Start a new web journey
-    0. Everything from https://developer.mozilla.org
-    0. Use Morden Browsers, Forget IE 6-9
-        0. http://caniuse.com
-        0. polyfill
+0. Recall: building house & web development
+    * html/js/css
+    * a live demo 
+0. TODOList quick demo
 0. How to debug
-    0. Why is debugging?
+    0. Why debugging?
     0. Web Debuggers
     0. Elements: html + css
     0. Console
     0. Sources: Breaking point
     0. Profiling
-    0. Debug TodoList
-0. IDE
-    0. WebStorm
-    0. Atom
-    0. Others: Sublime
+0. Tools
+    0. Everything from https://developer.mozilla.org
+    0. Use Morden Browsers, Forget IE 6-9
+        0. http://caniuse.com
+        0. polyfill
+    0. IDE
+        0. WebStorm
+        0. Atom
+        0. Others: Sublime
+    0. Node.js
+0. TodoList
+    0. Structure: html
+    0. Decoration: style
+    0. Action: script
+        0. new functions(forEach, classList, join...)
+        0. closure?
 
 ## Advanced Features
 
@@ -102,6 +105,7 @@
     0. Color
 0. Real web development?
     0. intros
+0. Animation
 
 ## 15 - Reply Time
 
