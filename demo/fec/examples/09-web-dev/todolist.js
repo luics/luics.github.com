@@ -21,9 +21,7 @@ function update() {
 
     // filters
     display = 'none';
-    if (filter == 'All'
-      || (filter == 'Active' && !item.classList.contains(CL_COMPLETED))
-      || (filter == 'Completed' && item.classList.contains(CL_COMPLETED))) {
+    if (filter == 'All' || (filter == 'Active' && !item.classList.contains(CL_COMPLETED)) || (filter == 'Completed' && item.classList.contains(CL_COMPLETED))) {
 
       display = '';
     }
@@ -65,6 +63,7 @@ function addTodo(msg) {
     edit.setAttribute('type', 'text');
     edit.setAttribute('class', 'edit');
     edit.setAttribute('value', label.innerHTML);
+
     function finish() {
       if (finished) return;
       finished = true;
@@ -79,8 +78,7 @@ function addTodo(msg) {
     edit.addEventListener('keyup', function(ev) {
       if (ev.keyCode == 27) { // Esc
         finish();
-      }
-      else if (ev.keyCode == 13) {
+      } else if (ev.keyCode == 13) {
         label.innerHTML = this.value;
         finish();
       }
