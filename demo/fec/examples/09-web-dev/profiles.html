@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profiles</title>
+</head>
+<body>
+<h1>Profiles</h1>
+<p id="msg">Running...</p>
+<script>
+  function hardWorking() {
+    var N = 10000 * 1000;
+    var result = 0;
+    var i = 0;
+    while (i++ < N) {
+      // Is Math.pow heavy time consuming? Let's profile! 
+//      result += Math.pow(2, 3);
+      result += 2 * 2 * 2;
+    }
+    
+    document.getElementById('msg').innerHTML = 'Done at ' + new Date().getMinutes() + ':' + new Date().getSeconds();
+    console.log(result);
+  }
+
+  hardWorking();
+</script>
+</body>
+</html>

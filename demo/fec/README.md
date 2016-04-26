@@ -2,17 +2,21 @@
 
 > Guideline for Tongji University Course "Script Programming Design". (同济大学《脚本程序设计》)
 
+Directories:
+
+* `slides`, course slide files
+* `examples`, examples source code 
+
 ## Welcome to real web development 
 
-> 从1-8课中, 你已经在梁老师课上了解到了Web开发的基础: HTML/CSS/JS.
+> You have learned basic HTML/CSS/JS during the past 8 weeks.
 
 0. Recall: building house & web development
-    * html/js/css
-    * a live demo 
-0. TODOList quick demo
+    0. html/js/css
+    0. live demos 
 0. How to debug
     0. Why debugging?
-    0. Web Debuggers
+    0. [Chrome Dev Tools](https://developer.chrome.com/devtools)
     0. Elements: html + css
     0. Console
     0. Sources: Breaking point
@@ -24,10 +28,12 @@
         0. polyfill
     0. IDE
         0. WebStorm
-        0. Atom
-        0. Others: Sublime
+        0. Others: Sublime, Atom
     0. Node.js
+0. How to test
+    0. 
 0. TodoList
+    0. Quick demo
     0. Structure: html
     0. Decoration: style
     0. Action: script
