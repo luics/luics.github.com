@@ -4,7 +4,6 @@
 
 Directories:
 
-* `slides`, course slide files
 * `examples`, examples source code 
 
 ## Welcome to real web development 
