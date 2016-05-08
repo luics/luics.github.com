@@ -159,15 +159,27 @@
             请尊重技术原创，转载请联系<a href="mailto:luics.xu@gmail.com">鬼道</a>，<span class="credits right">Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
         </i>
 
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = '//luics.com'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'luics-site'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
 
-            <div id="disqus_thread"></div>
-            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        s.src = '//luics-site.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
         </section>
     </div>
 
     <!--[if !IE]>
 <script>fixScale(document);</script><![endif]-->
-    <script type="text/javascript" src="js/index.js"></script>
     <div class="stat">
         <script type="text/javascript">
         var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
